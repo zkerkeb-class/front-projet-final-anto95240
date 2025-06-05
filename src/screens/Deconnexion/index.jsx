@@ -1,12 +1,12 @@
 import { useNavigate, Link } from "react-router";
 import { useState, useEffect } from "react";
 import axios from "axios"
-import "./style.css";
+import "./deco.css";
 
-const TransactionPage = () => {
+const DeconnexionPage = () => {
 
     return <div>
-        <h1>Page transaction</h1>
+        <h1>Page deconnexion</h1>
         <div className="links" >
             <Link to="/">Login</Link>
             <Link to="/register">register</Link>
@@ -22,4 +22,4 @@ const TransactionPage = () => {
     </div>;
 };
 
-export default TransactionPage;
+export default DeconnexionPage;

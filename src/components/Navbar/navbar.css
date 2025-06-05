@@ -1,0 +1,39 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding: 0 20px;
+  background-color: var(--color-bg-main);
+  font-family: var(--font-family-title);
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.page-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--color-navbar-btn-active);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.profile-pic, .deconnexion-pic {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  text-decoration: none;
+}
+

@@ -1,15 +1,15 @@
 import { createBrowserRouter } from "react-router";
 
-import HomePage from "../screens/DashboardPage";
-import LoginPage from "../screens/LoginPage"; 
-import AccountPage from "../screens/AccountPage";
+import HomePage from "../screens/Dashboard";
+import LoginPage from "../screens/Login"; 
+import AccountPage from "../screens/Account";
 import Layout from "../components/Layout";
-import CategoryPage from "../screens/CategoryPage";
-import DeconnexionPage from "../screens/DeconnexionPage";
-import ProfilePage from "../screens/ProfilePage";
-import RegisterPage from "../screens/RegisterPage";
-import StatistiquePage from "../screens/StatistiquePage";
-import TransactionPage from "../screens/TransactionPage";
+import CategoryPage from "../screens/Category";
+import DeconnexionPage from "../screens/Deconnexion";
+import ProfilePage from "../screens/Profile";
+import RegisterPage from "../screens/Register";
+import StatistiquePage from "../screens/Statistique";
+import TransactionPage from "../screens/Transaction";
 import ProtectedRoutes from "../components/ProtectedRoutes"
 
 let router = createBrowserRouter([

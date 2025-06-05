@@ -1,9 +1,15 @@
 import { useNavigate, Link } from "react-router";
 import { useState, useEffect } from "react";
 import axios from "axios"
-import "./style.css";
+import "./account.css";
+import Sidebar from "../../components/Sidebar";
+import Navbar from "../../components/Navbar";
 
 const AccountPage = () => {
+  const user = {
+    name: "Alice Dupont",
+    profilePicture: "/images/alice.jpg",
+  };
 
     return <div>
         <h1>Page Account</h1>
@@ -19,6 +25,18 @@ const AccountPage = () => {
             <Link to="/transaction">transaction</Link> 
         </div>
 
+        <div className="dashboard-layout">
+            <Sidebar />
+
+            <div className="dashboard-main">
+                <Navbar user={user} />
+
+                {/* Ici ton contenu principal */}
+                <div className="dashboard-content">
+                <h2>Bienvenue sur le Dashboard</h2>
+                </div>
+            </div>
+        </div>
     </div>;
 };
 

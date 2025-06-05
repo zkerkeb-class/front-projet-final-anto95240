@@ -1,11 +1,13 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; */
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --font-family-title: 'Montserrat Alternates', sans-serif;
+  --font-family-text: 'Lato', sans-serif;
+  
+  /* color-scheme: light dark; */
+  /* color: --; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,29 +15,81 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
+:root 
+/* [data-theme="light"] */
+{
+  --color-link-auth: #0075ff;
+  --color-text: #344767;
+  --color-text-inactive: #9ea2b9;
+  --color-text-active: #3a416f;
+
+  --color-bg-main: #f8f9fa;
+  --color-bg-card-page-active: #ffffff;
+
+  --color-input-text: #9f9f9f;
+  --color-card-border: #acacac;
+
+  --color-navbar-btn-active: #344767;
+
+  --color-btn: #46ceed;
+  --color-btn-edit: #188022;
+  --color-btn-delete: #ff0000;
+
+  /* Ombres */
+  --shadow-card-auth: 0 0px 10px rgba(0, 0, 0, 0.3);
+  --shadow-title-page-nav: 0 4px 15px rgba(0, 0, 0, 0.25);
+  --shadow-btn: 4 4px 4px rgba(0, 0, 0, 0.5);
+
+}
+
+/* [data-theme="dark"] { */
+  /* --color-link-auth: #0075ff;            texte pour s'inscrire/se connecter */
+  /* --color-text: #ffffff;                 texte principal */
+  /* --color-bg-main: #12263f;              fond global */
+  /* --color-bg-card-page-active: #152e4d;  fond de carte   */
+  /* --color-text-inactive: #9ea2b9;        texte page non active */
+  /* --color-navbar-btn-active: #ffffff;    bouton actif navbar */
+  /* --color-text-active: #00ccff;          texte page active */
+
+  /* --color-btn-default: #46ceed;          boutons généraux */
+  /* --color-btn-edit: #188022;             icône modifier */
+  /* --color-btn-delete: #ff0000;           icône supprimer */
+/* } */
+
+
+/* a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
 }
 a:hover {
   color: #535bf2;
-}
+} */
 
-body {
+/* body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+} */
+
+body {
+  font-family: var(--font-family-text);
+  margin: 0;
+  /* min-height: 100vh; */
+  background-color: var(--color-bg-main); 
+  /* display: flex;
+  place-items: center; 
+  justify-content: center; */
 }
 
-h1 {
+/* h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
+} */
 
-button {
+/* button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -45,16 +99,16 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
+} */
+/* button:hover {
   border-color: #646cff;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -65,4 +119,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
