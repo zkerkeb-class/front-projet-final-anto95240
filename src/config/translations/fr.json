@@ -1,0 +1,58 @@
+{
+  "AccountPage":{
+
+  },
+  "CategoryPage":{
+
+  },
+  "DashboardPage":{
+
+  },
+  "DeconnexionPage":{
+    "message1": "À bientôt",
+    "message2": "Merci d'avoir utiliser Budgee. Vous êtes maintenant déconnecté.",
+    "logout": "Retour à la connexion"
+  },
+  "LoginPage":{
+    "title1": "Vous avez déjà un compte",
+    "title2": "Connectez-vous ici",
+    "usernameOrEmail": "Nom d’Utilisateur ou Email",
+    "password": "Mot de Passe",
+    "arialLabelPassword": "Afficher le mot de passe",
+    "connexion": "Se connecter",
+    "newUser": "Nouveau ici ?",
+    "linkNewUser": "Créer un compte"
+  },
+  "ProfilePage":{
+
+  },
+  "RegisterPage":{
+    "title1": "Vous êtes nouveaux ici",
+    "title2": "Inscrivez-vous ici",
+    "firstName": "Prénom",
+    "name": "Nom",
+    "userName": "Nom d’Utilisateur",
+    "email": "Email",
+    "confirmPassword": "Confirmer le mot de passe",
+    "typeAccount": "Type de compte",
+    "budgetStart": "Budget de départ",
+    "taux": "Taux",
+    "alreadyUser": "Vous avez déjà un compte ?",
+    "alreadyUserLink": "Se connecter ici",
+    "back": "Retour",
+    "next": "Continuer",
+    "register": "Confirmer"
+  },
+  "StatistiquePage":{
+
+  },
+  "TransactionPage":{
+
+  },
+  "Navbar": {
+
+  },
+  "Sidebar": {
+    
+  }
+}

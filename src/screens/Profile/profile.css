@@ -7,6 +7,15 @@ html {
   scroll-behavior: smooth;
 }
 
+.theme-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px 0 0;
+  margin: 30px;
+  align-items: flex-start;
+  text-align: center;
+}
+
 .profile-container {
   display: flex;
   gap: 30px;
@@ -100,7 +109,7 @@ html {
 .profile-avatar {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  align-items: center;
   padding: 40px;
   gap: 10px;
 }

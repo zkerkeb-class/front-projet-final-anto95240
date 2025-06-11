@@ -6,6 +6,7 @@ import { Bar, Doughnut  } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend } from "chart.js";
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
+import { useTranslation } from "react-i18next";
 
 ChartJS.register(
   CategoryScale,
@@ -16,6 +17,7 @@ ChartJS.register(
 );
 
 const StatistiquePage = () => {
+    const { t } = useTranslation();
   const user = {
     name: "Alice Dupont",
     profilePicture: "/images/alice.jpg",

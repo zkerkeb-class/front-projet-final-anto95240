@@ -3,8 +3,11 @@ import { Link } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import "./signUpPart2.css";
+import { useTranslation } from "react-i18next";
 
 const SignUpPart2 = ({ formData, setFormData, nextStep, prevStep }) => {
+  
+  const { t } = useTranslation();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -20,8 +23,8 @@ const SignUpPart2 = ({ formData, setFormData, nextStep, prevStep }) => {
   return (
     <section id="section-signupPart2" className="signupPart2-section-wrapper">
       <div className="signupPart2-form-container">
-        <p className="form-greeting">Vous êtes nouveaux ici</p>
-        <h2 className="form-title">Inscrivez-vous ici</h2>
+        <p className="form-greeting">{t('RegisterPage.title1')}</p>
+        <h2 className="form-title">{t('RegisterPage.title2')}</h2>
 
         <form onSubmit={handleSubmit} className="signupPart2-form">
           <div className="form-group floating-label">
@@ -35,7 +38,7 @@ const SignUpPart2 = ({ formData, setFormData, nextStep, prevStep }) => {
               required
               placeholder=" "
             />
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">{t('RegisterPage.email')}</label>
           </div>
 
           <div className="form-group floating-label password-wrapper">
@@ -49,12 +52,12 @@ const SignUpPart2 = ({ formData, setFormData, nextStep, prevStep }) => {
               required
               placeholder=" "
             />
-            <label htmlFor="password">Mot de passe</label>
+            <label htmlFor="password">{t('LoginPage.password')}</label>
             <button
               type="button"
               onClick={() => setShowPassword((prev) => !prev)}
               className="eye-button"
-              aria-label="Afficher le mot de passe"
+              aria-label={t('LoginPage.arialLabelPassword')}
             >
             {showPassword ? <FontAwesomeIcon icon={faEyeSlash} /> : <FontAwesomeIcon icon={faEye} />}
             </button>
@@ -71,12 +74,12 @@ const SignUpPart2 = ({ formData, setFormData, nextStep, prevStep }) => {
               required
               placeholder=" "
             />
-            <label htmlFor="confirmerPassword">Confirmer mot de passe</label>
+            <label htmlFor="confirmerPassword">{t('RegisterPage.confirmPassword')}</label>
             <button
               type="button"
               onClick={() => setShowConfirmPassword((prev) => !prev)}
               className="eye-button"
-              aria-label="Afficher le mot de passe"
+              aria-label={t('LoginPage.arialLabelPassword')}
             >
             {showConfirmPassword ? <FontAwesomeIcon icon={faEyeSlash} /> : <FontAwesomeIcon icon={faEye} />}
             </button>
@@ -84,16 +87,14 @@ const SignUpPart2 = ({ formData, setFormData, nextStep, prevStep }) => {
 
           <div className="btn-group">
             <button type="button" onClick={prevStep} className="submit-button">
-              Retour
-            </button>
+              {t('RegisterPage.back')} </button>
             <button type="submit" className="submit-button">
-              Continuer
-            </button>
+              {t('RegisterPage.next')} </button>
           </div>
         </form>
 
         <p className="create-account">
-            Vous avez déjà un compte ? <Link className="create-account-link" to="/">Se connecter ici</Link>
+            {t('RegisterPage.alreadyUser')} <Link className="create-account-link" to="/">{t('RegisterPage.alreadyUserLink')}</Link>
         </p>
       </div>
     </section>

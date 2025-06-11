@@ -13,45 +13,50 @@ import TransactionPage from "../screens/Transaction";
 import ProtectedRoutes from "../components/ProtectedRoutes"
 
 let router = createBrowserRouter([
-  {
-    path: "/",
-    Component: LoginPage,
-  }, 
-  {
-    path: "/register",
-    Component: RegisterPage,
-  }, 
   // {
     // Component: ProtectedRoutes,
-    // children: [  
+    // children: [
     {
-      path: "/dashboard",
-      Component: HomePage,
+      path: "/",
+      Component: LoginPage,
     }, 
     {
-        path: "/category",
-        Component: CategoryPage,
-      },
+      path: "/register",
+      Component: RegisterPage,
+    }, 
+    // {
+      // Component: ProtectedRoutes,
+      // children: [  
       {
-        path: "/transaction",
-        Component: TransactionPage
-      },
+        path: "/dashboard",
+        Component: HomePage,
+      }, 
       {
-        path: "/account",
-        Component: AccountPage,
-      },
-      {
-        path: "/profile",
-        Component: ProfilePage,
-      },
-      {
-        path: "/statistique",
-        Component: StatistiquePage,
-      },
-      {
-        path: "/deconnexion",
-        Component: DeconnexionPage,
-      }
+          path: "/category",
+          Component: CategoryPage,
+        },
+        {
+          path: "/transaction",
+          Component: TransactionPage
+        },
+        {
+          path: "/account",
+          Component: AccountPage,
+        },
+        {
+          path: "/profile",
+          Component: ProfilePage,
+        },
+        {
+          path: "/statistique",
+          Component: StatistiquePage,
+        },
+        {
+          path: "/deconnexion",
+          Component: DeconnexionPage,
+        }
+    //   ]
+    // },
   //   ]
   // },
   

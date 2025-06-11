@@ -42,19 +42,19 @@
 
 }
 
-/* [data-theme="dark"] { */
-  /* --color-link-auth: #0075ff;            texte pour s'inscrire/se connecter */
-  /* --color-text: #ffffff;                 texte principal */
-  /* --color-bg-main: #12263f;              fond global */
-  /* --color-bg-card-page-active: #152e4d;  fond de carte   */
-  /* --color-text-inactive: #9ea2b9;        texte page non active */
-  /* --color-navbar-btn-active: #ffffff;    bouton actif navbar */
-  /* --color-text-active: #00ccff;          texte page active */
+[data-theme="dark"] {
+  --color-link-auth: #0075ff;           /* texte pour s'inscrire/se connecter */
+  --color-text: #ffffff;                 /*texte principal */
+  --color-bg-main: #12263f;              /*fond global */
+  --color-bg-card-page-active: #152e4d;  /*fond de carte   */
+  --color-text-inactive: #9ea2b9;        /*texte page non active */
+  --color-navbar-btn-active: #ffffff;   /* bouton actif navbar */
+  --color-text-active: #00ccff;          /*texte page active */
 
-  /* --color-btn-default: #46ceed;          boutons généraux */
-  /* --color-btn-edit: #188022;             icône modifier */
-  /* --color-btn-delete: #ff0000;           icône supprimer */
-/* } */
+  --color-btn-default: #46ceed;        /*  boutons généraux */
+  --color-btn-edit: #188022;            /* icône modifier */
+  --color-btn-delete: #ff0000;          /* icône supprimer */
+}
 
 
 /* a {

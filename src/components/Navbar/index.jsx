@@ -6,6 +6,8 @@ import {
   faRightFromBracket
 } 
 from "@fortawesome/free-solid-svg-icons";
+import { useTranslation } from "react-i18next";
+// import ThemeTrad from "../ThemeTrad";
 
 const pageTitles = {
   "/dashboard": "Dashboard",
@@ -18,6 +20,7 @@ const pageTitles = {
 };
 
 const Navbar = ({ user }) => {
+  const { t } = useTranslation();
   const location = useLocation();
   const pageTitle = pageTitles[location.pathname] || "Page";
   const [isScrolled, setIsScrolled] = useState(false);
@@ -45,6 +48,9 @@ const Navbar = ({ user }) => {
             <FontAwesomeIcon icon={faRightFromBracket} />
         </Link>
       </div>
+        {/* <div className="theme-wrapper">
+          <ThemeTrad />
+        </div> */}
     </header>
   );
 };

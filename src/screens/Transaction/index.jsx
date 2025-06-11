@@ -10,8 +10,10 @@ import {
   faTrash
 } 
 from "@fortawesome/free-solid-svg-icons";
+import { useTranslation } from 'react-i18next';
 
 const TransactionPage = () => {
+    const { t } = useTranslation();
   const user = {
     name: "Alice Dupont",
     profilePicture: "/images/alice.jpg",

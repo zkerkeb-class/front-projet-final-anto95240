@@ -10,8 +10,10 @@ import {
   faCircleNotch
 } from "@fortawesome/free-solid-svg-icons";
 import "./sidebar.css";
+import { useTranslation } from "react-i18next";
 
 const Sidebar = () => {
+  const { t } = useTranslation();
   const location = useLocation();
   const [isHovered, setIsHovered] = useState(false);
   const [isPinned, setIsPinned] = useState(() => {

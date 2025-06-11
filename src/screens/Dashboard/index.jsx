@@ -7,6 +7,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
 import "./dashboard.css";
+import { useTranslation } from "react-i18next";
 
 ChartJS.register(
   CategoryScale,
@@ -16,6 +17,7 @@ ChartJS.register(
 );
 
 const HomePage = () => {
+    const { t } = useTranslation();
   const user = {
     name: "Alice Dupont",
     profilePicture: "/images/alice.jpg",
