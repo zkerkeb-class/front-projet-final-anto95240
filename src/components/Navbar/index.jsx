@@ -1,6 +1,11 @@
-import React from "react";
+import { useState, useEffect, React } from "react";
 import { useLocation, Link } from "react-router";
 import "./Navbar.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faRightFromBracket
+} 
+from "@fortawesome/free-solid-svg-icons";
 
 const pageTitles = {
   "/dashboard": "Dashboard",
@@ -15,9 +20,19 @@ const pageTitles = {
 const Navbar = ({ user }) => {
   const location = useLocation();
   const pageTitle = pageTitles[location.pathname] || "Page";
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="navbar">
+    <header className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       <h1 className="page-title">{pageTitle}</h1>
 
       <div className="user-info">
@@ -27,7 +42,7 @@ const Navbar = ({ user }) => {
         </Link>
         
         <Link className="deconnexion-pic" to="/deconnexion">
-            <img alt="Deconnexion" />
+            <FontAwesomeIcon icon={faRightFromBracket} />
         </Link>
       </div>
     </header>

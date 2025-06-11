@@ -54,7 +54,7 @@ const Sidebar = () => {
         onMouseLeave={() => !isMobile && setIsHovered(false)}
       >
         <div className="sidebar-logo">
-          <img src="/logo.png" alt="logo" />
+          <img className="logo" src="/logo.svg" alt="logo" />
           {(isExpanded || isMobileMenuOpen) && (
             <div className="sidebar-buttons">
                 {!isMobile && (

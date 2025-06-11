@@ -2,3 +2,51 @@
     display: flex;
     gap: 2rem;
 }
+
+.logout-section-wrapper{
+    min-width: 1440px; 
+  margin: 0 auto; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  padding: 20px; 
+}
+
+.logout-form-container {
+  width: 100%; 
+  max-width: 500px;
+  height: auto; 
+  background-color: var(--color-bg-card-page-active); 
+  border: 1px solid var(--color-card-border); 
+  border-radius: 20px; 
+  box-shadow: var(--shadow-card-auth); 
+  padding: clamp(20px, 5vw, 30px);
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.logout-form-container p{
+    text-align: center;
+}
+
+.logout-button {
+  font-family: var(--font-family-title); 
+  font-weight: 400; 
+  color: black ; 
+  text-align: center; 
+  background-color: var(--color-btn);
+  border-radius: 30px; 
+  font-size: clamp(13px, 3vw, 16px);
+  width: clamp(150px, 50vw, 200px);
+  height: clamp(30px, 5vw, 32px);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  margin-bottom: 30px; 
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

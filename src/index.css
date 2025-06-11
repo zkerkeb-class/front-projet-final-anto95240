@@ -36,9 +36,9 @@
   --color-btn-delete: #ff0000;
 
   /* Ombres */
-  --shadow-card-auth: 0 0px 10px rgba(0, 0, 0, 0.3);
-  --shadow-title-page-nav: 0 4px 15px rgba(0, 0, 0, 0.25);
-  --shadow-btn: 4 4px 4px rgba(0, 0, 0, 0.5);
+  --shadow-card-auth: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  --shadow-title-page-nav: 0px 4px 15px rgba(0, 0, 0, 0.25);
+  --shadow-btn: 4px 4px 4px rgba(0, 0, 0, 0.5);
 
 }
 

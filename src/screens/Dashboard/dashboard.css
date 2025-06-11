@@ -3,10 +3,6 @@
   min-height: 100vh;
 }
 
-/* .dashboard-navbar{
-  width: 300px;
-} */
-
 .dashboard-main {
   flex: 1;
   display: flex;
@@ -15,9 +11,106 @@
   max-width: 1100px;
 }
 
-.dashboard-content {
-  margin-top: 20px;
+.dashboard-content{
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.dashboard-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 65px 50px;
+  width: 620px;
+  flex-direction: row;
+}
+
+.dashboard-card-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: var(--color-bg-card-page-active);
+  border-radius: 20px;
+  height: 80px;
+  gap: 10px;
+  padding: 0 20px; 
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.card-label{
+  font-family: var(--font-family-text);
+  color: var(--color-text);
+  margin: 0px;
+  text-align: start;
+}
+
+.card-value{
+  font-family: var(--font-family-title);
+  color: var(--color-text);
+  margin: 0px;
+  text-align: start;
+}
+
+
+.dashboard-table{
+  background-color: var(--color-bg-card-page-active);
+  width: 600px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  color: var(--color-text);
+}
+
+table {
+  border-collapse: collapse;
+  /* border: 2px solid rgb(140 140 140); */
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+caption {
+  caption-side: top;
+  text-transform: uppercase;
+  padding: 10px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+th,
+td {
+  padding: 8px 10px;
+  width: 500px;
+}
+
+td {
+  text-align: center;
+}
+
+tbody > tr:nth-of-type(even) {
+  background-color: rgb(237 238 242);
+}
+
+.dashboard-chart {
+  background-color: var(--color-bg-card-page-active);
   padding: 20px;
-  background-color: white;
-  border-radius: 10px;
+  border-radius: 20px;
+  margin-top: 30px;
+  width: 80%;
+  max-width: 900px;
+}
+
+
+.chart-label{
+  text-align: center;
+  color: var(--color-text);
 }

@@ -19,6 +19,12 @@ const DeconnexionPage = () => {
             <Link to="/transaction">transaction</Link> 
         </div>
 
+        <section id="section-login" className="logout-section-wrapper">
+            <div className="logout-form-container">
+                <p>A bientôt <br />Merci d'utiliser Budgee. Vous êtes maintenant déconnecté.</p>
+                <Link to="/" className="logout-button">Retour à la connexion</Link>
+            </div>
+        </section>
     </div>;
 };
 
