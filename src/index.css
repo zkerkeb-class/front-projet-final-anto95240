@@ -31,29 +31,60 @@
 
   --color-navbar-btn-active: #344767;
 
+  --modal-bg: #00000080;
+  --modal-content: #ffffff;
+  
+  --color-hover: #dbe1e7;
+  
+  --color-hr: #E1E1E1;
+
+  --color-input-profile: #d7e9fe;
+
   --color-btn: #46ceed;
   --color-btn-edit: #188022;
   --color-btn-delete: #ff0000;
 
   /* Ombres */
-  --shadow-card-auth: 0px 0px 10px rgba(0, 0, 0, 0.3);
   --shadow-title-page-nav: 0px 4px 15px rgba(0, 0, 0, 0.25);
   --shadow-btn: 4px 4px 4px rgba(0, 0, 0, 0.5);
+  --shadows-sidebar: 0 2px 5px rgba(0,0,0,0.2);
+  --shadow-sidebar-icon-noActive: 0 4px 5px rgba(0, 0, 0, 0.1);
+  --shadow-navbar-scroll: 0 2px 10px rgba(0, 0, 0, 0.15);
 
 }
 
 [data-theme="dark"] {
-  --color-link-auth: #0075ff;           /* texte pour s'inscrire/se connecter */
-  --color-text: #ffffff;                 /*texte principal */
-  --color-bg-main: #12263f;              /*fond global */
-  --color-bg-card-page-active: #152e4d;  /*fond de carte   */
-  --color-text-inactive: #9ea2b9;        /*texte page non active */
-  --color-navbar-btn-active: #ffffff;   /* bouton actif navbar */
-  --color-text-active: #00ccff;          /*texte page active */
+  --color-link-auth: #0075ff;
+  --color-text: #ffffff;
+  --color-text-inactive: #9ea2b9;
+  --color-text-active: #00ccff;
 
-  --color-btn-default: #46ceed;        /*  boutons généraux */
-  --color-btn-edit: #188022;            /* icône modifier */
-  --color-btn-delete: #ff0000;          /* icône supprimer */
+  --color-bg-main: #12263f;
+  --color-bg-card-page-active: #152e4d;
+  
+  --color-input-text: #9f9f9f;
+  --color-card-border: #acacac;
+
+  --color-navbar-btn-active: #ffffff;
+
+  --modal-bg: #00000080;
+  --modal-content: #152e4d;
+
+  --color-hover: #20436b;
+
+  --color-hr: #E1E1E1;
+
+  --color-input-profile: #d7e9fe;
+
+  --color-btn: #46ceed;
+  --color-btn-edit: #3fd163;
+  --color-btn-delete: #ff6b6b;
+  
+  --shadow-title-page-nav: 0px 4px 15px rgba(255, 255, 255, 0.25);
+  --shadow-btn: 4px 4px 4px rgba(255, 255, 255, 0.5);
+  --shadows-sidebar: 0 2px 5px rgba(255, 255, 255, 0.2);
+  --shadow-sidebar-icon-noActive: 0 4px 5px rgba(255, 255, 255, 0.1);
+  --shadow-navbar-scroll: 0 2px 10px rgba(255, 255, 255, 0.15);
 }
 
 

@@ -1,12 +1,10 @@
-/* CSS from section:signupPart1 */
 .signupPart1-section-wrapper {
   min-width: 1440px; 
-  min-height: 100vh;
+  max-height: 100vh;
   margin: 0 auto; 
   display: flex;
   justify-content: center;
   align-items: center;
-  height: auto;
   padding: 20px; 
   place-items: center;
 }
@@ -77,8 +75,8 @@
 }
 
 .form-input::placeholder {
-    color: var(--color-text); 
-    opacity: 0.7; 
+  color: var(--color-text); 
+  opacity: 0.7; 
 }
 
 .floating-label {
@@ -112,7 +110,7 @@
 .floating-label .form-input:focus + label,
 .floating-label .form-input:not(:placeholder-shown) + label {
   top: -10px;
-   font-size: clamp(10px, 2vw, 12px);
+  font-size: clamp(10px, 2vw, 12px);
   color: var(--color-text);
   background-color: var(--color-bg-card-page-active);
   padding: 0 2px;
@@ -137,6 +135,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: var(--shadow-btn);
 }
 
 .create-account {

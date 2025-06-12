@@ -20,20 +20,7 @@ const CategoryPage = () => {
     profilePicture: "/images/alice.jpg",
   };
 
-    return <div>
-        {/* <h1>Page category</h1>
-        <div className="links" >
-            <Link to="/">Login</Link>
-            <Link to="/register">register</Link>
-            <Link to="/dashboard">dashboard</Link>
-            <Link to="/deconnexion">deconnexion</Link>
-            <Link to="/account">account</Link>
-            <Link to="/category">category</Link>
-            <Link to="/profile">profile</Link>
-            <Link to="/statistique">statistique</Link>
-            <Link to="/transaction">transaction</Link> 
-        </div> */}
-
+    return (
         <div className="dashboard-layout">
             <Sidebar />
 
@@ -43,7 +30,7 @@ const CategoryPage = () => {
                 {/* Ici ton contenu principal */}
                 <div className="category-container">
                     {/* <h2>Bienvenue sur le Dashboard</h2> */}
-                    <div>
+                    <div className="category">
                         {/* <button className="btn-add">
                             <p>ajouter une category</p>
                         </button> */}
@@ -104,7 +91,7 @@ const CategoryPage = () => {
                 <ThemeTrad />
             </div>
         </div>
-    </div>;
+    );
 };
 
 export default CategoryPage;

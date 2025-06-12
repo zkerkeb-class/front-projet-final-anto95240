@@ -33,47 +33,36 @@ const RegisterPage = () => {
     }
   };
 
-    return <div>
-        {/* <h1>Page register</h1>
-        <div className="links" >
-            <Link to="/">Login</Link>
-            <Link to="/register">register</Link>
-            <Link to="/dashboard">dashboard</Link>
-            <Link to="/deconnexion">deconnexion</Link>
-            <Link to="/account">account</Link>
-            <Link to="/category">category</Link>
-            <Link to="/profile">profile</Link>
-            <Link to="/statistique">statistique</Link>
-            <Link to="/transaction">transaction</Link> 
-        </div> */}
-
+    return (
+      <div>
       <div className="theme-wrapper">
         <ThemeTrad />
       </div>
-        {step === 1 && (
-          <SignUpPart1
-            formData={formData}
-            setFormData={setFormData}
-            nextStep={nextStep}
-          />
-        )}
-        {step === 2 && (
-          <SignUpPart2
-            formData={formData}
-            setFormData={setFormData}
-            nextStep={nextStep}
-            prevStep={prevStep}
-          />
-        )}
-        {step === 3 && (
-          <SignUpPart3
-            formData={formData}
-            setFormData={setFormData}
-            prevStep={prevStep}
-            handleSubmit={handleSubmit}
-          />
+      {step === 1 && (
+        <SignUpPart1
+          formData={formData}
+          setFormData={setFormData}
+          nextStep={nextStep}
+        />
       )}
-    </div>;
+      {step === 2 && (
+        <SignUpPart2
+          formData={formData}
+          setFormData={setFormData}
+          nextStep={nextStep}
+          prevStep={prevStep}
+        />
+      )}
+      {step === 3 && (
+        <SignUpPart3
+          formData={formData}
+          setFormData={setFormData}
+          prevStep={prevStep}
+          handleSubmit={handleSubmit}
+        />
+    )}
+    </div>
+  );
 };
 
 export default RegisterPage;

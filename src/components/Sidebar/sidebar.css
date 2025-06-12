@@ -1,9 +1,9 @@
 .sidebar-wrapper {
-  width: 70px;
+  width: 50px;
   transition: width 0.3s ease;
   height: 91vh;
   background-color: var(--color-bg-main);
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-card-border);
   margin: 10px;
   border-radius: 20px;
   padding: 20px 10px;
@@ -23,6 +23,7 @@
 
 .sidebar-logo {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -30,7 +31,19 @@
 }
 
 .sidebar-logo img {
-  max-width: 120px;
+  max-width: 40px;
+  max-height: 40px;
+}
+
+.logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo p{
+  display: none;
 }
 
 .sidebar-buttons {
@@ -47,7 +60,6 @@
   font-size: 18px;
 }
 
-/* Burger button */
 .burger-btn {
   position: fixed;
   top: 15px;
@@ -59,7 +71,7 @@
   border-radius: 6px;
   z-index: 1100;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-shadow: var(--shadows-sidebar);
 }
 
 .sidebar-menu {
@@ -76,23 +88,26 @@
   gap: 10px;
   font-weight: 500;
   margin-bottom: 5px;
-  color: #111;
+  color: var(--color-text-inactive);
   border-radius: 10px;
+  text-decoration: none;
   white-space: nowrap;
+  font-size: 14px;
 }
 
 .fa-icon-wrapper {
   padding: 10px;
-  background-color: white;
+  background-color: var(--color-bg-card-page-active);
   border-radius: 25%;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sidebar-icon-noActive);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .menu-item.active {
-  background-color: white;
+  background-color: var(--color-bg-card-page-active);
+  color: var(--color-navbar-btn-active);
   box-shadow: var(--shadow-title-page-nav);
 }
 
@@ -101,17 +116,11 @@
   box-shadow: none;
 }
 
-.menu-section a {
-  color: var(--color-navbar-btn-active);
-  text-decoration: none;
-  font-size: 14px;
-}
-
 .menu-section a:hover {
-  text-decoration: underline;
+  color: var(--color-navbar-btn-active);
 }
 
-/* Responsive pour mobile */
+
 @media screen and (max-width: 768px) {
   .sidebar-wrapper {
     display: none;
@@ -124,7 +133,7 @@
     padding: 20px;
     margin: 0;
     border-radius: 0;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-sidebar);
   }
 
   .sidebar-wrapper.mobile-open {

@@ -1,8 +1,3 @@
-.links{
-    display: flex;
-    gap: 2rem;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -37,12 +32,12 @@ html {
   background-color: var(--color-bg-card-page-active);
   border-radius: 8px;
   text-decoration: none;
-  color: #333;
+  color: var(--color-text);
   font-weight: 500;
 }
 
 .profile-sidebar a:hover {
-  background-color: #e3e9f0;
+  background-color: var(--color-hover);
 }
 
 .profile-content {
@@ -53,10 +48,10 @@ html {
 }
 
 .profile-card {
-  background: #fff;
+  background: var(--color-bg-card-page-active);
   padding: 20px;
   border-radius: 20px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-navbar-scroll);
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
@@ -67,7 +62,7 @@ html {
   margin-top: 0;
   font-size: 16px;
   font-weight: 600;
-  color: #333;
+  color: var(--color-text);
   margin-bottom: 20px;
 }
 
@@ -86,15 +81,15 @@ html {
 }
 
 .profile-fields-item{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .profile-fields label {
   font-size: 14px;
   font-weight: 500;
-  color: #444;
+  color: var(--color-text);
 }
 
 .profile-fields input {
@@ -103,7 +98,7 @@ html {
   border-radius: 6px;
   font-size: 14px;
   width: 300px;
-  background-color: #d7e9fe;
+  background-color: var(--color-input-profile);
 }
 
 .profile-avatar {
@@ -130,41 +125,35 @@ html {
 }
 
 .account-info {
-  /* display: flex; */
-  /* flex-direction: column; */
   justify-content: space-between;
   align-items: center;
-  background-color: #f5f7fa;
+  background-color: var(--color-bg-main);
   padding: 5px;
   border-radius: 10px;
   margin: 20px 0;
-
 }
 
 .account-info-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: #f5f7fa; */
   padding: 15px;
-  /* border-radius: 8px; */
-  /* margin-bottom: 10px; */
 }
 
 .label {
   font-size: 14px;
-  color: #666;
+  color: var(--color-text);
   margin: 0;
 }
 
 .value {
   font-weight: 600;
-  color: #333;
+  color: var(--color-text);
   margin: 2px 0 0 0;
 }
 
 .btn-img {
-  background: #d7e9fe;
+  background: var(--color-input-profile);
   border: none;
   padding: 8px 14px;
   border-radius: 6px;
@@ -176,7 +165,7 @@ html {
 
 .btn-blue {
   background: var(--color-btn);
-  color: white;
+  color: black;
   font-family: var(--font-family-title);
   border: none;
   padding: 8px 14px;
@@ -191,13 +180,13 @@ html {
   padding: 8px 14px;
   border-radius: 6px;
   font-weight: 500;
-  color: black;
+  color: var(--color-text);
   font-family: var(--font-family-title);
   cursor: pointer;
 }
 
 .btn-red {
-  background: #dc3545;
+  background: var(--color-btn-delete);
   color: white;
   border: none;
   padding: 8px 14px;
@@ -207,20 +196,20 @@ html {
 }
 
 .small {
-  background: white;
+  background: var(--color-bg-card-page-active);
   font-size: 13px;
   padding: 6px 10px;
 }
 
 .delete-warning {
-  color: #666;
+  color: var(--color-text);
   font-size: 14px;
 }
 
 .profile-delete{
-    display: flex;
-    justify-content: space-between;
-    margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
 }
 
 .inline-form {
@@ -231,7 +220,7 @@ html {
 
 .inline-form input {
   padding: 6px 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-card-border);
   flex: 1;
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -246,7 +235,7 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--modal-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -254,13 +243,13 @@ html {
 }
 
 .modal {
-  background: #fff;
+  background: var(--modal-content);
   padding: 30px;
   border-radius: 12px;
   max-width: 400px;
   width: 90%;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   text-align: center;
+  color: var(--color-text);
 }
 
 .modal h4 {
@@ -275,5 +264,5 @@ html {
 }
 
 hr{
-    color: #E1E1E1;
+    color: var(--color-hr);
 }

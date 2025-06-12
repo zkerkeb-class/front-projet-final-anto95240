@@ -51,20 +51,8 @@ const TransactionPage = () => {
     setTransactionToEdit(null);
   };
 
-    return <div>
-        {/* <h1>Page transaction</h1>
-        <div className="links" >
-            <Link to="/">Login</Link>
-            <Link to="/register">register</Link>
-            <Link to="/dashboard">dashboard</Link>
-            <Link to="/deconnexion">deconnexion</Link>
-            <Link to="/account">account</Link>
-            <Link to="/category">category</Link>
-            <Link to="/profile">profile</Link>
-            <Link to="/statistique">statistique</Link>
-            <Link to="/transaction">transaction</Link> 
-        </div> */}
-
+    return (
+    <div>
         <div className="dashboard-layout">
             <Sidebar />
 
@@ -82,40 +70,62 @@ const TransactionPage = () => {
                         <table>
                             <thead>
                                 <tr>
-                                <th>{t('TransactionPage.titleTableDate')}</th>
-                                <th>{t('TransactionPage.titleTableAccountType')}</th>
-                                <th>{t('TransactionPage.titleTablePaiement')}</th>
-                                <th>{t('TransactionPage.titleTableBeneficiare')}</th>
-                                <th>{t('TransactionPage.titleTableCat')}</th>
-                                <th>{t('TransactionPage.titleTableComment')}</th>
-                                <th>{t('TransactionPage.titleTableDebit')}</th>
-                                <th>{t('TransactionPage.titleTableCredit')}</th>
-                                <th>{t('TransactionPage.titleTableSolde')}</th>
+                                    <th>{t('TransactionPage.titleTableDate')}</th>
+                                    <th>{t('TransactionPage.titleTableAccountType')}</th>
+                                    <th>{t('TransactionPage.titleTablePaiement')}</th>
+                                    <th>{t('TransactionPage.titleTableBeneficiare')}</th>
+                                    <th>{t('TransactionPage.titleTableCat')}</th>
+                                    <th>{t('TransactionPage.titleTableComment')}</th>
+                                    <th>{t('TransactionPage.titleTableDebit')}</th>
+                                    <th>{t('TransactionPage.titleTableCredit')}</th>
+                                    <th>{t('TransactionPage.titleTableSolde')}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                <td>Chris</td>
-                                <td>HTML tables</td>
-                                <td>22</td>
-                                <td>45</td>
-                                <td>Chris</td>
-                                <td>HTML tables</td>
-                                <td>22</td>
-                                <td></td>
-                                <td>45</td>
-                                <td>
+                                    <td>Chris</td>
+                                    <td>HTML tables</td>
+                                    <td>22</td>
+                                    <td>45</td>
+                                    <td>Chris</td>
+                                    <td>HTML tables</td>
+                                    <td>22</td>
+                                    <td>14</td>
+                                    <td>45</td>
+                                    <td>
                                     <Link className="btn-edit" onClick={openEditModal}>
                                         <FontAwesomeIcon icon={faPen} />
-                                    </Link> 
-                                </td>
-                                <td>
+                                    </Link>
+                                    </td>
+                                    <td>
                                     <Link className="btn-delete">
                                         <FontAwesomeIcon icon={faTrash} />
-                                    </Link> 
-                                </td>
+                                    </Link>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Chris</td>
+                                    <td>HTML tables</td>
+                                    <td>22</td>
+                                    <td>45</td>
+                                    <td>Chris</td>
+                                    <td>HTML tables</td>
+                                    <td>22</td>
+                                    <td>14</td>
+                                    <td>45</td>
+                                    <td>
+                                    <Link className="btn-edit" onClick={openEditModal}>
+                                        <FontAwesomeIcon icon={faPen} />
+                                    </Link>
+                                    </td>
+                                    <td>
+                                    <Link className="btn-delete">
+                                        <FontAwesomeIcon icon={faTrash} />
+                                    </Link>
+                                    </td>
                                 </tr>
                             </tbody>
+
                             <tfoot>
                                 <tr>
                                     <td></td>
@@ -245,7 +255,8 @@ const TransactionPage = () => {
           </div>
         </div>
       )}
-    </div>;
+      </div>
+    );
 };
 
 export default TransactionPage;

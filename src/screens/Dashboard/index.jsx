@@ -123,30 +123,37 @@ const HomePage = () => {
               </thead>
               <tbody>
                 <tr>
-                  <td>Chris</td>
-                  <td>HTML tables</td>
-                  <td>22</td>
-                  <td>45</td>
+                  <td colSpan="4">
+                    <div className="table-row-wrapper">
+                      <span>Chris</span>
+                      <span>HTML tables</span>
+                      <span>22</span>
+                      <span>45</span>
+                    </div>
+                  </td>
                 </tr>
                 <tr>
-                  <td>Dennis</td>
-                  <td>Web accessibility</td>
-                  <td>45</td>
-                  <td>45</td>
+                  <td colSpan="4">
+                    <div className="table-row-wrapper">
+                      <span>Chris</span>
+                      <span>HTML tables</span>
+                      <span>22</span>
+                      <span>45</span>
+                    </div>
+                  </td>
                 </tr>
                 <tr>
-                  <td>Sarah</td>
-                  <td>JavaScript frameworks</td>
-                  <td>29</td>
-                  <td>45</td>
-                </tr>
-                <tr>
-                  <td>Karen</td>
-                  <td>Web performance</td>
-                  <td>36</td>
-                  <td>45</td>
+                  <td colSpan="4">
+                    <div className="table-row-wrapper">
+                      <span>Chris</span>
+                      <span>HTML tables</span>
+                      <span>22</span>
+                      <span>45</span>
+                    </div>
+                  </td>
                 </tr>
               </tbody>
+
             </table>
           </section>
 

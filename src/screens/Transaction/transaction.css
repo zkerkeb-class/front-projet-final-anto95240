@@ -1,163 +1,194 @@
-.links{
-    display: flex;
-    gap: 2rem;
-}
-
 .dashboard-content{
   display: flex;
   flex-direction: column; 
+  min-width: 110%;
 }
 
 .btn-add{
-    box-shadow: var(--shadow-btn);
-    background-color: var(--color-btn);
-    /*color: var(--color-btn-text);*/
-    border-radius: 20px;
-    border: 0px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-size: 14px;
-    font-family: var(--font-family-title);
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
+  box-shadow: var(--shadow-btn);
+  background-color: var(--color-btn);
+  border-radius: 20px;
+  border: 0px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: var(--font-family-title);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }
 
 .transaction-list{
-    background-color: var(--color-bg-card-page-active);
-    /* width: 100px; */
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
+  background-color: var(--color-bg-card-page-active);
+  border-radius: 20px;
+  color: var(--color-text);
+  min-width: 105%;
 }
 
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  padding: 10px;
+}
+
+thead th {
+  text-align: center;
+  padding: 10px;
+}
+
+tbody tr {
+  background-color: var(--color-bg-main);
+  border-radius: 10px;
+  overflow: hidden; 
+}
+
+tbody td {
+  padding: 10px;
+  text-align: center;
+}
+
+/* arrondir la première et dernière cellule d’une ligne */
+tbody tr td:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+tbody tr td:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+tfoot{
+  text-align: center;
+}
+
+
 .btn-edit{
-    color:  var(--color-btn-edit);
-    border: 1px solid var(--color-btn-edit);
-    border-radius: 30px;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    -ms-border-radius: 30px;
-    -o-border-radius: 30px;
-    padding: 6px;
+  color:  var(--color-btn-edit);
+  border: 1px solid var(--color-btn-edit);
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  padding: 6px;
 }
 
 .btn-delete{
-    color: var(--color-btn-delete);
-    border: 1px solid var(--color-btn-delete);
-    border-radius: 30px;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    -ms-border-radius: 30px;
-    -o-border-radius: 30px;
-    padding: 6px;
+  color: var(--color-btn-delete);
+  border: 1px solid var(--color-btn-delete);
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  padding: 6px;
 }
-
-
 
 .modal-overlay {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--modal-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
+
 .modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 400px;
-    max-width: 90%;
-    position: relative;
+  color: var(--color-text);
+  background: var(--modal-content);
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+  position: relative;
 }
 .modal-close {
-    position: absolute;
-    top: 8px;
-    right: 12px;
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 form{
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 form label {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
 }
 form input {
-    width: 180px;
-    padding: 6px;
-    margin-top: 4px;
-    box-sizing: border-box;
-    border: 1px solid;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+  width: 180px;
+  padding: 6px;
+  margin-top: 4px;
+  box-sizing: border-box;
+  border: 1px solid var(--color-card-border);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 
 .modal-commentaire input {
-    width: 380px;
+  width: 380px;
 }
 
 form button {
-    margin-left: auto;
-    margin-right: auto;
-    width: 200px;
-    margin-top: 20px;
-    padding: 8px 12px;
-    cursor: pointer;
-    box-shadow: var(--shadow-btn);
-    background-color: var(--color-btn);
-    border: 0px;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  margin-top: 20px;
+  padding: 8px 12px;
+  cursor: pointer;
+  box-shadow: var(--shadow-btn);
+  background-color: var(--color-btn);
+  border: 0px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 
 .modal-title{
-    font-family: var(--font-family-title);
-    text-transform: uppercase;
-    text-align: center;
+  font-family: var(--font-family-title);
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .modal-date-cat{
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 
 .modal-typeCompte{
-    display: flex;
+  display: flex;
 }
 
 .modal-paiement-beneficiaire{
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 
 .modal-montant{
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 
 .modal-commentaire{
-    display: flex;
+  display: flex;
 }

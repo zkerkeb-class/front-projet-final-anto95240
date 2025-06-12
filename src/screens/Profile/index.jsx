@@ -28,9 +28,6 @@ const ProfilePage = () => {
       <Sidebar />
       <div className="dashboard-main">
         <Navbar user={user} />
-        {/* <div className="theme-wrapper">
-          <ThemeTrad />
-        </div> */}
         
         <div className="profile-container">
           <div className="profile-sidebar">
@@ -172,10 +169,6 @@ const ProfilePage = () => {
               <h3>{t('ProfilePage.linkDeleteUser')}</h3>
               <hr />
               <div className="profile-delete">
-                {/* <p className="delete-warning">
-                  Please note, deleting your account is a permanent action and <br />
-                  will not be recoverable once completed.
-                </p> */}
                 <p className="delete-warning">
                   {t('ProfilePage.message1')} <br />
                   {t('ProfilePage.message2')} </p>

@@ -51,20 +51,8 @@ const AccountPage = () => {
     setAccountToEdit(null);
   };
 
-    return <div>
-        {/* <h1>Page Account</h1>
-        <div className="links" >
-            <Link to="/">Login</Link>
-            <Link to="/register">register</Link>
-            <Link to="/dashboard">dashboard</Link>
-            <Link to="/deconnexion">deconnexion</Link>
-            <Link to="/account">account</Link>
-            <Link to="/category">category</Link>
-            <Link to="/profile">profile</Link>
-            <Link to="/statistique">statistique</Link>
-            <Link to="/transaction">transaction</Link> 
-        </div> */}
-
+    return (
+      <div>
         <div className="dashboard-layout">
             <Sidebar />
 
@@ -103,7 +91,6 @@ const AccountPage = () => {
             </div>
         </div>
 
-        {/* Popup Modal */}
       {typeModal && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={e => e.stopPropagation()}>
@@ -163,7 +150,8 @@ const AccountPage = () => {
           </div>
         </div>
       )}
-    </div>;
+      </div>
+    );
 };
 
 export default AccountPage;

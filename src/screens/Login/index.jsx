@@ -12,7 +12,8 @@ const LoginPage = () => {
     const { t } = useTranslation();
     const [showPassword, setShowPassword] = useState(false);
 
-    return <div>
+    return (
+    <div>
         <div className="links" >
             {/* <Link to="/">Login</Link> */}
             <Link to="/register">register</Link>
@@ -24,9 +25,9 @@ const LoginPage = () => {
             <Link to="/statistique">statistique</Link>
             <Link to="/transaction">transaction</Link> 
         </div>
-      <div className="theme-wrapper">
-        <ThemeTrad />
-      </div>
+        <div className="theme-wrapper">
+            <ThemeTrad />
+        </div>
         
         <section id="section-login" className="login-section-wrapper">
             <div className="login-form-container">
@@ -60,8 +61,8 @@ const LoginPage = () => {
                 </p>
             </div>
         </section>
-        </div>
-    
+    </div>
+    );
 };
 
 export default LoginPage;

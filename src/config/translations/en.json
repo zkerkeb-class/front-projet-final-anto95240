@@ -2,9 +2,9 @@
   "translation": {
     "AccountPage": {
       "addAccount": "Add an account",
-      "typeAccount": "Account Type",
-      "budetStart": "Starting budget (in €):",
-      "taux": "Rate (in %):",
+      "typeAccount": "Account Type :",
+      "budetStart": "Starting budget (in €) :",
+      "taux": "Rate (in %) :",
       "modAccount": "Modify an account",
       "save": "Save",
       "add": "Add"
@@ -12,7 +12,7 @@
     "CategoryPage": {
       "titleCat": "list of categories",
       "addCat": "Add catégories",
-      "theme": "Thème :",
+      "theme": "Theme :",
       "name": "Name :",
       "color": "Color :"
     },
@@ -64,7 +64,7 @@
       "confirmPassword": "Confirm password",
       "message1": "Please note, deleting your account is a permanent action and",
       "message2": "will no be recoverable once completed.",
-      "supprUser": "Delte",
+      "supprUser": "Delete",
       "popupConfirm": "Confirm deletion",
       "popupMessage": "Are you sure you want to delete your account?",
       "popupSupprUser": "Permanently delete"
@@ -95,23 +95,23 @@
     },
     "TransactionPage": {
       "addTransaction": "Add a transaction",
-      "date": "Date:",
-      "categorie": "Catégory:",
-      "typeAccount": "Account Type",
-      "beneficiare": "Bénéficiary:",
-      "amountType": "amount Type:",
+      "date": "Date :",
+      "categorie": "Category :",
+      "typeAccount": "Account Type :",
+      "beneficiare": "Beneficiary :",
+      "amountType": "Amount Type :",
       "modTransaction": "Modify transaction",
-      "paiement": "Payment",
-      "amount": "Amount",
-      "comment": "Comment",
+      "paiement": "Payment :",
+      "amount": "Amount :",
+      "comment": "Comment :",
       "titleTableDate": "Date",
       "titleTableAccountType": "Account Type",
       "titleTablePaiement": "Payment",
       "titleTableBeneficiare": "Bénéficiary",
       "titleTableCat": "Category",
       "titleTableComment": "Comment",
-      "titleTableDebit": "Débit",
-      "titleTableCredit": "Crédit",
+      "titleTableDebit": "Debit",
+      "titleTableCredit": "Credit",
       "titleTableSolde": "Balance"
     },
     "Navbar": {
@@ -121,7 +121,7 @@
     "Sidebar": {
       "dashboard": "Dashboard",
       "transaction": "Transaction",
-      "category": "Catégory",
+      "category": "Category",
       "account": "Account",
       "statistique": "Statistical"
     }

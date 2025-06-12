@@ -55,7 +55,6 @@
   text-align: start;
 }
 
-
 .dashboard-table{
   background-color: var(--color-bg-card-page-active);
   width: 600px;
@@ -72,7 +71,6 @@
 
 table {
   border-collapse: collapse;
-  /* border: 2px solid rgb(140 140 140); */
   font-family: sans-serif;
   font-size: 0.8rem;
   letter-spacing: 1px;
@@ -86,19 +84,20 @@ caption {
   margin-bottom: 10px;
 }
 
-th,
-td {
-  padding: 8px 10px;
+th{
+  padding: 30px 10px;
   width: 500px;
 }
 
-td {
-  text-align: center;
+.table-row-wrapper {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-bg-main);
+  padding: 12px 10px;
+  border-radius: 10px;
+  gap: 20px;
 }
 
-tbody > tr:nth-of-type(even) {
-  background-color: rgb(237 238 242);
-}
 
 .dashboard-chart {
   background-color: var(--color-bg-card-page-active);
@@ -108,7 +107,6 @@ tbody > tr:nth-of-type(even) {
   width: 80%;
   max-width: 900px;
 }
-
 
 .chart-label{
   text-align: center;
