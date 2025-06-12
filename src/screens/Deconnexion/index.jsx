@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import axios from "axios"
 import "./deco.css";
+import ThemeTrad from "../../components/ThemeTrad";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowTurnUp } from "@fortawesome/free-solid-svg-icons";
 
@@ -10,6 +11,9 @@ const DeconnexionPage = () => {
   const { t } = useTranslation();
 
     return <div>
+      <div className="theme-wrapper">
+        <ThemeTrad />
+      </div>
 
         <section id="section-login" className="logout-section-wrapper">
             <div className="logout-form-container">

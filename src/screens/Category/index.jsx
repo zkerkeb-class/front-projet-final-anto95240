@@ -4,6 +4,7 @@ import axios from "axios";
 import "./category.css";
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
+import ThemeTrad from "../../components/ThemeTrad";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPen,
@@ -46,7 +47,7 @@ const CategoryPage = () => {
                         {/* <button className="btn-add">
                             <p>ajouter une category</p>
                         </button> */}
-                        <h1>liste des categories</h1>
+                        <h1>{t('CategoryPage.titleCat')}</h1>
                         <div className="category-list">
                             <p className="titleCat">Divertissement</p>
                             <ul>
@@ -78,29 +79,29 @@ const CategoryPage = () => {
                         </div>
                     </div>
                     <form className="add-category">
-                        <h3>Ajouter des catégories</h3>
+                        <h3>{t('CategoryPage.addCat')}</h3>
                         <div className="cat-theme">
                             <label>
-                            Thème :
-                            <input type="text" name="theme" required />
+                            {t('CategoryPage.theme')} <input type="text" name="theme" required />
                             </label>
                         </div>
                         <div className="cat-title">
                             <label>
-                            Nom :
-                            <input type="text" name="title" required />
+                            {t('CategoryPage.name')} <input type="text" name="title" required />
                             </label>
                         </div>
                         <div className="cat-color">
                             <label>
-                            Couleur :
-                            <input type="color" name="color" />
+                            {t('CategoryPage.color')} <input type="color" name="color" />
                             </label>
                         </div>
                         <button type="submit" className="btn-add">AJOUTER</button>
                     </form>
 
                 </div>
+            </div>
+            <div className="theme-wrapper">
+                <ThemeTrad />
             </div>
         </div>
     </div>;

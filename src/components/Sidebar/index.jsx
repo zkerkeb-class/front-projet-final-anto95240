@@ -7,7 +7,9 @@ import {
   faFolder,
   faWallet,
   faChartSimple,
-  faCircleNotch
+  faCircleNotch,
+  faBars,
+  faClose
 } from "@fortawesome/free-solid-svg-icons";
 import "./sidebar.css";
 import { useTranslation } from "react-i18next";
@@ -46,7 +48,7 @@ const Sidebar = () => {
     <>
       {isMobile && !isMobileMenuOpen && (
         <button className="burger-btn" onClick={() => setIsMobileMenuOpen(true)}>
-            ☰
+            <FontAwesomeIcon icon={faBars} />
         </button>
       )}
 
@@ -56,7 +58,11 @@ const Sidebar = () => {
         onMouseLeave={() => !isMobile && setIsHovered(false)}
       >
         <div className="sidebar-logo">
-          <img className="logo" src="/logo.svg" alt="logo" />
+          <div className="logo">
+            <img src="/Logo.png" alt="logo" />
+            <p>Budgee</p>
+          </div>
+          
           {(isExpanded || isMobileMenuOpen) && (
             <div className="sidebar-buttons">
                 {!isMobile && (
@@ -66,7 +72,7 @@ const Sidebar = () => {
                 )}
                 {isMobile && (
                 <button className="close-btn" onClick={() => setIsMobileMenuOpen(false)}>
-                    ✖
+                    <FontAwesomeIcon icon={faClose} />
                 </button>
                 )}
             </div>
@@ -80,7 +86,7 @@ const Sidebar = () => {
                 <div className="fa-icon-wrapper">
                     <FontAwesomeIcon icon={faHouse} />
                 </div>
-                {isExpanded && <span>Dashboard</span>}
+                {isExpanded && <span>{t('Sidebar.dashboard')}</span>}
             </Link>
           </div>
 
@@ -89,7 +95,7 @@ const Sidebar = () => {
               <div className="fa-icon-wrapper">
                 <FontAwesomeIcon icon={faArrowRightArrowLeft} />
               </div>
-              {isExpanded && <span>Transaction</span>}
+              {isExpanded && <span>{t('Sidebar.transaction')}</span>}
             </Link>
           </div>
 
@@ -98,7 +104,7 @@ const Sidebar = () => {
               <div className="fa-icon-wrapper">
                 <FontAwesomeIcon icon={faFolder} />
               </div>
-              {isExpanded && <span>Catégorie</span>}
+              {isExpanded && <span>{t('Sidebar.category')}</span>}
             </Link>
           </div>
 
@@ -107,7 +113,7 @@ const Sidebar = () => {
               <div className="fa-icon-wrapper">
                 <FontAwesomeIcon icon={faWallet} />
               </div>
-              {isExpanded && <span>Compte</span>}
+              {isExpanded && <span>{t('Sidebar.account')}</span>}
             </Link>
           </div>
 
@@ -116,7 +122,7 @@ const Sidebar = () => {
               <div className="fa-icon-wrapper">
                 <FontAwesomeIcon icon={faChartSimple} />
               </div>
-              {isExpanded && <span>Statistique</span>}
+              {isExpanded && <span>{t('Sidebar.statistique')}</span>}
             </Link>
           </div>
         </nav>

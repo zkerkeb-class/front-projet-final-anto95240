@@ -4,6 +4,7 @@ import axios from "axios"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import "./login.css"
+import ThemeTrad from "../../components/ThemeTrad";
 import { useTranslation } from "react-i18next";
 
 const LoginPage = () => {
@@ -23,6 +24,9 @@ const LoginPage = () => {
             <Link to="/statistique">statistique</Link>
             <Link to="/transaction">transaction</Link> 
         </div>
+      <div className="theme-wrapper">
+        <ThemeTrad />
+      </div>
         
         <section id="section-login" className="login-section-wrapper">
             <div className="login-form-container">

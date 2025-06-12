@@ -6,6 +6,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
+import ThemeTrad from "../../components/ThemeTrad";
 import "./dashboard.css";
 import { useTranslation } from "react-i18next";
 
@@ -89,36 +90,35 @@ const HomePage = () => {
 
         {/* Ici ton contenu principal */}
         <div className="dashboard-content">
-          <h2>Bienvenue sur le Dashboard</h2>
           <section className="dashboard-card-grid">
             <div className="dashboard-card-body">
-              <p className="card-label">solde Actuel</p>
+              <p className="card-label">{t('StatistiquePage.actualSolde')}</p>
               <h1 className="card-value">1000 €</h1>
             </div>
             <div className="dashboard-card-body">
-              <p className="card-label">nombre de compte</p>
+              <p className="card-label">{t('StatistiquePage.nbAccount')}</p>
               <h1 className="card-value">1</h1>
             </div>
             <div className="dashboard-card-body">
-              <p className="card-label">gagner ce mois ci</p>
+              <p className="card-label">{t('StatistiquePage.gainMois')}</p>
               <h1 className="card-value">1000 €</h1>
             </div>
             <div className="dashboard-card-body">
-              <p className="card-label">dépenser ce mois ci</p>
+              <p className="card-label">{t('StatistiquePage.depenseMois')}</p>
               <h1 className="card-value">1000 €</h1>
             </div>
           </section>
           <section className="dashboard-table">
             <table>
               <caption>
-                Historique des transactions
+                {t('DashboardPage.tableTitle')}
               </caption>
               <thead>
                 <tr>
-                  <th>Date</th>
-                  <th>Paiement</th>
-                  <th>Bénéficiare</th>
-                  <th>Somme</th>
+                  <th>{t('DashboardPage.tableDate')}</th>
+                  <th>{t('DashboardPage.tablePaiemant')}</th>
+                  <th>{t('DashboardPage.tableBeneficiare')}</th>
+                  <th>{t('DashboardPage.tableSolde')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -151,11 +151,14 @@ const HomePage = () => {
           </section>
 
           <section className="dashboard-chart">
-            <h3 className="chart-label">Dépenses et Revenus mensuels</h3>
+            <h3 className="chart-label">{t('StatistiquePage.titleChartBar')}</h3>
             <Bar data={data} options={options}/>
           </section>
 
         </div>
+      </div>
+      <div className="theme-wrapper">
+        <ThemeTrad />
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import axios from "axios"
 import "./account.css";
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
+import ThemeTrad from "../../components/ThemeTrad";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPen,
@@ -74,7 +75,7 @@ const AccountPage = () => {
                 <div className="dashboard-content">
                     <div>
                         <button className="btn-add" onClick={openAddModal}>
-                            <p>ajouter un compte</p>
+                            <p>{t('AccountPage.addAccount')}</p>
                         </button>
                     </div>
                     <section className="account-list">
@@ -89,13 +90,16 @@ const AccountPage = () => {
                                 <p>Solde</p>
                             </div> 
                             <div className="account-btn">
-                                <button className="btn-edit"><FontAwesomeIcon icon={faPen} /></button>
+                                <button className="btn-edit" onClick={openEditModal}><FontAwesomeIcon icon={faPen} /></button>
                                 <button className="btn-delete"><FontAwesomeIcon icon={faTrash} /></button>
                             </div>
                         </div>
                         
                     </section>
                 </div>
+            </div>
+            <div className="theme-wrapper">
+              <ThemeTrad />
             </div>
         </div>
 
@@ -109,29 +113,26 @@ const AccountPage = () => {
 
             {typeModal === "add" && (
               <>
-                <p className="modal-title">Ajouter un compte</p>
+                <p className="modal-title">{t('AccountPage.addAccount')}</p>
                 {/* Formulaire simplifié */}
                 <form className="add-account">
-                    <h3>Ajouter un compte</h3>
+                    {/* <h3>Ajouter un compte</h3> */}
                     <div className="account-type">
                         <label>
-                        Type de compe :
-                        <input type="text" name="typeAccount" required />
+                        {t('AccountPage.typeAccount')} <input type="text" name="typeAccount" required />
                         </label>
                     </div>
                     <div className="account-budgee">
                         <label>
-                        Budget de départ (en €):
-                        <input type="text" name="budget" required />
+                        {t('AccountPage.budetStart')} <input type="text" name="budget" required />
                         </label>
                     </div>
                     <div className="account-taux">
                         <label>
-                        Taux (en %):
-                        <input type="text" name="taux" />
+                        {t('AccountPage.taux')} <input type="text" name="taux" />
                         </label>
                     </div>
-                    <button type="submit" className="btn-add">ajouter</button>
+                    <button type="submit" className="btn-add">{t('AccountPage.add')}</button>
                 </form>
               </>
             )}
@@ -139,26 +140,23 @@ const AccountPage = () => {
             {typeModal === "edit" && accountToEdit && (
               <>
                 <form className="mod-account">
-                    <h3>Modifier un compte</h3>
+                    <h3>{t('AccountPage.modAccount')}</h3>
                     <div className="account-type">
                         <label>
-                        Type de compe :
-                        <input type="text" name="typeAccount" required />
+                        {t('AccountPage.typeAccount')} <input type="text" name="typeAccount" required />
                         </label>
                     </div>
                     <div className="account-budgee">
                         <label>
-                        Budget de départ (en €):
-                        <input type="text" name="budget" required />
+                        {t('AccountPage.budetStart')} <input type="text" name="budget" required />
                         </label>
                     </div>
                     <div className="account-taux">
                         <label>
-                        Taux (en %):
-                        <input type="text" name="taux" />
+                        {t('AccountPage.taux')} <input type="text" name="taux" />
                         </label>
                     </div>
-                    <button type="submit" className="btn-add">Enregistrer</button>
+                    <button type="submit" className="btn-add">{t('AccountPage.save')}</button>
                 </form>
               </>
             )}

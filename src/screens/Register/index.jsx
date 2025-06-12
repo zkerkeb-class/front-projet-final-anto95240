@@ -2,6 +2,7 @@ import { useNavigate, Link } from "react-router";
 import { useState, useEffect } from "react";
 import axios from "axios"
 import "./register.css";
+import ThemeTrad from "../../components/ThemeTrad";
 import SignUpPart1 from "../../components/SignUpPart1";
 import SignUpPart2 from "../../components/SignUpPart2";
 import SignUpPart3 from "../../components/SignUpPart3";
@@ -46,28 +47,31 @@ const RegisterPage = () => {
             <Link to="/transaction">transaction</Link> 
         </div> */}
 
+      <div className="theme-wrapper">
+        <ThemeTrad />
+      </div>
         {step === 1 && (
-        <SignUpPart1
-          formData={formData}
-          setFormData={setFormData}
-          nextStep={nextStep}
-        />
-      )}
-      {step === 2 && (
-        <SignUpPart2
-          formData={formData}
-          setFormData={setFormData}
-          nextStep={nextStep}
-          prevStep={prevStep}
-        />
-      )}
-      {step === 3 && (
-        <SignUpPart3
-          formData={formData}
-          setFormData={setFormData}
-          prevStep={prevStep}
-          handleSubmit={handleSubmit}
-        />
+          <SignUpPart1
+            formData={formData}
+            setFormData={setFormData}
+            nextStep={nextStep}
+          />
+        )}
+        {step === 2 && (
+          <SignUpPart2
+            formData={formData}
+            setFormData={setFormData}
+            nextStep={nextStep}
+            prevStep={prevStep}
+          />
+        )}
+        {step === 3 && (
+          <SignUpPart3
+            formData={formData}
+            setFormData={setFormData}
+            prevStep={prevStep}
+            handleSubmit={handleSubmit}
+          />
       )}
     </div>;
 };

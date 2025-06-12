@@ -1,58 +1,129 @@
 {
-  "AccountPage": {
-
-  },
-  "CategoryPage": {
-
-  },
-  "DashboardPage": {
-    
-  },
-  "DeconnexionPage": {
-    "message1": "See you again!",
-    "message2": "Thanks for using Budgee. You are now successfully signed out.",
-    "logout": "Retour to login"
-  },
-  "LoginPage": {
-    "title1": "You already have an account",
-    "title2": "Log in here",
-    "usernameOrEmail": "Username ou Email",
-    "password": "Password",
-    "arialLabelPassword": "Afficher le mot de passe",
-    "connexion": "Se connecter",
-    "newUser": "New here ?",
-    "linkNewUser": "Create an account"
-  },
-  "ProfilePage": {
-
-  },
-  "RegisterPage": {
-    "title1": "You're new here",
-    "title2": "Register here",
-    "firstName": "Firstname",
-    "name": "Lastname",
-    "userName": "Username",
-    "email": "Email",
-    "confirmPassword": "Confirm Password",
-    "typeAccount": "Account Type",
-    "budgetStart": "Starting Budget",
-    "taux": "Rate",
-    "alreadyUser": "Already have an account ?",
-    "alreadyUserLink": "Log in here",
-    "back": "Back",
-    "next": "Next",
-    "register": "Confirm"
-  },
-  "StatistiquePage": {
-
-  },
-  "TransactionPage": {
-
-  },
-  "Navbar": {
-
-  },
-  "Sidebar": {
-
+  "translation": {
+    "AccountPage": {
+      "addAccount": "Add an account",
+      "typeAccount": "Account Type",
+      "budetStart": "Starting budget (in €):",
+      "taux": "Rate (in %):",
+      "modAccount": "Modify an account",
+      "save": "Save",
+      "add": "Add"
+    },
+    "CategoryPage": {
+      "titleCat": "list of categories",
+      "addCat": "Add catégories",
+      "theme": "Thème :",
+      "name": "Name :",
+      "color": "Color :"
+    },
+    "DashboardPage": {
+      "tableTitle": "Transaction History",
+      "tableDate": "Date",
+      "tablePaiemant": "Payment",
+      "tableBeneficiare": "Bénéficiary",
+      "tableSolde": "Balance"
+    },
+    "DeconnexionPage": {
+      "message1": "See you again!",
+      "message2": "Thanks for using Budgee. You are now successfully signed out.",
+      "logout": "Retour to login"
+    },
+    "LoginPage": {
+      "title1": "You already have an account",
+      "title2": "Log in here",
+      "usernameOrEmail": "Username ou Email",
+      "password": "Password",
+      "arialLabelPassword": "Show password",
+      "connexion": "Log in",
+      "newUser": "New here ?",
+      "linkNewUser": "Create an account"
+    },
+    "ProfilePage": {
+      "linkDetailProfil": "Profil Detail",
+      "linkDetailAccount": "Account Detail",
+      "linkMethodCo": "Sign-in method",
+      "linkDeleteUser": "Delete Account",
+      "labelFirstname": "Firstname",
+      "labelName": "Name",
+      "labelUsername": "Username",
+      "labelDownloadPicture": "Upload picture",
+      "cancel": "Cancel",
+      "save": "Save",
+      "labelAccountType": "Account type",
+      "changeAccountType": "Change account type",
+      "newType": "New type",
+      "labelBudgetStart": "Starting budget",
+      "changeBudgetStart": "Change starting budget",
+      "newBudget": "New budget",
+      "labelEmail": "Email",
+      "changeEmail": "Change email",
+      "newEmail": "New email",
+      "labelPassword": "Password",
+      "changePassword": "Reset password",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm password",
+      "message1": "Please note, deleting your account is a permanent action and",
+      "message2": "will no be recoverable once completed.",
+      "supprUser": "Delte",
+      "popupConfirm": "Confirm deletion",
+      "popupMessage": "Are you sure you want to delete your account?",
+      "popupSupprUser": "Permanently delete"
+    },
+    "RegisterPage": {
+      "title1": "You're new here",
+      "title2": "Register here",
+      "firstName": "Firstname",
+      "name": "Lastname",
+      "userName": "Username",
+      "email": "Email",
+      "confirmPassword": "Confirm Password",
+      "typeAccount": "Account Type",
+      "budgetStart": "Starting Budget",
+      "taux": "Rate",
+      "alreadyUser": "Already have an account ?",
+      "alreadyUserLink": "Log in here",
+      "back": "Back",
+      "next": "Next",
+      "register": "Confirm"
+    },
+    "StatistiquePage": {
+      "actualSolde": "Actual solde",
+      "nbAccount": "account number",
+      "gainMois": "earn this month",
+      "depenseMois": "spend this month",
+      "titleChartBar": "Monthly Expenses and Income"
+    },
+    "TransactionPage": {
+      "addTransaction": "Add a transaction",
+      "date": "Date:",
+      "categorie": "Catégory:",
+      "typeAccount": "Account Type",
+      "beneficiare": "Bénéficiary:",
+      "amountType": "amount Type:",
+      "modTransaction": "Modify transaction",
+      "paiement": "Payment",
+      "amount": "Amount",
+      "comment": "Comment",
+      "titleTableDate": "Date",
+      "titleTableAccountType": "Account Type",
+      "titleTablePaiement": "Payment",
+      "titleTableBeneficiare": "Bénéficiary",
+      "titleTableCat": "Category",
+      "titleTableComment": "Comment",
+      "titleTableDebit": "Débit",
+      "titleTableCredit": "Crédit",
+      "titleTableSolde": "Balance"
+    },
+    "Navbar": {
+      "altUsername": "Username",
+      "altProfil": "Profil picture"
+    },
+    "Sidebar": {
+      "dashboard": "Dashboard",
+      "transaction": "Transaction",
+      "category": "Catégory",
+      "account": "Account",
+      "statistique": "Statistical"
+    }
   }
 }

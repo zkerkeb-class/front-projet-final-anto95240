@@ -1,58 +1,129 @@
 {
-  "AccountPage":{
-
-  },
-  "CategoryPage":{
-
-  },
-  "DashboardPage":{
-
-  },
-  "DeconnexionPage":{
-    "message1": "À bientôt",
-    "message2": "Merci d'avoir utiliser Budgee. Vous êtes maintenant déconnecté.",
-    "logout": "Retour à la connexion"
-  },
-  "LoginPage":{
-    "title1": "Vous avez déjà un compte",
-    "title2": "Connectez-vous ici",
-    "usernameOrEmail": "Nom d’Utilisateur ou Email",
-    "password": "Mot de Passe",
-    "arialLabelPassword": "Afficher le mot de passe",
-    "connexion": "Se connecter",
-    "newUser": "Nouveau ici ?",
-    "linkNewUser": "Créer un compte"
-  },
-  "ProfilePage":{
-
-  },
-  "RegisterPage":{
-    "title1": "Vous êtes nouveaux ici",
-    "title2": "Inscrivez-vous ici",
-    "firstName": "Prénom",
-    "name": "Nom",
-    "userName": "Nom d’Utilisateur",
-    "email": "Email",
-    "confirmPassword": "Confirmer le mot de passe",
-    "typeAccount": "Type de compte",
-    "budgetStart": "Budget de départ",
-    "taux": "Taux",
-    "alreadyUser": "Vous avez déjà un compte ?",
-    "alreadyUserLink": "Se connecter ici",
-    "back": "Retour",
-    "next": "Continuer",
-    "register": "Confirmer"
-  },
-  "StatistiquePage":{
-
-  },
-  "TransactionPage":{
-
-  },
-  "Navbar": {
-
-  },
-  "Sidebar": {
-    
+  "translation": {
+    "AccountPage":{
+      "addAccount": "Ajouter un compte",
+      "typeAccount": "Type de compte :",
+      "budetStart": "Budget de départ (en €):",
+      "taux": "Taux (en %):",
+      "modAccount": "Modifier un compte",
+      "save": "Enregistrer",
+      "add": "Ajouter"
+    },
+    "CategoryPage":{
+      "titleCat": "liste des categories",
+      "addCat": "Ajouter des catégories",
+      "theme": "Thème :",
+      "name": "Nom :",
+      "color": "Couleur :"
+    },
+    "DashboardPage":{
+      "tableTitle": "Historique des transactions",
+      "tableDate": "Date",
+      "tablePaiemant": "Paiement",
+      "tableBeneficiare": "Bénéficiare",
+      "tableSolde": "Somme"
+    },
+    "DeconnexionPage":{
+      "message1": "À bientôt",
+      "message2": "Merci d'avoir utiliser Budgee. Vous êtes maintenant déconnecté.",
+      "logout": "Retour à la connexion"
+    },
+    "LoginPage":{
+      "title1": "Vous avez déjà un compte",
+      "title2": "Connectez-vous ici",
+      "usernameOrEmail": "Nom d’Utilisateur ou Email",
+      "password": "Mot de Passe",
+      "arialLabelPassword": "Afficher le mot de passe",
+      "connexion": "Se connecter",
+      "newUser": "Nouveau ici ?",
+      "linkNewUser": "Créer un compte"
+    },
+    "ProfilePage":{
+      "linkDetailProfil": "Détail du profil",
+      "linkDetailAccount": "Détail du compte",
+      "linkMethodCo": "Methode de connexion",
+      "linkDeleteUser": "Supprimer le compte",
+      "labelFirstname": "Prénom",
+      "labelName": "Nom",
+      "labelUsername": "Nom d'utilisateur",
+      "labelDownloadPicture": "Télécharger une photo",
+      "cancel": "Annuler",
+      "save": "Enregistrer",
+      "labelAccountType": "Type de compte",
+      "changeAccountType": "Changer le type de compte",
+      "newType": "Nouveau type",
+      "labelBudgetStart": "Budget de départ",
+      "changeBudgetStart": "Changer le budget de départ",
+      "newBudget": "Nouveau budget",
+      "labelEmail": "Email",
+      "changeEmail": "Changer l'email",
+      "newEmail": "Nouvel email",
+      "labelPassword": "Mot de passe",
+      "changePassword": "Réinitialiser le mot de passe",
+      "newPassword": "Nouveau mot de passe",
+      "confirmPassword": "Confirmation du mot de passe",
+      "message1": "Veuillez noter que la suppression de votre compte est une action définitive et",
+      "message2": "ne sera pas récupérable une fois effectuée.",
+      "supprUser": "Supprimer",
+      "popupConfirm": "Confirmer la suppression",
+      "popupMessage": "Êtes-vous sûr de vouloir supprimer votre compte ?",
+      "popupSupprUser": "Supprimer définitivement"
+    },
+    "RegisterPage":{
+      "title1": "Vous êtes nouveaux ici",
+      "title2": "Inscrivez-vous ici",
+      "firstName": "Prénom",
+      "name": "Nom",
+      "userName": "Nom d’Utilisateur",
+      "email": "Email",
+      "confirmPassword": "Confirmer le mot de passe",
+      "typeAccount": "Type de compte",
+      "budgetStart": "Budget de départ",
+      "taux": "Taux",
+      "alreadyUser": "Vous avez déjà un compte ?",
+      "alreadyUserLink": "Se connecter ici",
+      "back": "Retour",
+      "next": "Continuer",
+      "register": "Confirmer"
+    },
+    "StatistiquePage":{
+      "actualSolde": "solde Actuel",
+      "nbAccount": "nombre de compte",
+      "gainMois": "gagner ce mois ci",
+      "depenseMois": "dépenser ce mois ci",
+      "titleChartBar": "Dépenses et Revenus mensuels"
+    },
+    "TransactionPage":{
+      "addTransaction": "ajouter un transaction",
+      "date": "Date:",
+      "categorie": "Catégorie:",
+      "typeAccount": "Type de compte:",
+      "beneficiare": "Bénéficiaire:",
+      "amountType": "Type de montant:",
+      "modTransaction": "Modifier la transaction",
+      "paiement": "Paiement",
+      "amount": "Montant",
+      "comment": "Commentaire",
+      "titleTableDate": "Date",
+      "titleTableAccountType": "Type de compte",
+      "titleTablePaiement": "Paiement",
+      "titleTableBeneficiare": "Bénéficiare",
+      "titleTableCat": "Categorie",
+      "titleTableComment": "Commentaire",
+      "titleTableDebit": "Debit",
+      "titleTableCredit": "Credit",
+      "titleTableSolde": "Solde"
+    },
+    "Navbar": {
+      "altUsername": "Nom d'utilisateur",
+      "altProfil": "Photo de porfil"
+    },
+    "Sidebar": {
+      "dashboard": "Dashboard",
+      "transaction": "Transaction",
+      "category": "Catégorie",
+      "account": "Compte",
+      "statistique": "Statistique"
+    }
   }
 }

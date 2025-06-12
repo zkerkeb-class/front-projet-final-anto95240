@@ -39,9 +39,9 @@ const Navbar = ({ user }) => {
       <h1 className="page-title">{pageTitle}</h1>
 
       <div className="user-info">
-        <span className="user-name" alt="Nom d'utilisateur">{user.name}</span>
+        <span className="user-name" alt={t('Navbar.altUsername')}>{user.name}</span>
         <Link className="profile-pic" to="/profile">
-            <img src={user.profilePicture} alt="Profil" />
+            <img src={user.profilePicture} alt={t('Navbar.altProfil')} />
         </Link>
         
         <Link className="deconnexion-pic" to="/deconnexion">

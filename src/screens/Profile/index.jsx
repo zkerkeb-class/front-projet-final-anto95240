@@ -34,146 +34,142 @@ const ProfilePage = () => {
         
         <div className="profile-container">
           <div className="profile-sidebar">
-            <a href="#profile-section">Détail du profil</a>
-            <a href="#account-details-section">Détail du compte</a>
-            <a href="#login-section">Methode de connexion</a>
-            <a href="#account-delete-section">Supprimer le compte</a>
+            <a href="#profile-section">{t('ProfilePage.linkDetailProfil')}</a>
+            <a href="#account-details-section">{t('ProfilePage.linkDetailAccount')}</a>
+            <a href="#login-section">{t('ProfilePage.linkMethodCo')}</a>
+            <a href="#account-delete-section">{t('ProfilePage.linkDeleteUser')}</a>
           </div>
 
           <div className="profile-content">
             {/* Profil */}
             <section className="profile-card" id="profile-section">
-              <h3>Détail du profil</h3>
+              <h3>{t('ProfilePage.linkDetailProfil')}</h3>
               <hr />
               <div className="profile-form">
                 <div className="profile-fields">
                   <div className="profile-fields-item">
-                    <label>Prénom</label>
+                    <label>{t('ProfilePage.labelFirstname')}</label>
                     <input type="text" defaultValue={user.firstname} />
                   </div>
                   <div className="profile-fields-item">
-                    <label>Nom</label>
+                    <label>{t('ProfilePage.labelName')}</label>
                     <input type="text"  defaultValue={user.lastname} />
                   </div>
                   <div className="profile-fields-item">
-                    <label>Nom d'utilisateur</label>
+                    <label>{t('ProfilePage.labelUsername')}</label>
                     <input type="text"  defaultValue={user.username} />
                   </div>
                 
                 </div>
                 <div className="profile-avatar">
                   <div className="avatar-circle"></div>
-                  <button className="btn-img">Télécharger une photo</button>
+                  <button className="btn-img">{t('ProfilePage.labelDownloadPicture')}</button>
                 </div>
               </div>
               <div className="profile-actions">
-                <button className="btn-light">Annuler</button>
-                <button className="btn-blue">Enregistrer</button>
+                <button className="btn-light">{t('ProfilePage.cancel')}</button>
+                <button className="btn-blue">{t('ProfilePage.save')}</button>
               </div>
             </section>
 
             {/* Account */}
             <section className="profile-card" id="account-details-section">
-              <h3>Détail du compte</h3>
+              <h3>{t('ProfilePage.linkDetailAccount')}</h3>
               <hr />
               <div className="account-info">
                 <div className="account-info-item">
                   <div>
-                    <p className="label">Type de compte</p>
+                    <p className="label">{t('ProfilePage.labelAccountType')}</p>
                     <p className="value">Compte bancaire</p>
                   </div>
                   <button
                     className="btn-light small"
                     onClick={() => setShowAccountTypeForm(!showAccountTypeForm)}
                   >
-                    Changer le type de compte
-                  </button>
+                    {t('ProfilePage.changeAccountType')} </button>
                 </div>
                 {showAccountTypeForm && (
                   <div className="inline-form">
-                    <input type="text" placeholder="Nouveau type" />
+                    <input type="text" placeholder={t('ProfilePage.newType')} />
                   </div>
                 )}
 
                 <div className="account-info-item">
                   <div>
-                    <p className="label">Budget de départ</p>
+                    <p className="label">{t('ProfilePage.labelBudgetStart')}</p>
                     <p className="value">300 €</p>
                   </div>
                   <button
                     className="btn-light small"
                     onClick={() => setShowBudgetForm(!showBudgetForm)}
                   >
-                    Changer le budget de départ
-                  </button>
+                    {t('ProfilePage.changeBudgetStart')} </button>
                 </div>
                 {showBudgetForm && (
                   <div className="inline-form">
-                    <input type="number" placeholder="Nouveau budget" />
+                    <input type="number" placeholder={t('ProfilePage.newBudget')} />
                   </div>
                 )}
               </div>
               
 
               <div className="profile-actions">
-                <button className="btn-light">Annuler</button>
-                <button className="btn-blue">Enregistrer</button>
+                <button className="btn-light">{t('ProfilePage.cancel')}</button>
+                <button className="btn-blue">{t('ProfilePage.save')}</button>
               </div>
             </section>
 
             {/* Connexion */}
             <section className="profile-card" id="login-section">
-              <h3>Methode de connexion</h3>
+              <h3>{t('ProfilePage.linkMethodCo')}</h3>
               <hr />
               <div className="account-info">
                 <div className="account-info-item">
                   <div>
-                    <p className="label">Email</p>
+                    <p className="label">{t('ProfilePage.labelEmail')}</p>
                     <p className="value">{user.email}</p>
                   </div>
                   <button
                     className="btn-light small"
                     onClick={() => setShowEmailForm(!showEmailForm)}
                   >
-                    Changer l'email
-                  </button>
+                    {t('ProfilePage.changeEmail')} </button>
                 </div>
                 {showEmailForm && (
                   <div className="inline-form">
-                    <input type="email" placeholder="Nouvel email" />
+                    <input type="email" placeholder={t('ProfilePage.newEmail')} />
                   </div>
                 )}
 
                 <div className="account-info-item">
                   <div>
-                    <p className="label">Mot de passe</p>
+                    <p className="label">{t('ProfilePage.labelPassword')}</p>
                     <p className="value">********</p>
                   </div>
                   <button
                     className="btn-light small"
                     onClick={() => setShowPasswordForm(!showPasswordForm)}
                   >
-                    Réinitialiser le mot de passe
-                  </button>
+                    {t('ProfilePage.changePassword')} </button>
                 </div>
                 {showPasswordForm && (
                   <div className="inline-form">
-                    <input type="password" placeholder="Nouveau mot de passe" />
-                    <input type="password" placeholder="Confirmation du mot de passe" />
+                    <input type="password" placeholder={t('ProfilePage.newPassword')} />
+                    <input type="password" placeholder={t('ProfilePage.confirmPassword')} />
                   </div>
                 )}
               </div>
               
 
               <div className="profile-actions">
-                <button className="btn-light">Annuler</button>
-                <button className="btn-blue">Enregistrer</button>
+                <button className="btn-light">{t('ProfilePage.cancel')}</button>
+                <button className="btn-blue">{t('ProfilePage.save')}</button>
               </div>
             </section>
 
             {/* Suppression */}
             <section className="profile-card" id="account-delete-section">
-              <h3>Supprimer votre compte</h3>
+              <h3>{t('ProfilePage.linkDeleteUser')}</h3>
               <hr />
               <div className="profile-delete">
                 {/* <p className="delete-warning">
@@ -181,11 +177,10 @@ const ProfilePage = () => {
                   will not be recoverable once completed.
                 </p> */}
                 <p className="delete-warning">
-                  Veuillez noter que la suppression de votre compte est une action définitive et <br />
-                  ne sera pas récupérable une fois effectuée.
-                </p>
+                  {t('ProfilePage.message1')} <br />
+                  {t('ProfilePage.message2')} </p>
                 <div className="profile-actions">
-                  <button className="btn-red" onClick={() => setShowDeletePopup(true)}>Supprimer</button>
+                  <button className="btn-red" onClick={() => setShowDeletePopup(true)}>{t('ProfilePage.supprUser')}</button>
                 </div>
               </div>
               
@@ -201,11 +196,11 @@ const ProfilePage = () => {
       {showDeletePopup && (
         <div className="modal-overlay" onClick={() => setShowDeletePopup(false)}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
-            <h4>Confirmer la suppression</h4>
-            <p>Êtes-vous sûr de vouloir supprimer votre compte ?</p>
+            <h4>{t('ProfilePage.popupConfirm')}</h4>
+            <p>{t('ProfilePage.popupMessage')}</p>
             <div className="modal-actions">
-              <button className="btn-light" onClick={() => setShowDeletePopup(false)}>Annuler</button>
-              <button className="btn-red">Supprimer définitivement</button>
+              <button className="btn-light" onClick={() => setShowDeletePopup(false)}>{t('ProfilePage.cancel')}</button>
+              <button className="btn-red">{t('ProfilePage.popupSupprUser')}</button>
             </div>
           </div>
         </div>

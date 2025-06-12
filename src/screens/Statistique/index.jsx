@@ -6,6 +6,7 @@ import { Bar, Doughnut  } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend } from "chart.js";
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
+import ThemeTrad from "../../components/ThemeTrad";
 import { useTranslation } from "react-i18next";
 
 ChartJS.register(
@@ -129,22 +130,21 @@ const StatistiquePage = () => {
 
                 {/* Ici ton contenu principal */}
                 <div className="dashboard-content">
-                    <h2>Bienvenue sur le Dashboard</h2>
                     <section className="dashboard-card-grid">
                         <div className="dashboard-card-body">
-                        <p className="card-label">solde Actuel</p>
+                        <p className="card-label">{t('StatistiquePage.actualSolde')}</p>
                         <h1 className="card-value">1000 €</h1>
                         </div>
                         <div className="dashboard-card-body">
-                        <p className="card-label">nombre de compte</p>
+                        <p className="card-label">{t('StatistiquePage.nbAccount')}</p>
                         <h1 className="card-value">1</h1>
                         </div>
                         <div className="dashboard-card-body">
-                        <p className="card-label">gagner ce mois ci</p>
+                        <p className="card-label">{t('StatistiquePage.gainMois')}</p>
                         <h1 className="card-value">1000 €</h1>
                         </div>
                         <div className="dashboard-card-body">
-                        <p className="card-label">dépenser ce mois ci</p>
+                        <p className="card-label">{t('StatistiquePage.depenseMois')}</p>
                         <h1 className="card-value">1000 €</h1>
                         </div>
                     </section>
@@ -167,10 +167,13 @@ const StatistiquePage = () => {
                     
                     
                     <section className="dashboard-chart">
-                        <h3 className="chart-label">Dépenses et Revenus mensuels</h3>
+                        <h3 className="chart-label">{t('StatistiquePage.titleChartBar')}</h3>
                         <Bar data={data} options={options}/>
                     </section>
                 </div>
+            </div>
+            <div className="theme-wrapper">
+              <ThemeTrad />
             </div>
         </div>
     </div>;
