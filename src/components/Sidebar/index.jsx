@@ -19,13 +19,20 @@ const Sidebar = () => {
   const location = useLocation();
   const [isHovered, setIsHovered] = useState(false);
   const [isPinned, setIsPinned] = useState(() => {
-    const stored = localStorage.getItem("sidebarPinned");
+  const stored = localStorage.getItem("sidebarPinned");
     return stored === "true";
   });
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const isExpanded = isHovered || isPinned || isMobileMenuOpen;
+
+  const handleLinkClick = () => {
+    if (isMobile) {
+      setIsMobileMenuOpen(false);
+    }
+  };
 
   // Met à jour localStorage quand isPinned change
   useEffect(() => {
@@ -82,7 +89,7 @@ const Sidebar = () => {
 
         <nav className="sidebar-menu">
           <div className="menu-section">
-            <Link to="/dashboard" className={`menu-item ${location.pathname === "/dashboard" ? "active" : ""}`}>
+            <Link to="/dashboard" onClick={handleLinkClick} className={`menu-item ${location.pathname === "/dashboard" ? "active" : ""}`}>
                 <div className="fa-icon-wrapper">
                     <FontAwesomeIcon icon={faHouse} />
                 </div>
@@ -91,7 +98,7 @@ const Sidebar = () => {
           </div>
 
           <div className="menu-section">
-            <Link to="/transaction" className={`menu-item ${location.pathname === "/transaction" ? "active" : ""}`}>
+            <Link to="/transaction" onClick={handleLinkClick} className={`menu-item ${location.pathname === "/transaction" ? "active" : ""}`}>
               <div className="fa-icon-wrapper">
                 <FontAwesomeIcon icon={faArrowRightArrowLeft} />
               </div>
@@ -100,7 +107,7 @@ const Sidebar = () => {
           </div>
 
           <div className="menu-section">
-            <Link to="/category" className={`menu-item ${location.pathname === "/category" ? "active" : ""}`}>
+            <Link to="/category" onClick={handleLinkClick} className={`menu-item ${location.pathname === "/category" ? "active" : ""}`}>
               <div className="fa-icon-wrapper">
                 <FontAwesomeIcon icon={faFolder} />
               </div>
@@ -109,7 +116,7 @@ const Sidebar = () => {
           </div>
 
           <div className="menu-section">
-            <Link to="/account" className={`menu-item ${location.pathname === "/account" ? "active" : ""}`}>
+            <Link to="/account" onClick={handleLinkClick} className={`menu-item ${location.pathname === "/account" ? "active" : ""}`}>
               <div className="fa-icon-wrapper">
                 <FontAwesomeIcon icon={faWallet} />
               </div>
@@ -118,7 +125,7 @@ const Sidebar = () => {
           </div>
 
           <div className="menu-section">
-            <Link to="/statistique" className={`menu-item ${location.pathname === "/statistique" ? "active" : ""}`}>
+            <Link to="/statistique" onClick={handleLinkClick} className={`menu-item ${location.pathname === "/statistique" ? "active" : ""}`}>
               <div className="fa-icon-wrapper">
                 <FontAwesomeIcon icon={faChartSimple} />
               </div>

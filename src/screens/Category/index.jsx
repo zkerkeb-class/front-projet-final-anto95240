@@ -8,88 +8,167 @@ import ThemeTrad from "../../components/ThemeTrad";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPen,
-  faTrash
+  faTrash,
+  faPlus,
+  faXmark
 } 
 from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from 'react-i18next';
 
 const CategoryPage = () => {
     const { t } = useTranslation();
-  const user = {
+    const [showForm, setShowForm] = useState(false);
+    const [isEditMode, setIsEditMode] = useState(false);
+
+
+    const [formData, setFormData] = useState({
+        theme: "",
+        title: "",
+        color: "#000000"
+    });
+
+    const openAddForm = () => {
+        setIsEditMode(false);
+        setFormData({ theme: "", title: "", color: "#000000" });
+        setShowForm(true);
+    };
+
+    const openEditForm = (category) => {
+        setIsEditMode(true);
+        setFormData(category);
+        setShowForm(true);
+    };
+
+    const closeForm = () => {
+        setShowForm(false);
+        setFormData({ theme: "", title: "", color: "#000000" });
+        setIsEditMode(false);
+    };
+
+    const handleChange = (e) => {
+        setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    };
+    
+    const user = {
     name: "Alice Dupont",
     profilePicture: "/images/alice.jpg",
   };
 
     return (
-        <div className="dashboard-layout">
-            <Sidebar />
+        <div className="category-container">
+            {/* <h2>Bienvenue sur le Dashboard</h2> */}
+            <div className="category">
+                <button className="btn-add-mobile" onClick={openAddForm}>
+                    <FontAwesomeIcon icon={faPlus} /> {t('CategoryPage.addCat')}
+                </button>
+                <h1>{t('CategoryPage.titleCat')}</h1>
+                <div className="category-list">
+                    <p className="titleCat">Divertissement</p>
+                    <ul>
+                        <li className="cat">
+                            <button className="btn-edit"  onClick={() => openEditForm({
+                            theme: "Divertissement",
+                            title: "Streaming",
+                            color: "#1abc9c"
+                            })}>
+                                <FontAwesomeIcon icon={faPen} />
+                            </button>
+                            <button className="btn-delete"><FontAwesomeIcon icon={faTrash} /></button>
+                            <p>Streaming</p>
+                        </li>
+                        <li className="cat">
+                            <button className="btn-edit"  onClick={() => openEditForm({
+                            theme: "Divertissement",
+                            title: "Ciné",
+                            color: "#1abc9c"
+                            })}>
+                                <FontAwesomeIcon icon={faPen} />
+                            </button>
+                            <button className="btn-delete"><FontAwesomeIcon icon={faTrash} /></button>
+                            <p>Ciné</p>
+                        </li>
+                    </ul>
 
-            <div className="dashboard-main">
-                <Navbar user={user} />
-
-                {/* Ici ton contenu principal */}
-                <div className="category-container">
-                    {/* <h2>Bienvenue sur le Dashboard</h2> */}
-                    <div className="category">
-                        {/* <button className="btn-add">
-                            <p>ajouter une category</p>
-                        </button> */}
-                        <h1>{t('CategoryPage.titleCat')}</h1>
-                        <div className="category-list">
-                            <p className="titleCat">Divertissement</p>
-                            <ul>
-                                <li className="cat">
-                                    <button className="btn-edit"><FontAwesomeIcon icon={faPen} /></button>
-                                    <button className="btn-delete"><FontAwesomeIcon icon={faTrash} /></button>
-                                    <p>Streaming</p>
-                                </li>
-                                <li className="cat">
-                                    <button className="btn-edit"><FontAwesomeIcon icon={faPen} /></button>
-                                    <button className="btn-delete"><FontAwesomeIcon icon={faTrash} /></button>
-                                    <p>Ciné</p>
-                                </li>
-                            </ul>
-
-                            <p className="titleCat">Jeux Vidéos</p>
-                            <ul>
-                                <li className="cat">
-                                    <button className="btn-edit"><FontAwesomeIcon icon={faPen} /></button>
-                                    <button className="btn-delete"><FontAwesomeIcon icon={faTrash} /></button>
-                                    <p>Jeux 1</p>
-                                </li>
-                                <li className="cat">
-                                    <button className="btn-edit"><FontAwesomeIcon icon={faPen} /></button>
-                                    <button className="btn-delete"><FontAwesomeIcon icon={faTrash} /></button>
-                                    <p>Jeux 2</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <form className="add-category">
-                        <h3>{t('CategoryPage.addCat')}</h3>
-                        <div className="cat-theme">
-                            <label>
-                            {t('CategoryPage.theme')} <input type="text" name="theme" required />
-                            </label>
-                        </div>
-                        <div className="cat-title">
-                            <label>
-                            {t('CategoryPage.name')} <input type="text" name="title" required />
-                            </label>
-                        </div>
-                        <div className="cat-color">
-                            <label>
-                            {t('CategoryPage.color')} <input type="color" name="color" />
-                            </label>
-                        </div>
-                        <button type="submit" className="btn-add">AJOUTER</button>
-                    </form>
-
+                    <p className="titleCat">Jeux Vidéos</p>
+                    <ul>
+                        <li className="cat">
+                            <button className="btn-edit"  onClick={() => openEditForm({
+                            theme: "Jeux Vidéos",
+                            title: "Jeu 1",
+                            color: "#1abc9c"
+                            })}>
+                                <FontAwesomeIcon icon={faPen} />
+                            </button>
+                            <button className="btn-delete"><FontAwesomeIcon icon={faTrash} /></button>
+                            <p>Jeu 1</p>
+                        </li>
+                        <li className="cat">
+                            <button className="btn-edit"  onClick={() => openEditForm({
+                            theme: "Jeux Vidéos",
+                            title: "Jeu 2",
+                            color: "#1abc9c"
+                            })}>
+                                <FontAwesomeIcon icon={faPen} />
+                            </button>
+                            <button className="btn-delete"><FontAwesomeIcon icon={faTrash} /></button>
+                            <p>Jeu 2</p>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div className="theme-wrapper">
-                <ThemeTrad />
-            </div>
+            
+            {showForm && <div className="modal-overlay-cat" onClick={closeForm}></div>}
+
+            {/* FORMULAIRE D'AJOUT */}
+            <form className={`add-category ${showForm ? "show" : ""}`}>
+                <button type="button" className="btn-close" onClick={closeForm}>
+                    <FontAwesomeIcon icon={faXmark} />
+                </button>
+                <h3>{isEditMode ? t('CategoryPage.editCat') : t('CategoryPage.addCat')}</h3>
+                
+                <div className="cat-theme">
+                <label>
+                    {t('CategoryPage.theme')}
+                    <input
+                    type="text"
+                    name="theme"
+                    value={formData.theme}
+                    onChange={handleChange}
+                    required
+                    />
+                </label>
+                </div>
+
+                <div className="cat-title">
+                <label>
+                    {t('CategoryPage.name')}
+                    <input
+                    type="text"
+                    name="title"
+                    value={formData.title}
+                    onChange={handleChange}
+                    required
+                    />
+                </label>
+                </div>
+
+                <div className="cat-color">
+                <label>
+                    {t('CategoryPage.color')}
+                    <input
+                    type="color"
+                    name="color"
+                    value={formData.color}
+                    onChange={handleChange}
+                    />
+                </label>
+                </div>
+
+                <button type="submit" className="btn-add">
+                    {isEditMode ? t('CategoryPage.editCat') : t('CategoryPage.addCat')}
+                </button>
+            </form>
+
         </div>
     );
 };

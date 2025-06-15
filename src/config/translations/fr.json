@@ -12,6 +12,7 @@
     "CategoryPage":{
       "titleCat": "liste des categories",
       "addCat": "Ajouter des catégories",
+      "editCat": "Enregistrer des catégories",
       "theme": "Thème :",
       "name": "Nom :",
       "color": "Couleur :"

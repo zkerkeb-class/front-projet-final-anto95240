@@ -109,60 +109,48 @@ const StatistiquePage = () => {
 
 
     return (
-        <div className="dashboard-layout">
-            <Sidebar />
+        <div className="dashboard-content">
+          <section className="dashboard-card-grid">
+              <div className="dashboard-card-body">
+              <p className="card-label">{t('StatistiquePage.actualSolde')}</p>
+              <h1 className="card-value">1000 €</h1>
+              </div>
+              <div className="dashboard-card-body">
+              <p className="card-label">{t('StatistiquePage.nbAccount')}</p>
+              <h1 className="card-value">1</h1>
+              </div>
+              <div className="dashboard-card-body">
+              <p className="card-label">{t('StatistiquePage.gainMois')}</p>
+              <h1 className="card-value">1000 €</h1>
+              </div>
+              <div className="dashboard-card-body">
+              <p className="card-label">{t('StatistiquePage.depenseMois')}</p>
+              <h1 className="card-value">1000 €</h1>
+              </div>
+          </section>
+          <section className="dashboard-chart-dougnut">
+              <div className="dashboard-chart-small">
+                  <h3 className="chart-label">Répartition ce mois-ci</h3>
+                  <Doughnut data={doughnutData} options={doughnutOptions} />
+              </div>
 
-            <div className="dashboard-main">
-                <Navbar user={user} />
+              <div className="dashboard-chart-small">
+                  <h3 className="chart-label">Répartition ce mois-ci</h3>
+                  <Doughnut data={doughnutData} options={doughnutOptions} />
+              </div>
 
-                {/* Ici ton contenu principal */}
-                <div className="dashboard-content">
-                    <section className="dashboard-card-grid">
-                        <div className="dashboard-card-body">
-                        <p className="card-label">{t('StatistiquePage.actualSolde')}</p>
-                        <h1 className="card-value">1000 €</h1>
-                        </div>
-                        <div className="dashboard-card-body">
-                        <p className="card-label">{t('StatistiquePage.nbAccount')}</p>
-                        <h1 className="card-value">1</h1>
-                        </div>
-                        <div className="dashboard-card-body">
-                        <p className="card-label">{t('StatistiquePage.gainMois')}</p>
-                        <h1 className="card-value">1000 €</h1>
-                        </div>
-                        <div className="dashboard-card-body">
-                        <p className="card-label">{t('StatistiquePage.depenseMois')}</p>
-                        <h1 className="card-value">1000 €</h1>
-                        </div>
-                    </section>
-                    <section className="dashboard-chart-dougnut">
-                       <div className="dashboard-chart-small">
-                            <h3 className="chart-label">Répartition ce mois-ci</h3>
-                            <Doughnut data={doughnutData} options={doughnutOptions} />
-                        </div>
-
-                        <div className="dashboard-chart-small">
-                            <h3 className="chart-label">Répartition ce mois-ci</h3>
-                            <Doughnut data={doughnutData} options={doughnutOptions} />
-                        </div>
-
-                        <div className="dashboard-chart-small">
-                            <h3 className="chart-label">Répartition ce mois-ci</h3>
-                            <Doughnut data={doughnutData} options={doughnutOptions} />
-                        </div> 
-                    </section>
-                    
-                    
-                    <section className="dashboard-chart">
-                        <h3 className="chart-label">{t('StatistiquePage.titleChartBar')}</h3>
-                        <Bar data={data} options={options}/>
-                    </section>
-                </div>
-            </div>
-            <div className="theme-wrapper">
-              <ThemeTrad />
-            </div>
-        </div>
+              <div className="dashboard-chart-small">
+                  <h3 className="chart-label">Répartition ce mois-ci</h3>
+                  <Doughnut data={doughnutData} options={doughnutOptions} />
+              </div> 
+          </section>
+          
+          
+          <section className="dashboard-chart">
+              <h3 className="chart-label">{t('StatistiquePage.titleChartBar')}</h3>
+              <Bar data={data} options={options}/>
+          </section>
+      </div>
     );
 };
 

@@ -53,43 +53,31 @@ const AccountPage = () => {
 
     return (
       <div>
-        <div className="dashboard-layout">
-            <Sidebar />
-
-            <div className="dashboard-main">
-                <Navbar user={user} />
-
-                {/* Ici ton contenu principal */}
-                <div className="dashboard-content">
-                    <div>
-                        <button className="btn-add" onClick={openAddModal}>
-                            <p>{t('AccountPage.addAccount')}</p>
-                        </button>
-                    </div>
-                    <section className="account-list">
-                        <div className="account-header">
-                            <p className="items-label">Type de compte</p>
-                            <p className="items-value">Taux d'intêret</p>
-                        </div>
-                        <div className="account-item">
-                           <div className="account-items">
-                                <p>Dépense</p>
-                                <p>Gain</p>
-                                <p>Solde</p>
-                            </div> 
-                            <div className="account-btn">
-                                <button className="btn-edit" onClick={openEditModal}><FontAwesomeIcon icon={faPen} /></button>
-                                <button className="btn-delete"><FontAwesomeIcon icon={faTrash} /></button>
-                            </div>
-                        </div>
-                        
-                    </section>
-                </div>
-            </div>
-            <div className="theme-wrapper">
-              <ThemeTrad />
-            </div>
-        </div>
+        <div className="dashboard-content">
+          <div>
+              <button className="btn-add" onClick={openAddModal}>
+                  <p>{t('AccountPage.addAccount')}</p>
+              </button>
+          </div>
+          <section className="account-list">
+              <div className="account-header">
+                  <p className="items-label">Type de compte</p>
+                  <p className="items-value">Taux d'intêret</p>
+              </div>
+              <div className="account-item">
+                  <div className="account-items">
+                      <p>Dépense</p>
+                      <p>Gain</p>
+                      <p>Solde</p>
+                  </div> 
+                  <div className="account-btn">
+                      <button className="btn-edit" onClick={openEditModal}><FontAwesomeIcon icon={faPen} /></button>
+                      <button className="btn-delete"><FontAwesomeIcon icon={faTrash} /></button>
+                  </div>
+              </div>
+              
+          </section>
+      </div>
 
       {typeModal && (
         <div className="modal-overlay" onClick={closeModal}>

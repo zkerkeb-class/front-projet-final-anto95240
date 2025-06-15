@@ -1,12 +1,12 @@
 import { useState, useEffect, React } from "react";
 import { useLocation, Link } from "react-router";
 import "./Navbar.css";
+import ThemeTrad from "../ThemeTrad";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faRightFromBracket
 } 
 from "@fortawesome/free-solid-svg-icons";
-import { useTranslation } from "react-i18next";
 // import ThemeTrad from "../ThemeTrad";
 
 const pageTitles = {
@@ -20,37 +20,44 @@ const pageTitles = {
 };
 
 const Navbar = ({ user }) => {
-  const { t } = useTranslation();
   const location = useLocation();
   const pageTitle = pageTitles[location.pathname] || "Page";
   const [isScrolled, setIsScrolled] = useState(false);
+  
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+
   return (
     <header className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       <h1 className="page-title">{pageTitle}</h1>
 
-      <div className="user-info">
-        <span className="user-name" alt={t('Navbar.altUsername')}>{user.name}</span>
-        <Link className="profile-pic" to="/profile">
-            <img src={user.profilePicture} alt={t('Navbar.altProfil')} />
-        </Link>
-        
-        <Link className="deconnexion-pic" to="/deconnexion">
+      <div className="bottom-row">
+        <div className="user-info">
+          <span className="user-name">{user?.name}</span>
+          <Link className="profile-pic" to="/profile">
+            <img src={user?.profilePicture} alt="Profil" />
+          </Link>
+          <Link className="deconnexion-pic" to="/deconnexion">
             <FontAwesomeIcon icon={faRightFromBracket} />
-        </Link>
-      </div>
-        {/* <div className="theme-wrapper">
+          </Link>
+        </div>
+
+        <div className="theme-wrapper-desktop">
           <ThemeTrad />
-        </div> */}
+        </div>
+      </div>
     </header>
   );
 };

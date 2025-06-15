@@ -108,3 +108,74 @@ ul {
   color: black;
   cursor: pointer;
 }
+
+.btn-add-mobile {
+  display: flex;
+  gap: 10px;
+  margin: 20px auto;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: var(--color-btn);
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  box-shadow: var(--shadow-btn);
+}
+
+.btn-close {
+  display: none;
+}
+
+/* Responsive pour écrans de moins de 768px */
+@media screen and (max-width: 768px) {
+  .category-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-close { /* botn close*/
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    box-shadow: none;
+    width: 50px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--color-text);
+  }
+
+  .add-category { /* classe modal*/
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 350px;
+    z-index: 1000;
+    background-color: var(--color-bg-card-page-active);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-navbar-scroll);
+    text-align: center;
+  }
+
+  .add-category.show { /**/
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-overlay-cat { /*fond*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+  }
+}

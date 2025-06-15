@@ -51,101 +51,108 @@ const TransactionPage = () => {
     setTransactionToEdit(null);
   };
 
-    return (
+    const dummyTransactions = [
+    {
+      date: "2025-06-10",
+      typeCompte: "Compte courant",
+      paiement: "CB",
+      beneficiaire: "Alice",
+      categorie: "Courses",
+      commentaire: "Supermarché",
+      typeMontant: "debit",
+      montant: 50,
+      solde: 950,
+    },
+    {
+      date: "2025-06-11",
+      typeCompte: "Compte épargne",
+      paiement: "Virement",
+      beneficiaire: "Bob",
+      categorie: "Loisirs",
+      commentaire: "Concert",
+      typeMontant: "credit",
+      montant: 120,
+      solde: 1070,
+    },
+  ];
+
+  return (
     <div>
-        <div className="dashboard-layout">
-            <Sidebar />
+        <div className="transaction-content">
+            <div>
+                <button className="btn-add" onClick={openAddModal}>
+                    <p>{t('TransactionPage.addTransaction')}</p>
+                </button>
+            </div>
+            <section className="transaction-list">
+                <table className="transaction-table">
+                    <thead>
+                    <tr>
+                        <th>{t('TransactionPage.titleTableDate')}</th>
+                        <th>{t('TransactionPage.titleTableAccountType')}</th>
+                        <th>{t('TransactionPage.titleTablePaiement')}</th>
+                        <th>{t('TransactionPage.titleTableBeneficiare')}</th>
+                        <th>{t('TransactionPage.titleTableCat')}</th>
+                        <th>{t('TransactionPage.titleTableComment')}</th>
+                        <th>{t('TransactionPage.titleTableDebit')}</th>
+                        <th>{t('TransactionPage.titleTableCredit')}</th>
+                        <th>{t('TransactionPage.titleTableSolde')}</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {dummyTransactions.map((tx, index) => (
+                        <tr key={index}>
+                        <td>{tx.date}</td>
+                        <td>{tx.typeCompte}</td>
+                        <td>{tx.paiement}</td>
+                        <td>{tx.beneficiaire}</td>
+                        <td>{tx.categorie}</td>
+                        <td>{tx.commentaire}</td>
+                        <td>{tx.typeMontant === "debit" ? tx.montant : "-"}</td>
+                        <td>{tx.typeMontant === "credit" ? tx.montant : "-"}</td>
+                        <td>{tx.solde}</td>
+                        <td>
+                            <Link className="btn-edit" onClick={openEditModal}>
+                            <FontAwesomeIcon icon={faPen} />
+                            </Link>
+                        </td>
+                        <td>
+                            <Link className="btn-delete">
+                            <FontAwesomeIcon icon={faTrash} />
+                            </Link>
+                        </td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
 
-            <div className="dashboard-main">
-                <Navbar user={user} />
-
-                {/* Ici ton contenu principal */}
-                <div className="dashboard-content">
-                    <div>
-                        <button className="btn-add" onClick={openAddModal}>
-                            <p>{t('TransactionPage.addTransaction')}</p>
-                        </button>
+                {/* Vue Mobile - Cards */}
+                <div className="table-card-container">
+                    {dummyTransactions.map((tx, index) => (
+                    <div className="table-card" key={index}>
+                        <span><strong>{t('TransactionPage.date')} </strong> {tx.date}</span>
+                        <span><strong>{t('TransactionPage.typeAccount')} </strong> {tx.typeCompte}</span>
+                        <span><strong>{t('TransactionPage.paiement')} </strong> {tx.paiement}</span>
+                        <span><strong>{t('TransactionPage.beneficiare')} </strong> {tx.beneficiaire}</span>
+                        <span><strong>{t('TransactionPage.categorie')} </strong> {tx.categorie}</span>
+                        <span><strong>{t('TransactionPage.comment')} </strong> {tx.commentaire}</span>
+                        <span><strong>{t('TransactionPage.amount')} </strong> {tx.montant}</span>
+                        <span><strong>{t('TransactionPage.amountType')} </strong> {tx.typeMontant}</span>
+                        <span><strong>{t('TransactionPage.titleTableSolde')} :</strong> {tx.solde}</span>
+                        <div className="card-actions">
+                        <Link className="btn-edit" onClick={openEditModal}>
+                            <FontAwesomeIcon icon={faPen} />
+                        </Link>
+                        <Link className="btn-delete">
+                            <FontAwesomeIcon icon={faTrash} />
+                        </Link>
+                        </div>
                     </div>
-                    <section className="transaction-list">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>{t('TransactionPage.titleTableDate')}</th>
-                                    <th>{t('TransactionPage.titleTableAccountType')}</th>
-                                    <th>{t('TransactionPage.titleTablePaiement')}</th>
-                                    <th>{t('TransactionPage.titleTableBeneficiare')}</th>
-                                    <th>{t('TransactionPage.titleTableCat')}</th>
-                                    <th>{t('TransactionPage.titleTableComment')}</th>
-                                    <th>{t('TransactionPage.titleTableDebit')}</th>
-                                    <th>{t('TransactionPage.titleTableCredit')}</th>
-                                    <th>{t('TransactionPage.titleTableSolde')}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Chris</td>
-                                    <td>HTML tables</td>
-                                    <td>22</td>
-                                    <td>45</td>
-                                    <td>Chris</td>
-                                    <td>HTML tables</td>
-                                    <td>22</td>
-                                    <td>14</td>
-                                    <td>45</td>
-                                    <td>
-                                    <Link className="btn-edit" onClick={openEditModal}>
-                                        <FontAwesomeIcon icon={faPen} />
-                                    </Link>
-                                    </td>
-                                    <td>
-                                    <Link className="btn-delete">
-                                        <FontAwesomeIcon icon={faTrash} />
-                                    </Link>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Chris</td>
-                                    <td>HTML tables</td>
-                                    <td>22</td>
-                                    <td>45</td>
-                                    <td>Chris</td>
-                                    <td>HTML tables</td>
-                                    <td>22</td>
-                                    <td>14</td>
-                                    <td>45</td>
-                                    <td>
-                                    <Link className="btn-edit" onClick={openEditModal}>
-                                        <FontAwesomeIcon icon={faPen} />
-                                    </Link>
-                                    </td>
-                                    <td>
-                                    <Link className="btn-delete">
-                                        <FontAwesomeIcon icon={faTrash} />
-                                    </Link>
-                                    </td>
-                                </tr>
-                            </tbody>
-
-                            <tfoot>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>45</td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </section>
+                    ))}
                 </div>
-            </div>
-            <div className="theme-wrapper">
-                <ThemeTrad />
-            </div>
+            </section>
         </div>
 
         {/* Popup Modal */}
@@ -156,102 +163,108 @@ const TransactionPage = () => {
               &times;
             </button>
 
-            {typeModal === "add" && (
-              <>
-                <p className="modal-title">{t('TransactionPage.addTransaction')}</p>
-                {/* Formulaire simplifié */}
-                <form>
-                    <div className="modal-date-cat">
-                       <label>
+            {typeModal && (
+                <div className="modal-overlay" onClick={closeModal}>
+                    <div className="modal-content" onClick={e => e.stopPropagation()}>
+                    <button className="modal-close" onClick={closeModal}>
+                        &times;
+                    </button>
+
+                    <h2 className="modal-title">
+                        {typeModal === "add"
+                        ? t('TransactionPage.addTransaction')
+                        : t('TransactionPage.modTransaction')}
+                    </h2>
+
+                    <form>
+                        <div className="modal-date-cat">
+                        <label>
                             {t('TransactionPage.date')}
-                            <input type="date" name="date" />
+                            <input
+                            type="date"
+                            name="date"
+                            defaultValue={transactionToEdit?.date || ""}
+                            />
                         </label>
                         <label>
-                            {t('TransactionPage.categorie')} <input type="text" name="categorie" />
+                            {t('TransactionPage.categorie')}
+                            <input
+                            type="text"
+                            name="categorie"
+                            defaultValue={transactionToEdit?.categorie || ""}
+                            />
                         </label>
-                    </div>
-                    <div className="modal-typeCompte">
+                        </div>
+
+                        <div className="modal-typeCompte">
                         <label>
-                            {t('TransactionPage.typeAccount')} <input type="text" name="typeCompte" />
-                        </label> 
-                    </div>
-                    <div className="modal-paiement-beneficiaire">
-                       <label>
+                            {t('TransactionPage.typeAccount')}
+                            <input
+                            type="text"
+                            name="typeCompte"
+                            defaultValue={transactionToEdit?.typeCompte || ""}
+                            />
+                        </label>
+                        </div>
+
+                        <div className="modal-paiement-beneficiaire">
+                        <label>
                             {t('TransactionPage.paiement')}
-                            <input type="text" name="paiement" />
-                        </label> 
-                        <label>
-                            {t('TransactionPage.beneficiare')} <input type="text" name="beneficiaire" />
+                            <input
+                            type="text"
+                            name="paiement"
+                            defaultValue={transactionToEdit?.paiement || ""}
+                            />
                         </label>
-                    </div>
-                    <div className="modal-montant">
                         <label>
-                            {t('TransactionPage.amountType')} <input type="text" name="typeMontant" />
+                            {t('TransactionPage.beneficiare')}
+                            <input
+                            type="text"
+                            name="beneficiaire"
+                            defaultValue={transactionToEdit?.beneficiaire || ""}
+                            />
+                        </label>
+                        </div>
+
+                        <div className="modal-montant">
+                        <label>
+                            {t('TransactionPage.amountType')}
+                            <input
+                            type="text"
+                            name="typeMontant"
+                            defaultValue={transactionToEdit?.typeMontant || ""}
+                            />
                         </label>
                         <label>
                             {t('TransactionPage.amount')}
-                            <input type="number" name="montant" />
+                            <input
+                            type="number"
+                            name="montant"
+                            defaultValue={transactionToEdit?.montant || ""}
+                            />
                         </label>
-                    </div>
-                    <div className="modal-commentaire">
-                       <label>
+                        </div>
+
+                        <div className="modal-commentaire">
+                        <label>
                             {t('TransactionPage.comment')}
-                            <input type="text" name="commentaire" />
-                        </label> 
+                            <input
+                            type="text"
+                            name="commentaire"
+                            defaultValue={transactionToEdit?.commentaire || ""}
+                            />
+                        </label>
+                        </div>
+
+                        <button type="submit">
+                        {typeModal === "add" ? t('AccountPage.add') : t('AccountPage.save')}
+                        </button>
+                    </form>
                     </div>
-                  
-                  <button type="submit">{t('AccountPage.add')}</button>
-                </form>
-              </>
+                </div>
             )}
 
-            {typeModal === "edit" && transactionToEdit && (
-              <>
-                <h2>{t('TransactionPage.modTransaction')}</h2>
-                <form>
-                    <div className="modal-date-cat">
-                       <label>
-                            {t('TransactionPage.date')}
-                            <input type="date" name="date" defaultValue={transactionToEdit.date} />
-                        </label>
-                        <label>
-                            {t('TransactionPage.categorie')} <input type="text" name="categorie" defaultValue={transactionToEdit.categorie} />
-                        </label>
-                    </div>
-                    <div className="modal-typeCompte">
-                        <label>
-                            {t('TransactionPage.typeAccount')} <input type="text" name="typeCompte" defaultValue={transactionToEdit.typeCompte} />
-                        </label> 
-                    </div>
-                    <div className="modal-paiement-beneficiaire">
-                       <label>
-                            {t('TransactionPage.paiement')}
-                            <input type="text" name="paiement" defaultValue={transactionToEdit.paiement} />
-                        </label> 
-                        <label>
-                            {t('TransactionPage.beneficiare')} <input type="text" name="beneficiaire" defaultValue={transactionToEdit.beneficiaire} />
-                        </label>
-                    </div>
-                    <div className="modal-montant">
-                        <label>
-                            {t('TransactionPage.amountType')} <input type="text" name="typeMontant" defaultValue={transactionToEdit.typeMontant} />
-                        </label>
-                        <label>
-                            {t('TransactionPage.amount')}
-                            <input type="number" name="montant" defaultValue={transactionToEdit.montant} />
-                        </label>
-                    </div>
-                    <div className="modal-commentaire" >
-                       <label>
-                            {t('TransactionPage.comment')}
-                            <input type="text" name="commentaire" defaultValue={transactionToEdit.commentaire} />
-                        </label> 
-                    </div>
-                  
-                  <button type="submit">{t('AccountPage.save')}</button>
-                </form>
-              </>
-            )}
+
           </div>
         </div>
       )}

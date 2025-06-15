@@ -1,7 +1,8 @@
-.dashboard-content{
+.transaction-content{
   display: flex;
   flex-direction: column; 
   min-width: 110%;
+  gap: 50px;
 }
 
 .btn-add{
@@ -27,7 +28,8 @@
   background-color: var(--color-bg-card-page-active);
   border-radius: 20px;
   color: var(--color-text);
-  min-width: 105%;
+  max-width: 105%;
+  min-width: 90%
 }
 
 table {
@@ -102,14 +104,17 @@ tfoot{
 }
 
 .modal-content {
-  color: var(--color-text);
   background: var(--modal-content);
+  color: var(--color-text);
   padding: 20px;
   border-radius: 8px;
-  width: 400px;
-  max-width: 90%;
+  width: 90%;
+  max-width: 450px;
   position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
 }
+
 .modal-close {
   position: absolute;
   top: 8px;
@@ -191,4 +196,80 @@ form button {
 
 .modal-commentaire{
   display: flex;
+}
+
+/* Cacher les cards sur desktop */
+.transaction-cards {
+  display: none;
+}
+
+/* Responsive: afficher les cards sur petits écrans, cacher le tableau */
+@media (max-width: 768px) {
+  .transaction-table {
+    display: none;
+  }
+
+  .transaction-list{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+
+  .transaction-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .transaction-card {
+    background-color: var(--color-bg-main);
+    border-radius: 12px;
+    padding: 16px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    color: var(--color-text);
+    gap: 10px;
+    font-size: 14px;
+  }
+
+  .transaction-card p {
+    margin: 4px 0;
+  }
+
+  .card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: flex-end;
+  }
+
+  
+  .modal-content{
+    top: 5%;
+  }
+
+
+ .modal-date-cat,
+  .modal-paiement-beneficiaire,
+  .modal-montant,
+  .modal-commentaire,
+  .modal-typeCompte {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .modal-commentaire input {
+    width: 100%;
+  }
+
+  form input {
+    width: 100%;
+  }
 }

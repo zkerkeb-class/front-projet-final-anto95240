@@ -11,7 +11,8 @@
     },
     "CategoryPage": {
       "titleCat": "list of categories",
-      "addCat": "Add catégories",
+      "addCat": "Add categories",
+      "editCat": "Modify categories",
       "theme": "Theme :",
       "name": "Name :",
       "color": "Color :"

@@ -1,14 +1,50 @@
 .signupPart3-section-wrapper {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+.signupPart3-form-container {
+  width: 100%;
+  max-width: 500px;
+  background-color: var(--color-bg-card-page-active);
+  border: 1px solid var(--color-card-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-card-auth);
+  padding: clamp(10px, 5vw, 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.signupPart3-form {
+  width: 100%; 
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* === WRAPPERS === */
+.auth-section-wrapper {
   min-width: 1440px; 
   margin: 0 auto; 
   display: flex;
   justify-content: center;
   align-items: center;
-  height: auto;
   padding: 20px; 
+  place-items: center;
+  max-height: 100vh;
 }
 
-.signupPart3-form-container {
+/* === FORM CONTAINERS === */
+.auth-form-container {
   width: 100%; 
   max-width: 500px;
   height: auto; 
@@ -22,33 +58,37 @@
   align-items: center; 
 }
 
+/* === TITRES & GREETING === */
+
 .form-greeting {
-  font-family: var(--font-family-title); 
+  font-family: var(--font-family-title);
   font-size: clamp(12px, 2vw, 14px);
-  font-weight: 400; 
-  color:  var(--color-text); 
-  line-height: 20px; 
-  text-align: center; 
-  margin: 0 0 5px 0; 
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 20px;
+  text-align: center;
+  margin: 0 0 5px 0;
   width: 100%;
 }
 
 .form-title {
-  font-family: var(--font-family-title); 
+  font-family: var(--font-family-title);
   font-size: clamp(16px, 4vw, 20px);
-  font-weight: 400; 
-  color: var(--color-text); 
-  line-height: 25px; 
-  text-align: center; 
-  margin: 0 0 40px 0; 
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 25px;
+  text-align: center;
+  margin: 0 0 40px 0;
   width: 100%;
   text-transform: uppercase;
 }
 
-.signupPart3-form {
+/* === FORMULAIRE === */
+.auth-form {
   width: 100%; 
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .form-group {
@@ -58,9 +98,14 @@
 
 .form-group.password-group {
   position: relative;
-  margin-bottom: 33px; 
+  margin-bottom: 33px;
 }
 
+.password-wrapper {
+  position: relative;
+}
+
+/* === INPUTS === */
 .form-input {
   font-size: clamp(13px, 3vw, 14px);
   font-weight: 400; 
@@ -78,17 +123,15 @@
   opacity: 0.7; 
 }
 
+/* === FLOATING LABEL === */
 .floating-label {
   position: relative;
 }
 
 .floating-label .form-input {
   padding: 12px 0 6px 0;
-  font-size: clamp(13px, 3vw, 14px);
-  background: none;
   border: none;
   border-bottom: 1px solid var(--color-input-text);
-  width: 100%;
 }
 
 .floating-label label {
@@ -109,12 +152,19 @@
 .floating-label .form-input:focus + label,
 .floating-label .form-input:not(:placeholder-shown) + label {
   top: -10px;
-   font-size: clamp(10px, 2vw, 12px);
+  font-size: clamp(10px, 2vw, 12px);
   color: var(--color-text);
   background-color: var(--color-bg-card-page-active);
   padding: 0 2px;
 }
 
+/* === BOUTONS === */
+.btn-group{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: clamp(20px, 3vw, 50px);
+}
 
 .submit-button {
   font-family: var(--font-family-title); 
@@ -134,8 +184,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: var(--shadow-btn);
 }
 
+/* === LIEN COMPTE === */
 .create-account {
   font-size: clamp(10px, 2.5vw, 11px);
   font-weight: 400; 
@@ -145,7 +197,7 @@
   margin: 0;
 }
 
-.create-account-link  {
+.create-account-link {
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
@@ -153,22 +205,26 @@
   text-decoration: none;
 }
 
-.btn-group{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 50px;
+/* === ICÔNE MOT DE PASSE === */
+.eye-button {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text);
+  background-color: var(--color-bg-card-page-active);
+  padding: 0;
+  box-shadow: none;
+  width: 50px;
 }
 
+/* === RESPONSIVE === */
 @media (max-width: 500px) {
-  .signupPart3-form-container {
+  .auth-form-container {
     height: auto; 
     padding: 20px;
   }
-  /* .signupPart3-form {
-    
-  } */
-  /* .form-greeting {
-    font-size: calc(1rem); 
-  } */
 }
