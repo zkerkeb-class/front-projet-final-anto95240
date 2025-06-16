@@ -8,23 +8,42 @@ import ThemeTrad from "../../components/ThemeTrad";
 import { useTranslation } from "react-i18next";
 
 const LoginPage = () => {
-    
-    const { t } = useTranslation();
+    const [login, setLogin] = useState("lucas@example.com");
+    const [password, setPassword] = useState("Test1234!");
+    const [errorMsg, setErrorMsg] = useState("");
     const [showPassword, setShowPassword] = useState(false);
+
+    const navigate = useNavigate();
+    const loginToken = sessionStorage.getItem("loginToken");
+    const API_url = "http://localhost:5000";    
+    const { t } = useTranslation();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault(); // else submitting refresh the page and error message disappear
+
+        const loginData = {
+            login: login,
+            password: password,
+        }
+        try {
+            const { data } = await axios.post(`${API_url}/api/user/login`, loginData);
+            sessionStorage.setItem("loginToken", data.token);
+            navigate("/dashboard");
+        } catch (error) {
+            setErrorMsg("Erreur réseau, veuillez réessayer.");
+        }
+
+    }
+    
+    useEffect(() => {
+        if (loginToken) {
+            navigate("/dashboard");
+        }
+    }, [loginToken, navigate]);
+
 
     return (
     <div>
-        <div className="links" >
-            {/* <Link to="/">Login</Link> */}
-            <Link to="/register">register</Link>
-            <Link to="/dashboard">dashboard</Link>
-            <Link to="/deconnexion">deconnexion</Link>
-            <Link to="/account">account</Link>
-            <Link to="/category">category</Link>
-            <Link to="/profile">profile</Link>
-            <Link to="/statistique">statistique</Link>
-            <Link to="/transaction">transaction</Link> 
-        </div>
         <div className="theme-wrapper">
             <ThemeTrad />
         </div>
@@ -34,14 +53,14 @@ const LoginPage = () => {
                 <p className="form-greeting">{t('LoginPage.title1')}</p>
                 <h2 className="form-title">{t('LoginPage.title2')}</h2>
 
-                <form className="login-form" action="#" method="POST">
+                <form className="login-form" onSubmit={handleSubmit}>
                     <div className="form-group floating-label">
-                        <input type="text"className="form-input" id="username" name="username"  required placeholder=" " />
-                        <label htmlFor="username">{t('LoginPage.usernameOrEmail')}</label>
+                        <input type="text"className="form-input" id="login" name="login" value={login} onChange={(e) => { setLogin(e.target.value) }}  required placeholder=" " />
+                        <label htmlFor="login">{t('LoginPage.usernameOrEmail')}</label>
                     </div>
 
                     <div className="form-group floating-label">
-                        <input type={showPassword ? "text" : "password"} className="form-input" id="password" name="password"  required placeholder=" " />
+                        <input type={showPassword ? "text" : "password"} className="form-input" id="password" name="password" value={password} onChange={(e) => { setPassword(e.target.value) }} required placeholder=" " />
                         <label htmlFor="password">{t('LoginPage.password')}</label>
                         <button
                             type="button"
@@ -52,6 +71,7 @@ const LoginPage = () => {
                         {showPassword ? <FontAwesomeIcon icon={faEyeSlash} /> : <FontAwesomeIcon icon={faEye} />}
                         </button>
                     </div>
+                    {errorMsg && <span className="loginError">{errorMsg}</span>}
 
                     <button type="submit" className="submit-button">{t('LoginPage.connexion')}</button>
                 </form>

@@ -214,6 +214,10 @@
   width: 50px;
 }
 
+.error-message{
+    color: rgb(240, 76, 76);
+}
+
 /* === RESPONSIVE === */
 @media (max-width: 500px) {
   .auth-form-container {

@@ -9,6 +9,12 @@ import { faArrowTurnUp } from "@fortawesome/free-solid-svg-icons";
 
 const DeconnexionPage = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  
+  useEffect( () => {
+      sessionStorage.removeItem("loginToken");
+      navigate("/");
+  }, [])
 
     return (
      <div>

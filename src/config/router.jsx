@@ -13,9 +13,6 @@ import ProtectedRoutes from "../components/ProtectedRoutes"
 import AppLayout from "../components/AppLayout";
 
 let router = createBrowserRouter([
-  // {
-    // Component: ProtectedRoutes,
-    // children: [
     {
       path: "/",
       Component: LoginPage,
@@ -29,37 +26,39 @@ let router = createBrowserRouter([
       Component: DeconnexionPage,
     },
     {
-      element: <AppLayout />,
-      children: [  
-        {
-          path: "/dashboard",
-          Component: HomePage,
-        }, 
-        {
-          path: "/category",
-          Component: CategoryPage,
-        },
-        {
-          path: "/transaction",
-          Component: TransactionPage
-        },
-        {
-          path: "/account",
-          Component: AccountPage,
-        },
-        {
-          path: "/profile",
-          Component: ProfilePage,
-        },
-        {
-          path: "/statistique",
-          Component: StatistiquePage,
-        }
-      ]
-    }
-  //   ]
-  // },
-  
+      Component: ProtectedRoutes,
+      children: [
+      {
+        Component: AppLayout,
+        children: [  
+          {
+            path: "/dashboard",
+            Component: HomePage,
+          }, 
+          {
+            path: "/category",
+            Component: CategoryPage,
+          },
+          {
+            path: "/transaction",
+            Component: TransactionPage
+          },
+          {
+            path: "/account",
+            Component: AccountPage,
+          },
+          {
+            path: "/profile",
+            Component: ProfilePage,
+          },
+          {
+            path: "/statistique",
+            Component: StatistiquePage,
+          }
+        ]
+      }
+    ]
+  },  
 ]
 );
 

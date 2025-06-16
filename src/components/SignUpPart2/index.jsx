@@ -5,18 +5,41 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import "./signUpPart2.css";
 import { useTranslation } from "react-i18next";
 
-const SignUpPart2 = ({ formData, setFormData, nextStep, prevStep }) => {
+const SignUpPart2 = ({ formData, setFormData, nextStep, prevStep, badPassword, setBadPassword, errorMsg, setErrorMsg }) => {
   
   const { t } = useTranslation();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  // const [errorMsg, setErrorMsg] = useState("");
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    setErrorMsg("");
+
+    if (name === "password") {
+      setBadPassword(value.length < 8);
+    }
   };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    setBadPassword(false);
+    setErrorMsg("");
+
+   if (!formData.email.includes("@")) {
+      setErrorMsg("Email invalide.");
+      return;
+    }
+
+    if (formData.password !== formData.passwordConfirm) {
+      setErrorMsg(t("RegisterPage.passwordsNotMatching")); // à traduire
+      return;
+    }
+
+    // ✅ Si OK, passer à l'étape suivante
     nextStep();
   };
 
@@ -58,7 +81,7 @@ const SignUpPart2 = ({ formData, setFormData, nextStep, prevStep }) => {
               onClick={() => setShowPassword((prev) => !prev)}
               className="eye-button"
               aria-label={t('LoginPage.arialLabelPassword')}
-            >
+            >              
             {showPassword ? <FontAwesomeIcon icon={faEyeSlash} /> : <FontAwesomeIcon icon={faEye} />}
             </button>
           </div>
@@ -67,14 +90,14 @@ const SignUpPart2 = ({ formData, setFormData, nextStep, prevStep }) => {
             <input
               type={showConfirmPassword ? "text" : "password"}
               className="form-input"
-              id="confirmerPassword"
-              name="confirmerPassword"
-              value={formData.confirmerPassword}
+              id="passwordConfirm"
+              name="passwordConfirm"
+              value={formData.passwordConfirm}
               onChange={handleChange}
               required
               placeholder=" "
             />
-            <label htmlFor="confirmerPassword">{t('RegisterPage.confirmPassword')}</label>
+            <label htmlFor="passwordConfirm">{t('RegisterPage.confirmPassword')}</label>
             <button
               type="button"
               onClick={() => setShowConfirmPassword((prev) => !prev)}
@@ -84,6 +107,10 @@ const SignUpPart2 = ({ formData, setFormData, nextStep, prevStep }) => {
             {showConfirmPassword ? <FontAwesomeIcon icon={faEyeSlash} /> : <FontAwesomeIcon icon={faEye} />}
             </button>
           </div>
+
+          {badPassword && <p className="signinError">{t("RegisterPage.badPassword")}</p>}
+          {errorMsg && <p className="signinError">{errorMsg}</p>}
+
 
           <div className="btn-group">
             <button type="button" onClick={prevStep} className="submit-button">

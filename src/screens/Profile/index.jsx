@@ -8,7 +8,7 @@ import ThemeTrad from "../../components/ThemeTrad";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faList
+  faList,
 } from "@fortawesome/free-solid-svg-icons";
 
 const ProfilePage = () => {
@@ -28,7 +28,6 @@ const ProfilePage = () => {
   const [showDeletePopup, setShowDeletePopup] = useState(false);
 
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-
 
   return (
     <div>
