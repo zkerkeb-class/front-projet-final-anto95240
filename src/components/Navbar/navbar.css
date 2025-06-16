@@ -1,56 +1,3 @@
-/* .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 70px;
-  padding: 0 20px;
-  background-color: var(--color-bg-main);
-  font-family: var(--font-family-title);
-  border-radius: 10px;
-  margin: 10px;
-  position: sticky;
-  top: 0;           
-  z-index: 1000; 
-  transition: box-shadow 0.3s ease;
-}
-
-
-.navbar.scrolled {
-  box-shadow: var(--shadow-navbar-scroll);
-}
-
-.page-title {
-  font-size: 22px;
-  font-weight: bold;
-  color: var(--color-navbar-btn-active);
-}
-
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.user-name {
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--color-text);
-}
-
-.profile-pic, .deconnexion-pic {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  border: 2px solid var(--color-card-border);
-  text-decoration: none;
-  color: var(--color-text);
-} */
-
-
 /* === NAVBAR DE BASE === */
 .navbar {
   display: flex;
@@ -114,18 +61,7 @@
 }
 
 .theme-wrapper-desktop {
-  margin-left: auto;
-  /* display: flex;
-  flex-direction: column; */
-
-  display: flex;
-  align-items: center;
-}
-
-@media (min-width: 768px) {
-  .theme-wrapper-desktop {
-    display: none;
-  }
+  display: none;
 }
 
 /* === RESPONSIVE TABLETTE / MOBILE === */
@@ -137,6 +73,12 @@
     padding: 10px 15px;
     margin: 5px 5px 10px 5px;
     border-radius: 8px;
+  }
+
+  .theme-wrapper-desktop {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
   }
 
   .page-title {

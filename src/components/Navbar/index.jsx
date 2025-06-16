@@ -4,7 +4,8 @@ import "./Navbar.css";
 import ThemeTrad from "../ThemeTrad";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faRightFromBracket
+  faRightFromBracket,
+  faUser
 } 
 from "@fortawesome/free-solid-svg-icons";
 // import ThemeTrad from "../ThemeTrad";
@@ -47,7 +48,14 @@ const Navbar = ({ user }) => {
         <div className="user-info">
           <span className="user-name">{user?.name}</span>
           <Link className="profile-pic" to="/profile">
-            <img src={user?.profilePicture} alt="Profil" />
+            {user?.profilePicture ? (
+              <img
+                src={user.profilePicture}
+                alt="Profil"
+              />
+            ) : (
+              <FontAwesomeIcon icon={faUser} alt="Profil" />
+            )}
           </Link>
           <Link className="deconnexion-pic" to="/deconnexion">
             <FontAwesomeIcon icon={faRightFromBracket} />

@@ -67,7 +67,7 @@ const Sidebar = () => {
         <div className="sidebar-logo">
           <div className="logo">
             <img src="/Logo.png" alt="logo" />
-            <p>Budgee</p>
+            {isExpanded && <span>Budgee</span>}
           </div>
           
           {(isExpanded || isMobileMenuOpen) && (
@@ -84,7 +84,6 @@ const Sidebar = () => {
                 )}
             </div>
             )}
-
         </div>
 
         <nav className="sidebar-menu">

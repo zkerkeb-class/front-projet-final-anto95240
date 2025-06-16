@@ -42,8 +42,8 @@
   gap: 10px;
 }
 
-.logo p{
-  display: none;
+.logo span{
+  color: var(--color-text);
 }
 
 .sidebar-buttons {
