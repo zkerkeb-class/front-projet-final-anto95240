@@ -85,7 +85,10 @@
       "alreadyUserLink": "Log in here",
       "back": "Back",
       "next": "Next",
-      "register": "Confirm"
+      "register": "Confirm",
+      "badLogin": "Username must be at least 3 characters long.",
+      "badPassword": "Password must be at least 8 characters long.",
+      "passwordsNotMatching": "Passwords do not match."
     },
     "StatistiquePage": {
       "actualSolde": "Actual solde",
