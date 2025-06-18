@@ -11,29 +11,29 @@ const DeconnexionPage = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   
-  useEffect( () => {
-      sessionStorage.removeItem("loginToken");
-      navigate("/");
-  }, [])
+  const handleLogout = () => {
+    sessionStorage.removeItem("loginToken");
+    navigate("/");
+  };
 
-    return (
-     <div>
-      <div className="theme-wrapper">
-        <ThemeTrad />
-      </div>
-
-      <section id="section-login" className="logout-section-wrapper">
-          <div className="logout-form-container">
-              <p>{t("DeconnexionPage.message1")}</p>
-              <p>{t("DeconnexionPage.message2")}</p>
-              <div className="logout">
-                  <FontAwesomeIcon className="fa-logout" icon={faArrowTurnUp} />
-                  <Link to="/" className="logout-button">{t("DeconnexionPage.logout")}</Link>
-              </div>
-          </div>
-      </section>
+  return (
+    <div>
+    <div className="theme-wrapper">
+      <ThemeTrad />
     </div>
-    );
+
+    <section id="section-login" className="logout-section-wrapper">
+        <div className="logout-form-container">
+            <p>{t("DeconnexionPage.message1")}</p>
+            <p>{t("DeconnexionPage.message2")}</p>
+            <div className="logout">
+                <FontAwesomeIcon className="fa-logout" icon={faArrowTurnUp} />
+                <Link to="/" className="logout-button" onClick={handleLogout}>{t("DeconnexionPage.logout")}</Link>
+            </div>
+        </div>
+    </section>
+  </div>
+  );
 };
 
 export default DeconnexionPage;

@@ -1,5 +1,6 @@
 import { useState, useEffect, React } from "react";
 import { useLocation, Link } from "react-router";
+
 import "./Navbar.css";
 import ThemeTrad from "../ThemeTrad";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -24,7 +25,6 @@ const Navbar = ({ user }) => {
   const location = useLocation();
   const pageTitle = pageTitles[location.pathname] || "Page";
   const [isScrolled, setIsScrolled] = useState(false);
-  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,18 +39,17 @@ const Navbar = ({ user }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
   return (
     <header className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       <h1 className="page-title">{pageTitle}</h1>
 
       <div className="bottom-row">
         <div className="user-info">
-          <span className="user-name">{user?.name}</span>
+          <span className="user-name">{user?.username || "Invité"}</span>
           <Link className="profile-pic" to="/profile">
-            {user?.profilePicture ? (
+            {user?.image ? (
               <img
-                src={user.profilePicture}
+                src={`http://localhost:5000/uploads/${user.image}`}
                 alt="Profil"
               />
             ) : (

@@ -28,6 +28,7 @@ const LoginPage = () => {
         try {
             const { data } = await axios.post(`${API_url}/api/user/login`, loginData);
             sessionStorage.setItem("loginToken", data.token);
+            // sessionStorage.setItem("loginToken", data.us);
             navigate("/dashboard");
         } catch (error) {
             setErrorMsg("Erreur réseau, veuillez réessayer.");
