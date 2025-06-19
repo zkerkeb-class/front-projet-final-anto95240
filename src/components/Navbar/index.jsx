@@ -47,14 +47,19 @@ const Navbar = ({ user }) => {
         <div className="user-info">
           <span className="user-name">{user?.username || "Invité"}</span>
           <Link className="profile-pic" to="/profile">
-            {user && user?.image ? (
+            {user && user.image ? (
               <img
-                src={`http://localhost:5000/uploads/${user.image}`}
+                src={
+                  user.image.startsWith('http') // image externe
+                    ? user.image
+                    : `http://localhost:5000/${user.image}` // image locale
+                }
                 alt="Profil"
               />
             ) : (
               <FontAwesomeIcon icon={faUser} alt="Profil" />
             )}
+
           </Link>
           <Link className="deconnexion-pic" to="/deconnexion">
             <FontAwesomeIcon icon={faRightFromBracket} />

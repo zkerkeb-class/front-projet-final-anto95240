@@ -182,11 +182,14 @@ const ProfilePage = () => {
                 ) : user?.image ? (
                   <img
                     className="avatar-circle"
-                    src={`http://localhost:5000/uploads/${user.image}`}
+                    src={
+                      user.image.startsWith("http")
+                        ? user.image // URL externe (image par défaut)
+                        : `http://localhost:5000/${user.image}` // Image locale
+                    }
                     alt="Profil"
                   />
                 ) : null}
-
 
                 {/* Bouton déclencheur du sélecteur de fichier */}
                 <button className="btn-img" onClick={handleButtonClick}>
