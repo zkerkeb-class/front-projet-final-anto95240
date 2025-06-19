@@ -21,9 +21,8 @@ const RegisterPage = () => {
     email: "",
     password: "",
     passwordConfirm: "",
-    accountType: "",
+    accountName: "",
     budgetStart: "",
-    taux: 0,
   });
   
   const [badLogin, setBadLogin] = useState(false);
@@ -43,44 +42,41 @@ const RegisterPage = () => {
       email,
       password,
       passwordConfirm,
-      accountType,
+      accountName,
       budgetStart,
-      taux,
     } = formData;
 
     // Nettoyage erreurs précédentes
     setErrorMsg("");
 
-    // Détection si le type de compte nécessite un taux
-    const needsTaux = ["épargne", "epargne", "savings"];
-    const accountTypeFormatted = accountType.trim().toLowerCase();
-    const shouldSendTaux = needsTaux.includes(accountTypeFormatted);
+    const parsedBudget = parseFloat(budgetStart);
 
-    // Si taux requis, on le vérifie
-    if (shouldSendTaux && (taux === "" || isNaN(taux))) {
-      setErrorMsg("Le taux est requis et doit être un nombre.");
+    if (isNaN(parsedBudget) || parsedBudget < 0) {
+      setErrorMsg("Veuillez entrer un budget de départ valide.");
+      return;
+    }
+
+    if (!accountName.trim()) {
+      setErrorMsg("Veuillez entrer un nom de compte.");
       return;
     }
 
     // Construction de l’objet à envoyer
     const registerData = {
-      ...formData,
-      accountType: accountType.trim(),
-      budgetStart: parseFloat(budgetStart),
+      firstname: formData.firstname.trim(),
+      lastname: formData.lastname.trim(),
+      username: username.trim(),
+      email: email.trim(),
+      password,
+      passwordConfirm,
+      accountName: accountName.trim(),
+      budgetStart: parsedBudget,
     };
-
-    if (shouldSendTaux) {
-      const parsedTaux = parseFloat(taux);
-      if (isNaN(parsedTaux)) {
-        setErrorMsg("Le taux est requis et doit être un nombre.");
-        return;
-      }
-      registerData.taux = parsedTaux;
-    }
 
     setLoading(true);
 
     try {
+      console.log("Formulaire envoyé :", registerData);
       const { data } = await axios.post(`${API_url}/api/user/sign-up`, registerData);
 
       sessionStorage.setItem("loginToken", data.token);
@@ -93,16 +89,20 @@ const RegisterPage = () => {
         email: "",
         password: "",
         passwordConfirm: "",
-        accountType: "",
+        accountName: "",
         budgetStart: "",
-        taux: "",
       });
     } catch (error) {
-      setErrorMsg("Erreur réseau, veuillez réessayer.");
+      if (error.response?.data?.message) {
+        setErrorMsg(error.response.data.message);
+      } else {
+        setErrorMsg("Erreur réseau, veuillez réessayer.");
+      }
     }
 
     setLoading(false);
   }
+
     
   useEffect(() => {
       if (loginToken) {

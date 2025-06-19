@@ -210,7 +210,8 @@ html {
   margin: 0 20px 20px 20px;
 }
 
-.inline-form input {
+.inline-form input,
+.inline-form select {
   padding: 6px 10px;
   border: 1px solid var(--color-card-border);
   flex: 1;

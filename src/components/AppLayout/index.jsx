@@ -11,26 +11,25 @@ const AppLayout = () => {
   
   const API_url = "http://localhost:5000";    
   const [user, setUser] = useState(null);
-  useEffect(() => {
-    const fetchUser = async () => {
-      // const token = sessionStorage.getItem("loginToken");
-      // if (!token) return;
+  const [account, setAccount] = useState(null);
 
+    useEffect(() => {
+    const fetchData = async () => {
       try {
-        // const config = {
-        //   headers: { Authorization: `Bearer ${token}` },
-        // };
-        // Appelle une route backend qui renvoie les infos utilisateur connecté
-        const { data } = await axios.get(`${API_url}/api/user/me`);
-        console.log("data", data);
-        setUser(data);
+        const userRes = await axios.get(`${API_url}/api/user/me`);
+        setUser(userRes.data);
+        console.log("User:", userRes.data);
+
+        const accountRes = await axios.get(`${API_url}/api/account/me`);
+        setAccount(Array.isArray(accountRes.data) ? accountRes.data[0] : accountRes.data);
+        console.log("Account:", accountRes.data);
+
       } catch (error) {
-        console.error("Erreur récupération user:", error);
-        // optionnel : gérer logout si token invalide
+        console.error("Erreur récupération données:", error);
       }
     };
 
-    fetchUser();
+    fetchData();
   }, []);
 
   return (
@@ -38,7 +37,7 @@ const AppLayout = () => {
       <Sidebar />
       <main className="main-content"> {/*dashboard-main*/}
         <Navbar user={user} />
-        <Outlet context={{ user, setUser }} /> {/*category-container*/}
+        <Outlet context={{ user, setUser, account, setAccount }} /> {/*category-container*/}
       </main>
       <div className="top-bar-mobile"> {/*theme-wrapper*/}
         <ThemeTrad />

@@ -47,7 +47,7 @@ const Navbar = ({ user }) => {
         <div className="user-info">
           <span className="user-name">{user?.username || "Invité"}</span>
           <Link className="profile-pic" to="/profile">
-            {user?.image ? (
+            {user && user?.image ? (
               <img
                 src={`http://localhost:5000/uploads/${user.image}`}
                 alt="Profil"

@@ -1,38 +1,60 @@
-import { useNavigate, Link, useOutletContext } from "react-router";
+import { useNavigate, useOutletContext } from "react-router";
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import "./profile.css";
-import Navbar from "../../components/Navbar";
-import Sidebar from "../../components/Sidebar";
-import ThemeTrad from "../../components/ThemeTrad";
+
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faList,
-} from "@fortawesome/free-solid-svg-icons";
+import { faList } from "@fortawesome/free-solid-svg-icons";
 
 const ProfilePage = () => {
+  const API_url = "http://localhost:5000";    
   const { t } = useTranslation();
   const context = useOutletContext();
   const user = context?.user;
   const setUser = context?.setUser;
-  const navigate = useNavigate();
+  const account = context?.account;
+  const setAccount = context?.setAccount;
+  const navigate = useNavigate();  
   
   const [firstname, setFirstname] = useState(user?.firstname || '');
   const [lastname, setLastname] = useState(user?.lastname || '');
   const [username, setUsername] = useState(user?.username || '');
-  const [email, seEmail] = useState(user?.email || '');
+  const [email, setEmail] = useState(user?.email || '');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const [typeAccount, setTypeAccount] = useState(account?.type || '');
+  const [budgetStart, setBudgetStart] = useState(account?.budgetStart || '');
+  const [nameAccount, setNameAccount] = useState(account?.name || '');
+
   const [imageFile, setImageFile] = useState(user?.image || '');
   const fileInputRef = useRef(null);
 
-
   const [showAccountTypeForm, setShowAccountTypeForm] = useState(false);
-  const [showBudgetForm, setShowBudgetForm] = useState(false);
+  const [showBudgetStartForm, setShowBudgetStartForm] = useState(false);
+  const [showNameAccountForm, setShowNameAccountForm] = useState(false);
   const [showEmailForm, setShowEmailForm] = useState(false);
   const [showPasswordForm, setShowPasswordForm] = useState(false);
-  const [showDeletePopup, setShowDeletePopup] = useState(false);
 
+  const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  
+  useEffect(() => {
+    setFirstname(user?.firstname || "");
+    setLastname(user?.lastname || "");
+    setUsername(user?.username || "");
+    setEmail(user?.email || "");
+    setTypeAccount(account?.type || "");
+    setNameAccount(account?.name || "");
+    setBudgetStart(account?.budgetStart || "");
+    setImageFile(null);
+    setShowEmailForm(false);
+    setShowPasswordForm(false);
+    setShowAccountTypeForm(false);
+    setShowBudgetStartForm(false);
+    setShowNameAccountForm(false);
+  }, [user, account]);
 
   const handleButtonClick = () => {
     fileInputRef.current.click();
@@ -53,31 +75,48 @@ const ProfilePage = () => {
       formData.append("lastname", lastname);
       formData.append("username", username);
       formData.append("email", email);
+      if (password && confirmPassword) {
+        if (password !== confirmPassword) {
+          return alert("Passwords do not match");
+        }
+        formData.append("password", password);
+      }
       if (imageFile) {
         formData.append("image", imageFile);
       }
 
-      // Note : utiliser backticks (``) pour que ${user._id} soit interprété
       const res = await axios.put(
-        `http://localhost:5000/api/user/${user._id}`,
+        `${API_url}/api/user/${user._id}`,
         formData,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
+        { headers: { "Content-Type": "multipart/form-data" } }
       );
+
       setUser(res.data);
       alert("Profil mis à jour");
-      // Optionnel : rafraîchir user ou recharger page
     } catch (err) {
       console.error(err);
       alert("Erreur lors de la mise à jour du profil");
     }
   };
 
-  // Supprimer utilisateur
+  const handleSaveAccount = async () => {
+    try {
+      const res = await axios.put(`${API_url}/api/account/${account._id}`, {
+        type: typeAccount,
+        name: nameAccount,
+        budgetStart: budgetStart
+      });
+      setAccount(res.data);
+      alert("Compte mis à jour");
+    } catch (err) {
+      console.error("Erreur update account :", err.response?.data || err.message || err);
+      alert("Erreur lors de la mise à jour du compte : " + (err.response?.data?.message || err.message));
+    }
+  };
+
   const handleDeleteUser = async () => {
     try {
-      await axios.delete(`http://localhost:5000/api/user/${user._id}`);
+      await axios.delete(`${API_url}/api/user/${user._id}`);
       alert("Compte supprimé");
       navigate("/login");
     } catch (err) {
@@ -85,14 +124,6 @@ const ProfilePage = () => {
       alert("Erreur lors de la suppression du compte");
     }
   };
-
-  useEffect(() => {
-    setFirstname(user?.firstname || "");
-    setLastname(user?.lastname || "");
-    setUsername(user?.username || "");
-    setShowEmailForm(false);
-    setShowPasswordForm(false);
-  }, [user]);
 
   return (
     <div>
@@ -186,46 +217,92 @@ const ProfilePage = () => {
           <section className="profile-card" id="account-details-section">
             <h3>{t('ProfilePage.linkDetailAccount')}</h3>
             <hr />
-            <div className="account-info">
-              <div className="account-info-item">
-                <div>
-                  <p className="label">{t('ProfilePage.labelAccountType')}</p>
-                  <p className="value">Compte bancaire</p>
+              <div className="account-info">
+                <div className="account-info-item">
+                  <div>
+                    <p className="label">{t('ProfilePage.labelAccountType')}</p>
+                    <p className="value">{account?.type}</p>
+                  </div>
+                  <button
+                    className="btn-light small"
+                    onClick={() => setShowAccountTypeForm(!showAccountTypeForm)}
+                  >
+                    {t('ProfilePage.changeAccountType')} </button>
                 </div>
-                <button
-                  className="btn-light small"
-                  onClick={() => setShowAccountTypeForm(!showAccountTypeForm)}
-                >
-                  {t('ProfilePage.changeAccountType')} </button>
-              </div>
-              {showAccountTypeForm && (
-                <div className="inline-form">
-                  <input type="text" placeholder={t('ProfilePage.newType')} />
-                </div>
-              )}
+                
+                {showAccountTypeForm  && (
+                  <div className="inline-form">
+                    <input
+                        type="text"
+                        placeholder={t('ProfilePage.newType')}
+                        value={typeAccount}
+                        onChange={(e) => setTypeAccount(e.target.value)}
+                      />
 
-              <div className="account-info-item">
-                <div>
-                  <p className="label">{t('ProfilePage.labelBudgetStart')}</p>
-                  <p className="value">300 €</p>
+                  </div>
+                )}
+
+                <div className="account-info-item">
+                  <div>
+                    <p className="label">{t('ProfilePage.labelNameType')}</p>
+                    <p className="value">{account?.name}</p>
+                  </div>
+                  <button
+                    className="btn-light small"
+                    onClick={() => setShowNameAccountForm(!showNameAccountForm)}
+                  >
+                    {t('ProfilePage.changeNameType')} </button>
                 </div>
-                <button
-                  className="btn-light small"
-                  onClick={() => setShowBudgetForm(!showBudgetForm)}
-                >
-                  {t('ProfilePage.changeBudgetStart')} </button>
-              </div>
-              {showBudgetForm && (
-                <div className="inline-form">
-                  <input type="number" placeholder={t('ProfilePage.newBudget')} />
+                
+                {showNameAccountForm && (
+                  <div className="inline-form">
+                    <input
+                        type="text"
+                        placeholder={t('ProfilePage.newName')}
+                        value={nameAccount}
+                        onChange={(e) => setNameAccount(e.target.value)}
+                      />
+
+                  </div>
+                )}
+
+                <div className="account-info-item">
+                  <div>
+                    <p className="label">{t('ProfilePage.labelBudgetStart')}</p>
+                    <p className="value">{account?.budgetStart}</p>
+                  </div>
+                  <button
+                    className="btn-light small"
+                  onClick={() => setShowBudgetStartForm(!showBudgetStartForm)}
+                  >
+                    {t('ProfilePage.changeBudgetStart')} </button>
                 </div>
+                
+                {showBudgetStartForm && (
+                 <div className="inline-form">
+                    <input
+                      type="number"
+                      placeholder={t('ProfilePage.newBudget')}
+                      value={budgetStart}
+                      onChange={(e) => setBudgetStart(e.target.value)}
+                    />
+                  </div>
               )}
-            </div>
-            
+              </div>
 
             <div className="profile-actions">
-              <button className="btn-light">{t('ProfilePage.cancel')}</button>
-              <button className="btn-blue">{t('ProfilePage.save')}</button>
+              <button 
+                className="btn-light" 
+                onClick={() => {
+                  // Annuler : réinitialiser aux valeurs du contexte user
+                  setBudgetStart(account?.budgetStart || "");
+                  setTypeAccount(account?.type || "");
+                  setNameAccount(account?.name || "");
+                }}
+              >
+                {t('ProfilePage.cancel')}
+              </button>
+              <button className="btn-blue" onClick={handleSaveAccount}>{t('ProfilePage.save')}</button>
             </div>
           </section>
 
@@ -237,8 +314,7 @@ const ProfilePage = () => {
               <div className="account-info-item">
                 <div>
                   <p className="label">{t('ProfilePage.labelEmail')}</p>
-                  <p className="value">{user?.email}</p>
-                  
+                  <p className="value">{user?.email}</p>     
                 </div>
                 <button
                   className="btn-light small"
@@ -248,7 +324,7 @@ const ProfilePage = () => {
               </div>
               {showEmailForm && (
                 <div className="inline-form">
-                  <input type="email" value={email} onChange={(e) => seEmail(e.target.value)} placeholder={t('ProfilePage.newEmail')} />
+                  <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder={t('ProfilePage.newEmail')} />
                 </div>
               )}
 
@@ -265,15 +341,15 @@ const ProfilePage = () => {
               </div>
               {showPasswordForm && (
                 <div className="inline-form">
-                  <input type="password" placeholder={t('ProfilePage.newPassword')} />
-                  <input type="password" placeholder={t('ProfilePage.confirmPassword')} />
+                  <input type="password" placeholder={t('ProfilePage.newPassword')} value={newPassword} onChange={(e) => setPassword(e.target.value)} />
+                  <input type="password" placeholder={t('ProfilePage.confirmPassword')} value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                 </div>
               )}
             </div>
             
 
             <div className="profile-actions">
-              <button className="btn-light">{t('ProfilePage.cancel')}</button>
+              <button className="btn-light" onClick={() => setEmail(user?.email || "")}>{t('ProfilePage.cancel')}</button>
               <button className="btn-blue" onClick={handleSaveProfile}>{t('ProfilePage.save')}</button>
             </div>
           </section>

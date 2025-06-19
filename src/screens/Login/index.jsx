@@ -8,7 +8,7 @@ import ThemeTrad from "../../components/ThemeTrad";
 import { useTranslation } from "react-i18next";
 
 const LoginPage = () => {
-    const [login, setLogin] = useState("lucas@example.com");
+    const [login, setLogin] = useState("antoine@test.com");
     const [password, setPassword] = useState("Test1234!");
     const [errorMsg, setErrorMsg] = useState("");
     const [showPassword, setShowPassword] = useState(false);
