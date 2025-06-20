@@ -1,5 +1,5 @@
-import { useState, useEffect, React } from "react";
-import { useLocation, Link } from "react-router";
+import { useState, useEffect } from "react";
+import { useLocation, Link, useOutletContext } from "react-router";
 
 import "./Navbar.css";
 import ThemeTrad from "../ThemeTrad";
@@ -21,11 +21,18 @@ const pageTitles = {
   "/deconnexion": "Deconnexion",
 };
 
-const Navbar = ({ user }) => {
+const Navbar = ({user}) => {
+  const API_url = "http://localhost:5000";   
   const location = useLocation();
+  // const { user } = useOutletContext();
+
   const pageTitle = pageTitles[location.pathname] || "Page";
   const [isScrolled, setIsScrolled] = useState(false);
 
+  const [form, setForm] = useState({
+    imageFile: null,
+  });
+  
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -38,6 +45,14 @@ const Navbar = ({ user }) => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    setForm((prev) => ({
+      ...prev, // ✅ garde imageFile intact
+      avatarURL: user?.image ? `${API_url}/uploads/${user.image}` : "", // ← corrige ici
+
+    }));
+  }, [user]);
 
   return (
     <header className={`navbar ${isScrolled ? "scrolled" : ""}`}>
@@ -52,7 +67,7 @@ const Navbar = ({ user }) => {
                 src={
                   user.image.startsWith('http') // image externe
                     ? user.image
-                    : `http://localhost:5000/${user.image}` // image locale
+                    : form.avatarURL // image locale
                 }
                 alt="Profil"
               />

@@ -40,6 +40,13 @@
       "linkNewUser": "Créer un compte"
     },
     "ProfilePage":{
+      "passwordsMismatch":"Les mots de passe ne correspondent pas",
+      "profileUpdated": "Profil mis à jour avec succès",
+      "errorProfileUpdated": "Erreur lors de la mise à jour du profil",
+      "accountUpdated": "Compte mis à jour avec succès",
+      "errorAccountUpdated": "Erreur lors de la mise à jour du compte",
+      "userDeleted": "Le compte a été supprimer avec succès",
+      "errorDeletingUser": "Erreur lors de la suppression du compte",
       "linkDetailProfil": "Détail du profil",
       "linkDetailAccount": "Détail du compte",
       "linkMethodCo": "Methode de connexion",

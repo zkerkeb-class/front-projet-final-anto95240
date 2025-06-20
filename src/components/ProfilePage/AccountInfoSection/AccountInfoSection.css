@@ -1,0 +1,70 @@
+.profile-card {
+  background: var(--color-bg-card-page-active);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-navbar-scroll);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.profile-card h3 {
+  margin-top: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
+.account-info {
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-bg-main);
+  padding: 5px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  height: 30px;
+  margin-top: 20px;
+}
+
+.btn-light {
+  background: var(--color-bg-main);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: var(--color-text);
+  font-family: var(--font-family-title);
+  cursor: pointer;
+}
+
+.btn-blue {
+  background: var(--color-btn);
+  color: black;
+  font-family: var(--font-family-title);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+hr{
+    color: var(--color-hr);
+}
+
+@media (max-width: 768px) {
+  .profile-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    height: auto;
+  }
+}

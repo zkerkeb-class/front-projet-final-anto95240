@@ -40,6 +40,13 @@
       "linkNewUser": "Create an account"
     },
     "ProfilePage": {
+      "passwordsMismatch":"Passwords do not match",
+      "profileUpdated": "Profile updated successfully",
+      "errorProfileUpdated": "Error updating profile",
+      "accountUpdated": "Account updated successfully",
+      "errorAccountUpdated": "Error updating account",
+      "userDeleted": "Account deleted successfully",
+      "errorDeletingUser": "Error deleting user",
       "linkDetailProfil": "Profil Detail",
       "linkDetailAccount": "Account Detail",
       "linkMethodCo": "Sign-in method",

@@ -5,7 +5,7 @@ import LoginPage from "../screens/Login";
 import AccountPage from "../screens/Account";
 import CategoryPage from "../screens/Category";
 import DeconnexionPage from "../screens/Deconnexion";
-import ProfilePage from "../screens/Profile";
+import ProfilePage from "../screens/Profile/index";
 import RegisterPage from "../screens/Register";
 import StatistiquePage from "../screens/Statistique";
 import TransactionPage from "../screens/Transaction";

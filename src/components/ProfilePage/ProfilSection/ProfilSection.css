@@ -1,0 +1,142 @@
+.profile-card {
+  background: var(--color-bg-card-page-active);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-navbar-scroll);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.profile-card h3 {
+  margin-top: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
+.profile-form {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.profile-fields {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+  gap: 20px;
+}
+
+.profile-fields-item{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-fields label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.profile-fields input {
+  padding: 10px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 300px;
+  background-color: var(--color-input-profile);
+}
+
+.profile-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  gap: 10px;
+}
+
+.avatar-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  cursor:default;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  height: 30px;
+  margin-top: 20px;
+}
+
+.btn-img {
+  background: var(--color-input-profile);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: black;
+  font-family: var(--font-family-title);
+  cursor: pointer;
+}
+
+.btn-blue {
+  background: var(--color-btn);
+  color: black;
+  font-family: var(--font-family-title);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-light {
+  background: var(--color-bg-main);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: var(--color-text);
+  font-family: var(--font-family-title);
+  cursor: pointer;
+}
+
+hr{
+    color: var(--color-hr);
+}
+
+@media (max-width: 768px) {
+
+  .profile-form {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .profile-fields {
+    padding: 0px;
+    padding-top: 20px;
+    align-items: flex-start;
+  }
+
+  .profile-fields input {
+    width: 100%;
+  }
+
+  .profile-avatar {
+    padding: 20px 0;
+  }
+
+  .profile-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    height: auto;
+  }
+}
