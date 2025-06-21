@@ -1,0 +1,126 @@
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--modal-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--modal-content);
+  color: var(--color-text);
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+form input {
+  width: 180px;
+  padding: 6px;
+  margin-top: 4px;
+  box-sizing: border-box;
+  border: 1px solid var(--color-card-border);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.modal-commentaire input {
+  width: 380px;
+}
+
+form button {
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  margin-top: 20px;
+  padding: 8px 12px;
+  cursor: pointer;
+  box-shadow: var(--shadow-btn);
+  background-color: var(--color-btn);
+  border: 0px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.modal-title{
+  font-family: var(--font-family-title);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.modal-date-cat{
+  display: flex;
+  gap: 20px;
+}
+
+.modal-typeCompte{
+  display: flex;
+}
+
+.modal-paiement-beneficiaire{
+  display: flex;
+  gap: 20px;
+}
+
+.modal-montant{
+  display: flex;
+  gap: 20px;
+}
+
+.modal-commentaire{
+  display: flex;
+}
+@media (max-width: 768px) {
+  .modal-content{
+    top: 5%;
+  }
+
+  .modal-date-cat,
+  .modal-paiement-beneficiaire,
+  .modal-montant,
+  .modal-commentaire,
+  .modal-typeCompte {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .modal-commentaire input {
+    width: 100%;
+  }
+
+  form input {
+    width: 100%;
+  }
+}

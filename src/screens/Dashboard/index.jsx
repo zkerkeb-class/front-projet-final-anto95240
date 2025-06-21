@@ -1,12 +1,9 @@
-import { useNavigate, Link } from "react-router";
-import { useState, useEffect } from "react";
+import { useNavigate, Link, useOutletContext } from "react-router";
+import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
 
-// import Sidebar from "../../components/Sidebar";
-// import Navbar from "../../components/Navbar";
-// import ThemeTrad from "../../components/ThemeTrad";
 import "./dashboard.css";
 import { useTranslation } from "react-i18next";
 
@@ -18,11 +15,15 @@ ChartJS.register(
 );
 
 const HomePage = () => {
-    const { t } = useTranslation();
-  // const user = {
-  //   name: "Alice Dupont",
-  //   profilePicture: "/images/alice.jpg",
-  // };
+  const { t } = useTranslation();
+  const { transaction: transactions, categories } = useOutletContext();
+
+  const lastFiveTransactions = useMemo(() => {
+    if (!transactions) return [];
+    return [...transactions]
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
+      .slice(0, 5);
+  }, [transactions]);
 
   const data = {
     labels: [
@@ -89,10 +90,6 @@ const HomePage = () => {
           <h1 className="card-value">1000 €</h1>
         </div>
         <div className="dashboard-card-body">
-          <p className="card-label">{t('StatistiquePage.nbAccount')}</p>
-          <h1 className="card-value">1</h1>
-        </div>
-        <div className="dashboard-card-body">
           <p className="card-label">{t('StatistiquePage.gainMois')}</p>
           <h1 className="card-value">1000 €</h1>
         </div>
@@ -107,36 +104,42 @@ const HomePage = () => {
           <caption>{t('DashboardPage.tableTitle')}</caption>
           <thead>
             <tr>
-              <th>{t('DashboardPage.tableDate')}</th>
-              <th>{t('DashboardPage.tablePaiemant')}</th>
-              <th>{t('DashboardPage.tableBeneficiare')}</th>
-              <th>{t('DashboardPage.tableSolde')}</th>
+              <th title={t('TransactionPage.tooltipDate')}>{t('DashboardPage.tableDate')}</th>
+              <th title={t('TransactionPage.tooltipPaiement')}>{t('DashboardPage.tablePaiemant')}</th>
+              <th title={t('TransactionPage.tooltipBeneficiare')}>{t('DashboardPage.tableBeneficiare')}</th>
+              <th title={t('TransactionPage.tooltipCat')}>{t('DashboardPage.tableCategory')}</th>
+              <th title={t('TransactionPage.tooltipSolde')}>{t('DashboardPage.tableSolde')}</th>
             </tr>
           </thead>
           <tbody>
-            {[1, 2, 3].map((_, index) => (
-              <tr key={index}>
-                <td colSpan="4">
-                  <div className="table-row-wrapper">
-                    <span>Chris</span>
-                    <span>HTML tables</span>
-                    <span>22</span>
-                    <span>45 €</span>
-                  </div>
-                </td>
-              </tr>
-            ))}
+            {lastFiveTransactions.map((tx) => {
+              const category = categories.find(cat => cat._id === tx.categoryId);
+
+              return (
+                <tr key={tx._id}>
+                  <td colSpan="5">
+                    <div className="table-row-wrapper">
+                      <span>{new Date(tx.date).toLocaleDateString()}</span>
+                      <span>{tx.paiement}</span>
+                      <span>{tx.beneficiare}</span>
+                      <span>{category?.name || "-"}</span>
+                      <span>{tx.amount} €</span>
+                    </div>
+                  </td>
+                </tr>
+              )
+            })}
           </tbody>
         </table>
       </section>
 
       <section className="table-card-container">
-        {[1, 2, 3].map((_, index) => (
-          <div key={index} className="table-card">
-            <span><strong>{t('DashboardPage.tableDate')}:</strong> 22</span>
-            <span><strong>{t('DashboardPage.tablePaiemant')}:</strong> HTML tables</span>
-            <span><strong>{t('DashboardPage.tableBeneficiare')}:</strong> Chris</span>
-            <span><strong>{t('DashboardPage.tableSolde')}:</strong> 45 €</span>
+        {lastFiveTransactions.map((tx) => (
+          <div key={tx._id} className="table-card">
+            <span><strong>{t('DashboardPage.tableDate')}:</strong> {new Date(tx.date).toLocaleDateString()}</span>
+            <span><strong>{t('DashboardPage.tablePaiemant')}:</strong> {tx.category?.name || "-"}</span>
+            <span><strong>{t('DashboardPage.tableBeneficiare')}:</strong> {tx.name}</span>
+            <span><strong>{t('DashboardPage.tableSolde')}:</strong> {tx.amount} €</span>
           </div>
         ))}
       </section>

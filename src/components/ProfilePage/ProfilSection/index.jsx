@@ -58,7 +58,7 @@ const ProfilSection = ({ user, form, setForm, t, handleSaveProfile}) => {
             src={
                 user.image.startsWith("http")
                 ? user.image
-                : form.avatarURL
+                : form.avatarURL || null
             }
             alt="Profil"
             />

@@ -1,0 +1,161 @@
+// TransactionModal.jsx
+import { useState, useEffect } from "react";
+import axios from "axios";
+import "./TransactionModal.css"
+
+const TransactionModal = ({
+  typeModal,
+  transactionToEdit,
+  closeModal,
+  setTransactions,
+  account,
+  t,
+  user,
+  categories,
+}) => {
+  const [formData, setFormData] = useState({
+    date: "",
+    categorie: "",
+    typeCompte: "",
+    paiement: "",
+    beneficiaire: "",
+    typeMontant: "",
+    montant: "",
+    commentaire: "",
+  });
+
+  useEffect(() => {
+    if (transactionToEdit) {
+      setFormData({
+        date: transactionToEdit.date ? transactionToEdit.date.slice(0, 10) : "",
+        categorie: transactionToEdit.categoryId || "",
+        typeCompte: transactionToEdit.accountType || "",
+        paiement: transactionToEdit.paiement || "",
+        beneficiaire: transactionToEdit.beneficiare || "",
+        typeMontant: transactionToEdit.transactionType || "",
+        montant: transactionToEdit.amount || "",
+        commentaire: transactionToEdit.description || "",
+      });
+    }
+  }, [transactionToEdit]);
+
+
+
+const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const dataToSend = {
+      date: formData.date,
+      paiement: formData.paiement,
+      beneficiare: formData.beneficiaire,
+      categoryId: formData.categorie,
+      description: formData.commentaire || "",
+      type: formData.typeMontant,
+      amount: Number(formData.montant),
+      accountId: account?._id || account?.id || null,
+      userId: user?._id || user?.id || null,
+    }
+
+    try {
+      let res;
+      if (typeModal === "add") {
+        res = await axios.post(`http://localhost:5000/api/transaction`, dataToSend);
+        setTransactions(prev => [...prev, res.data]);
+      } else {
+        res = await axios.put(`http://localhost:5000/api/transaction/${transactionToEdit._id}`, dataToSend);
+        setTransactions(prev => prev.map(tx => tx._id === res.data._id ? res.data : tx));
+      }
+
+      closeModal();
+    } catch (error) {
+      console.error("Erreur lors de l'envoi :", error);
+      alert("Erreur lors de l'ajout ou la modification de la transaction.");
+    }
+  };
+
+  return (
+    <div className="modal-overlay" onClick={closeModal}>
+      <div className="modal-content" onClick={e => e.stopPropagation()}>
+        <button className="modal-close" onClick={closeModal}>&times;</button>
+
+        <h2 className="modal-title">
+          {typeModal === "add" ? t('TransactionPage.addTransaction') : t('TransactionPage.modTransaction')}
+        </h2>
+
+        <form onSubmit={handleSubmit}>
+          <div className="modal-date-cat">
+            <label>
+              {t('TransactionPage.date')}
+              <input type="date" name="date" value={formData.date} onChange={handleChange} required />
+            </label>
+            <label>
+                {t('TransactionPage.categorie')}
+              <select name="categorie" value={formData.categorie} onChange={handleChange} required>
+                <option value="">-- {t('TransactionPage.selectCategory')} --</option>
+                {categories.map(cat => (
+                  <option key={cat._id} value={cat._id}>{cat.name}</option>
+                ))}
+              </select>
+            </label>
+          </div>
+
+          <div className="modal-typeCompte">
+            <label>
+              {t('TransactionPage.typeAccount')}
+              <input
+                type="text"
+                name="typeCompte"
+                value={account?.type || formData.typeCompte || ""}
+                readOnly
+              />
+            </label>
+          </div>
+
+          <div className="modal-paiement-beneficiaire">
+            <label>
+              {t('TransactionPage.paiement')}
+              <input type="text" name="paiement" value={formData.paiement} onChange={handleChange} required />
+            </label>
+            <label>
+              {t('TransactionPage.beneficiare')}
+              <input type="text" name="beneficiaire" value={formData.beneficiaire} onChange={handleChange} required />
+            </label>
+          </div>
+
+          <div className="modal-montant">
+            <label>
+              {t('TransactionPage.amountType')}
+              <select name="typeMontant" value={formData.typeMontant} onChange={handleChange} required>
+                <option value="">-- {t('TransactionPage.selectType')} --</option>
+                <option value="debit">{t('TransactionPage.debit')}</option>
+                <option value="credit">{t('TransactionPage.credit')}</option>
+              </select>
+            </label>
+            <label>
+              {t('TransactionPage.amount')}
+              <input type="number" name="montant" value={formData.montant} onChange={handleChange} required min="0" step="0.01" />
+            </label>
+          </div>
+
+          <div className="modal-commentaire">
+            <label>
+              {t('TransactionPage.comment')}
+              <input type="text" name="commentaire" value={formData.commentaire} onChange={handleChange} />
+            </label>
+          </div>
+
+          <button type="submit">
+            {typeModal === "add" ? t('AccountPage.add') : t('AccountPage.save')}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default TransactionModal;

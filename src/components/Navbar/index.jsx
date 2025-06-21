@@ -67,7 +67,7 @@ const Navbar = ({user}) => {
                 src={
                   user.image.startsWith('http') // image externe
                     ? user.image
-                    : form.avatarURL // image locale
+                    : form.avatarURL || null // image locale
                 }
                 alt="Profil"
               />

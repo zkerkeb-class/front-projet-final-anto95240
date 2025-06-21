@@ -62,6 +62,7 @@ const AccountInfoSection = ({ account, form, uiState, setForm, setUiState, t, ha
                 setForm(prev => ({ ...prev, nameAccount: e.target.value }))
               }
             />
+
         </div>
       )}
 
@@ -101,7 +102,7 @@ const AccountInfoSection = ({ account, form, uiState, setForm, setUiState, t, ha
         className="btn-light" 
         onClick={() => {
           setBudgetStart(account?.budgetStart || "");
-          setTypeAccount(account?.type || "");
+          setTypeAccount(account?.accountType || "");
           setNameAccount(account?.name || "");
         }}
       >

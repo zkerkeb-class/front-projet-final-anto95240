@@ -18,7 +18,7 @@ const ProfilePage = () => {
   const navigate = useNavigate();  
 
   const { user, setUser, account, setAccount } = useOutletContext();
-  console.log("user:", user);
+  // console.log("user:", user);
 
   const [form, setForm] = useState({
     firstname: "",
@@ -41,11 +41,6 @@ const ProfilePage = () => {
     showDeletePopup: false,
     showMobileMenu: false,
   });
-
-  useEffect(() => {
-  console.log("imageFile:", form.imageFile);
-}, [form.imageFile]);
-
     
   useEffect(() => {
     setForm((prev) => ({
@@ -59,8 +54,7 @@ const ProfilePage = () => {
       typeAccount: account?.type || "",
       budgetStart: account?.budgetStart || "",
       nameAccount: account?.name || "",
-      avatarURL: user?.image ? `${API_url}/uploads/${user.image}` : "", // ← corrige ici
-
+      avatarURL: user?.image ? `${API_url}/uploads/${user.image}` : "",
     }));
 
     setUiState((prev) => ({
@@ -72,11 +66,6 @@ const ProfilePage = () => {
       showNameAccountForm: false,
     }));
   }, [user, account]);
-
-  // useEffect(() => {
-  //   console.log("imageFile:", form.imageFile);
-  // }, [form.imageFile]);
-
 
   const handleSaveProfile = async () => {
     try {
