@@ -1,12 +1,67 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Budee
 
-Currently, two official plugins are available:
+Application web de gestion de budget personnel avec utilisateurs, comptes, transactions, catégories, statistiques, et traductions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Fonctionnalités principales
 
-## Expanding the ESLint configuration
+- Thème clair/sombre
+- Internationalisation (français / anglais)
+- Responsive design (mobile / desktop)
+- Alertes traduites (erreurs, validations, confirmations)
+- Statistiques mensuelles (graphiques)
+- Affichage des transactions récentes (tableau + cartes responsive)
+- Page de profil (modification des infos, avatar, suppression)
+- Formulaires sécurisés pour inscription, connexion, mise à jour
+- Interface dynamique pour gérer transactions, catégories
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Stack technique
+
+### Frontend
+
+- **Vite + React**
+- **Axios**
+- **Chart.js**
+- **i18next** (traduction)
+- **CSS natif** (pas de framework CSS)
+
+---
+
+## Installation
+
+### Prérequis
+
+- [Node.js ≥ 18](https://nodejs.org/)
+- [MongoDB](https://www.mongodb.com/try/download/community) (local ou [MongoDB Atlas](https://www.mongodb.com/cloud/atlas))
+
+### Cloner le projet
+
+```bash
+git clone https://github.com/zkerkeb-classfront-projet-final-anto95240.git
+```
+
+Démarrer le frontend :
+
+```bash
+npm install
+```
+
+Créer un fichier .env.local :
+```bash
+VITE_API_URL=http://localhost:5000
+```
+
+Lancer l'application (après s'etre assurer que le backend est lancé : [voir ici](https://github.com/zkerkeb-class/projet-final-back-anto95240/tree/main)) :
+```bash
+npm run dev
+```
+
+# Licence
+Projet personnel open-source. Utilisation libre pour apprentissage et développement personnel.
+
+# Auteur
+Développé avec par Antoine RICHARD
+
+
