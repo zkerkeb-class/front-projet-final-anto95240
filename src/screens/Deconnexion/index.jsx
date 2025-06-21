@@ -1,11 +1,10 @@
 import { useNavigate, Link } from "react-router";
-import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import axios from "axios"
-import "./deco.css";
+
 import ThemeTrad from "../../components/ThemeTrad";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowTurnUp } from "@fortawesome/free-solid-svg-icons";
+import "./deco.css";
 
 const DeconnexionPage = () => {
   const { t } = useTranslation();

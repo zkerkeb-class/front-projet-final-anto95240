@@ -1,4 +1,3 @@
-// TransactionModal.jsx
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./TransactionModal.css"
@@ -12,6 +11,7 @@ const TransactionModal = ({
   t,
   user,
   categories,
+  API_url
 }) => {
   const [formData, setFormData] = useState({
     date: "",
@@ -39,8 +39,6 @@ const TransactionModal = ({
     }
   }, [transactionToEdit]);
 
-
-
 const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -64,17 +62,16 @@ const handleChange = (e) => {
     try {
       let res;
       if (typeModal === "add") {
-        res = await axios.post(`http://localhost:5000/api/transaction`, dataToSend);
+        res = await axios.post(`${API_url}/api/transaction`, dataToSend);
         setTransactions(prev => [...prev, res.data]);
       } else {
-        res = await axios.put(`http://localhost:5000/api/transaction/${transactionToEdit._id}`, dataToSend);
+        res = await axios.put(`${API_url}/api/transaction/${transactionToEdit._id}`, dataToSend);
         setTransactions(prev => prev.map(tx => tx._id === res.data._id ? res.data : tx));
       }
 
       closeModal();
     } catch (error) {
-      console.error("Erreur lors de l'envoi :", error);
-      alert("Erreur lors de l'ajout ou la modification de la transaction.");
+      alert(t('ErrorMsg.errorAddModTransaction'));
     }
   };
 

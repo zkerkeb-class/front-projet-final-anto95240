@@ -1,10 +1,8 @@
 import { Link } from "react-router";
 import "./signUpPart3.css"
-import { useTranslation } from "react-i18next";
 
-const SignUpPart3 = ({ formData, setFormData, prevStep, handleSubmit, errorMsg, successMsg, loading }) => {
+const SignUpPart3 = ({ formData, setFormData, prevStep, handleSubmit, errorMsg, successMsg, loading, t }) => {
   
-  const { t } = useTranslation();
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };

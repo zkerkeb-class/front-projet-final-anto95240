@@ -17,13 +17,6 @@
       "name": "Name :",
       "color": "Color :"
     },
-    "DashboardPage": {
-      "tableTitle": "Transaction History",
-      "tableDate": "Date",
-      "tablePaiemant": "Payment",
-      "tableBeneficiare": "Bénéficiary",
-      "tableSolde": "Balance"
-    },
     "DeconnexionPage": {
       "message1": "See you again!",
       "message2": "Thanks for using Budgee. You are now successfully signed out.",
@@ -40,13 +33,6 @@
       "linkNewUser": "Create an account"
     },
     "ProfilePage": {
-      "passwordsMismatch":"Passwords do not match",
-      "profileUpdated": "Profile updated successfully",
-      "errorProfileUpdated": "Error updating profile",
-      "accountUpdated": "Account updated successfully",
-      "errorAccountUpdated": "Error updating account",
-      "userDeleted": "Account deleted successfully",
-      "errorDeletingUser": "Error deleting user",
       "linkDetailProfil": "Profil Detail",
       "linkDetailAccount": "Account Detail",
       "linkMethodCo": "Sign-in method",
@@ -95,10 +81,7 @@
       "alreadyUserLink": "Log in here",
       "back": "Back",
       "next": "Next",
-      "register": "Confirm",
-      "badLogin": "Username must be at least 3 characters long.",
-      "badPassword": "Password must be at least 8 characters long.",
-      "passwordsNotMatching": "Passwords do not match."
+      "register": "Confirm"
     },
     "StatistiquePage": {
       "actualSolde": "Actual solde",
@@ -111,22 +94,17 @@
       "addTransaction": "Add a transaction",
       "date": "Date :",
       "categorie": "Category :",
+      "selectCategory": "Selection of categories",
       "typeAccount": "Account Type :",
       "beneficiare": "Beneficiary :",
       "amountType": "Amount Type :",
+      "selectType": "Selection of the amount type",
+      "debit": "Debit",
+      "credit": "Credit",
       "modTransaction": "Modify transaction",
       "paiement": "Payment :",
       "amount": "Amount :",
-      "comment": "Comment :",
-      "titleTableDate": "Date",
-      "titleTableAccountType": "Account Type",
-      "titleTablePaiement": "Payment",
-      "titleTableBeneficiare": "Bénéficiary",
-      "titleTableCat": "Category",
-      "titleTableComment": "Comment",
-      "titleTableDebit": "Debit",
-      "titleTableCredit": "Credit",
-      "titleTableSolde": "Balance"
+      "comment": "Comment :"
     },
     "Navbar": {
       "altUsername": "Username",
@@ -138,6 +116,42 @@
       "category": "Category",
       "account": "Account",
       "statistique": "Statistical"
+    },
+    "Table": {
+      "tableTitle": "Transaction History",
+      "titleDate": "Date",
+      "tooltipDate":"Transaction date",
+      "titleAccountType": "Account Type",
+      "tooltipAccountType":"Type of account involved",
+      "titlePaiemant": "Payment",
+      "tooltipPaiement":"Payment method used",
+      "titleBeneficiare": "Beneficiary",
+      "tooltipBeneficiare":"Beneficiary or payer",
+      "titleCategory": "Category",
+      "tooltipCat":"Transaction category",
+      "titleComment": "Comment",
+      "tooltipComment":"Comment or note",
+      "titleDebit": "Debit",
+      "tooltipDebit":"Debited amount",
+      "titleCredit": "Credit",
+      "tooltipCredit":"Credited amount",
+      "titleSolde": "Balance",
+      "tooltipSolde":"Balance after transaction"
+    },
+    "ErrorMsg": {      
+      "errorDelete": "Error while deleting",
+      "errorBudgetStart": "Please enter a valid starting budget.",
+      "errorNameAccount": "Please enter an account name.",
+      "errorEmail": "Invalid email",
+      "badLogin":"Username must be at least 3 characters long.",
+      "errorNetwork": "Network error, please try again.",
+      "passwordsNotMatching": "Passwords do not match",
+      "badPassword":"Password must be at least 8 characters long.",
+      "alerteSucces": "Update successfully completed",
+      "errorUpdate": "Error during update",
+      "alerteDeleteUser": "The account was successfully deleted",
+      "errorAddModTransaction": "Error adding or modifying the transaction",
+      "errorRecupData": "Error retrieving data:"
     }
   }
 }

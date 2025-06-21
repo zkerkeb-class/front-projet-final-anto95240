@@ -1,10 +1,9 @@
-import "./themeTrad.css";
 import { useState, useEffect } from "react";
-// import { ThemeContext } from "../ThemeContext";
-// import { useContext } from "react";
+import { useTranslation } from "react-i18next";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
-import { useTranslation } from "react-i18next";
+import "./themeTrad.css";
 
 const ThemeTrad = () => {
   const { i18n } = useTranslation();

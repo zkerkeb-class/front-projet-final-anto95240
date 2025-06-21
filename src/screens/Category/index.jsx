@@ -2,9 +2,7 @@ import { useNavigate, Link } from "react-router";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./category.css";
-import Sidebar from "../../components/Sidebar";
-import Navbar from "../../components/Navbar";
-import ThemeTrad from "../../components/ThemeTrad";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPen,
@@ -13,13 +11,12 @@ import {
   faXmark
 } 
 from "@fortawesome/free-solid-svg-icons";
-import { useTranslation } from 'react-i18next';
 
 const CategoryPage = () => {
-    const { t } = useTranslation();
+    const { t } = useOutletContext();
+
     const [showForm, setShowForm] = useState(false);
     const [isEditMode, setIsEditMode] = useState(false);
-
 
     const [formData, setFormData] = useState({
         theme: "",
@@ -48,15 +45,9 @@ const CategoryPage = () => {
     const handleChange = (e) => {
         setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
     };
-    
-    const user = {
-    name: "Alice Dupont",
-    profilePicture: "/images/alice.jpg",
-  };
 
     return (
         <div className="category-container">
-            {/* <h2>Bienvenue sur le Dashboard</h2> */}
             <div className="category">
                 <button className="btn-add-mobile" onClick={openAddForm}>
                     <FontAwesomeIcon icon={faPlus} /> {t('CategoryPage.addCat')}
@@ -119,7 +110,6 @@ const CategoryPage = () => {
             
             {showForm && <div className="modal-overlay-cat" onClick={closeForm}></div>}
 
-            {/* FORMULAIRE D'AJOUT */}
             <form className={`add-category ${showForm ? "show" : ""}`}>
                 <button type="button" className="btn-close" onClick={closeForm}>
                     <FontAwesomeIcon icon={faXmark} />

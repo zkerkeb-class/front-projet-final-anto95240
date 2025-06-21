@@ -5,7 +5,6 @@ import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
 
 import "./dashboard.css";
-import { useTranslation } from "react-i18next";
 
 ChartJS.register(
   CategoryScale,
@@ -15,8 +14,7 @@ ChartJS.register(
 );
 
 const HomePage = () => {
-  const { t } = useTranslation();
-  const { transaction: transactions, categories } = useOutletContext();
+  const { transaction: transactions, categories, t } = useOutletContext();
 
   const lastFiveTransactions = useMemo(() => {
     if (!transactions) return [];
@@ -81,7 +79,6 @@ const HomePage = () => {
     },
   };
 
-
   return (
     <div className="dashboard-content">
       <section className="dashboard-card-grid">
@@ -101,14 +98,14 @@ const HomePage = () => {
 
       <section className="dashboard-table">
         <table>
-          <caption>{t('DashboardPage.tableTitle')}</caption>
+          <caption>{t('Table.tableTitle')}</caption>
           <thead>
             <tr>
-              <th title={t('TransactionPage.tooltipDate')}>{t('DashboardPage.tableDate')}</th>
-              <th title={t('TransactionPage.tooltipPaiement')}>{t('DashboardPage.tablePaiemant')}</th>
-              <th title={t('TransactionPage.tooltipBeneficiare')}>{t('DashboardPage.tableBeneficiare')}</th>
-              <th title={t('TransactionPage.tooltipCat')}>{t('DashboardPage.tableCategory')}</th>
-              <th title={t('TransactionPage.tooltipSolde')}>{t('DashboardPage.tableSolde')}</th>
+              <th title={t('Table.tooltipDate')}>{t('Table.titleDate')}</th>
+              <th title={t('Table.tooltipPaiement')}>{t('Table.titlePaiemant')}</th>
+              <th title={t('Table.tooltipBeneficiare')}>{t('Table.titleBeneficiare')}</th>
+              <th title={t('Table.tooltipCat')}>{t('Table.titleCategory')}</th>
+              <th title={t('Table.tooltipSolde')}>{t('Table.titleSolde')}</th>
             </tr>
           </thead>
           <tbody>
@@ -134,16 +131,20 @@ const HomePage = () => {
       </section>
 
       <section className="table-card-container">
-        {lastFiveTransactions.map((tx) => (
-          <div key={tx._id} className="table-card">
-            <span><strong>{t('DashboardPage.tableDate')}:</strong> {new Date(tx.date).toLocaleDateString()}</span>
-            <span><strong>{t('DashboardPage.tablePaiemant')}:</strong> {tx.category?.name || "-"}</span>
-            <span><strong>{t('DashboardPage.tableBeneficiare')}:</strong> {tx.name}</span>
-            <span><strong>{t('DashboardPage.tableSolde')}:</strong> {tx.amount} €</span>
-          </div>
-        ))}
-      </section>
+        {lastFiveTransactions.map((tx) => {
+          const category = categories.find(cat => cat._id === tx.categoryId);
 
+          return (
+            <div key={tx._id} className="table-card">
+              <span><strong>{t('Table.titleDate')} :</strong> {new Date(tx.date).toLocaleDateString()}</span>
+              <span><strong>{t('Table.titlePaiemant')} :</strong> {tx.paiement}</span>
+              <span><strong>{t('Table.titleBeneficiare')} :</strong> {tx.beneficiare}</span>
+              <span><strong>{t('Table.titleCategory')} :</strong> {category?.name || "-"}</span>
+              <span><strong>{t('Table.titleSolde')} :</strong> {tx.amount} €</span>
+            </div>
+          )
+        })}
+      </section>
 
       <section className="dashboard-chart">
         <h3 className="chart-label">{t('StatistiquePage.titleChartBar')}</h3>

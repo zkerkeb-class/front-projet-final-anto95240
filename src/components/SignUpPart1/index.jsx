@@ -1,12 +1,9 @@
-import { useNavigate, Link } from "react-router";
-import { useState, useEffect } from "react";
-import axios from "axios"
+import { Link } from "react-router";
+
 import "./signUpPart1.css"
-import { useTranslation } from "react-i18next";
 
-const SignUpPart1 = ({ formData, setFormData, nextStep, badLogin, setBadLogin }) => {
+const SignUpPart1 = ({ formData, setFormData, nextStep, badLogin, setBadLogin, t }) => {
 
-    const { t } = useTranslation();
     const handleChange = e => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
@@ -47,7 +44,7 @@ const SignUpPart1 = ({ formData, setFormData, nextStep, badLogin, setBadLogin })
                     <div className="form-group floating-label">
                         <input type="text"className="form-input" id="username" name="username" value={formData.username} onChange={handleChange} required placeholder=" " />
                         <label htmlFor="username">{t('RegisterPage.userName')}</label>
-                        {badLogin && <p className="error-message">{t("RegisterPage.badLogin")}</p>}
+                        {badLogin && <p className="error-message">{t("ErrorMsg.badLogin")}</p>}
                     </div>
 
                     <button type="submit" className="submit-button">{t('RegisterPage.next')}</button>

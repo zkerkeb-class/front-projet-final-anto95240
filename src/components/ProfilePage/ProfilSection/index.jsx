@@ -9,7 +9,6 @@ const ProfilSection = ({ user, form, setForm, t, handleSaveProfile}) => {
     fileInputRef.current.click();
   };
 
-  // Gérer sélection du fichier
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) setForm((prev) => ({ ...prev, imageFile: file }));
@@ -36,38 +35,34 @@ const ProfilSection = ({ user, form, setForm, t, handleSaveProfile}) => {
         
         </div>
         <div className="profile-avatar">
-        {/* input file caché */}
-        <input
-            type="file"
-            accept="image/*"
-            ref={fileInputRef}
-            style={{ display: "none" }}
-            onChange={handleFileChange}
-        />
+          <input
+              type="file"
+              accept="image/*"
+              ref={fileInputRef}
+              onChange={handleFileChange}
+          />
 
-        {/* Affiche soit l’image du user, soit l’aperçu de l’image sélectionnée */}
-        {form.imageFile instanceof File ? (
-            <img
-            className="avatar-circle"
-            src={URL.createObjectURL(form.imageFile)}
-            alt="Image sélectionnée"
-            />
-        ) : user?.image ? (
-            <img
-            className="avatar-circle"
-            src={
-                user.image.startsWith("http")
-                ? user.image
-                : form.avatarURL || null
-            }
-            alt="Profil"
-            />
-        ) : null}
+          {form.imageFile instanceof File ? (
+              <img
+              className="avatar-circle"
+              src={URL.createObjectURL(form.imageFile)}
+              alt="Image sélectionnée"
+              />
+          ) : user?.image ? (
+              <img
+              className="avatar-circle"
+              src={
+                  user.image.startsWith("http")
+                  ? user.image
+                  : form.avatarURL || null
+              }
+              alt="Profil"
+              />
+          ) : null}
 
-        {/* Bouton déclencheur du sélecteur de fichier */}
-        <button className="btn-img" onClick={handleButtonClick}>
-            {t("ProfilePage.labelDownloadPicture")}
-        </button>
+          <button className="btn-img" onClick={handleButtonClick}>
+              {t("ProfilePage.labelDownloadPicture")}
+          </button>
         </div>
       </div>
       <div className="profile-actions">

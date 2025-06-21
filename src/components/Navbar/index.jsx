@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation, Link, useOutletContext } from "react-router";
+import { useLocation, Link } from "react-router";
 
 import "./Navbar.css";
 import ThemeTrad from "../ThemeTrad";
@@ -9,7 +9,6 @@ import {
   faUser
 } 
 from "@fortawesome/free-solid-svg-icons";
-// import ThemeTrad from "../ThemeTrad";
 
 const pageTitles = {
   "/dashboard": "Dashboard",
@@ -21,10 +20,8 @@ const pageTitles = {
   "/deconnexion": "Deconnexion",
 };
 
-const Navbar = ({user}) => {
-  const API_url = "http://localhost:5000";   
+const Navbar = ({user, API_url}) => {
   const location = useLocation();
-  // const { user } = useOutletContext();
 
   const pageTitle = pageTitles[location.pathname] || "Page";
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,8 +45,8 @@ const Navbar = ({user}) => {
 
   useEffect(() => {
     setForm((prev) => ({
-      ...prev, // ✅ garde imageFile intact
-      avatarURL: user?.image ? `${API_url}/uploads/${user.image}` : "", // ← corrige ici
+      ...prev,
+      avatarURL: user?.image ? `${API_url}/uploads/${user.image}` : "",
 
     }));
   }, [user]);
@@ -65,9 +62,9 @@ const Navbar = ({user}) => {
             {user && user.image ? (
               <img
                 src={
-                  user.image.startsWith('http') // image externe
+                  user.image.startsWith('http')
                     ? user.image
-                    : form.avatarURL || null // image locale
+                    : form.avatarURL || null 
                 }
                 alt="Profil"
               />

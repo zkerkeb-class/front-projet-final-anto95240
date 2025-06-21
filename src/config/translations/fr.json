@@ -17,13 +17,6 @@
       "name": "Nom :",
       "color": "Couleur :"
     },
-    "DashboardPage":{
-      "tableTitle": "Historique des transactions",
-      "tableDate": "Date",
-      "tablePaiemant": "Paiement",
-      "tableBeneficiare": "Bénéficiare",
-      "tableSolde": "Somme"
-    },
     "DeconnexionPage":{
       "message1": "À bientôt",
       "message2": "Merci d'avoir utiliser Budgee. Vous êtes maintenant déconnecté.",
@@ -40,13 +33,6 @@
       "linkNewUser": "Créer un compte"
     },
     "ProfilePage":{
-      "passwordsMismatch":"Les mots de passe ne correspondent pas",
-      "profileUpdated": "Profil mis à jour avec succès",
-      "errorProfileUpdated": "Erreur lors de la mise à jour du profil",
-      "accountUpdated": "Compte mis à jour avec succès",
-      "errorAccountUpdated": "Erreur lors de la mise à jour du compte",
-      "userDeleted": "Le compte a été supprimer avec succès",
-      "errorDeletingUser": "Erreur lors de la suppression du compte",
       "linkDetailProfil": "Détail du profil",
       "linkDetailAccount": "Détail du compte",
       "linkMethodCo": "Methode de connexion",
@@ -95,10 +81,7 @@
       "alreadyUserLink": "Se connecter ici",
       "back": "Retour",
       "next": "Continuer",
-      "register": "Confirmer",
-      "badLogin": "Le nom d'utilisateur doit comporter au moins 3 caractères.",
-      "badPassword": "Le mot de passe doit comporter au moins 8 caractères.",
-      "passwordsNotMatching": "Les mots de passe ne correspondent pas."
+      "register": "Confirmer"
     },
     "StatistiquePage":{
       "actualSolde": "solde Actuel",
@@ -111,22 +94,17 @@
       "addTransaction": "ajouter un transaction",
       "date": "Date :",
       "categorie": "Catégorie :",
+      "selectCategory": "Selection de catégories",
       "typeAccount": "Type de compte :",
       "beneficiare": "Bénéficiaire :",
       "amountType": "Type de montant :",
+      "selectType": "Selection du type de montant",
+      "debit": "Débit",
+      "credit": "Crédit",
       "modTransaction": "Modifier la transaction",
       "paiement": "Paiement :",
       "amount": "Montant :",
-      "comment": "Commentaire :",
-      "titleTableDate": "Date",
-      "titleTableAccountType": "Type de compte",
-      "titleTablePaiement": "Paiement",
-      "titleTableBeneficiare": "Bénéficiare",
-      "titleTableCat": "Categorie",
-      "titleTableComment": "Commentaire",
-      "titleTableDebit": "Debit",
-      "titleTableCredit": "Credit",
-      "titleTableSolde": "Solde"
+      "comment": "Commentaire :"
     },
     "Navbar": {
       "altUsername": "Nom d'utilisateur",
@@ -138,6 +116,42 @@
       "category": "Catégorie",
       "account": "Compte",
       "statistique": "Statistique"
+    },
+    "Table": {
+      "tableTitle": "Historique des transactions",
+      "titleDate": "Date",
+      "tooltipDate":"Date de la transaction",
+      "titleAccountType": "Type de compte",
+      "tooltipAccountType":"Type de compte concerné",
+      "titlePaiemant": "Paiement",
+      "tooltipPaiement":"Mode de paiement utilisé",
+      "titleBeneficiare": "Bénéficiare",
+      "tooltipBeneficiare":"Bénéficiaire ou payeur",
+      "titleCategory": "Catégorie",
+      "tooltipCat":"Catégorie de la transaction",
+      "titleComment": "Commentaire",
+      "tooltipComment":"Commentaire ou note",
+      "titleDebit": "Débit",
+      "tooltipDebit":"Montant débité",
+      "titleCredit": "Crédit",
+      "tooltipCredit":"Montant crédité",
+      "titleSolde": "Somme",
+      "tooltipSolde":"Solde après transaction"
+    },
+    "ErrorMsg": {
+      "errorDelete": "Erreur lors de la suppression",
+      "errorBudgetStart": "Veuillez entrer un budget de départ valide.",
+      "errorNameAccount": "Veuillez entrer un nom de compte.",
+      "errorEmail": "Email invalide",
+      "badLogin":"Le nom d'utilisateur doit comporter au moins 3 caractères.",
+      "errorNetwork": "Erreur réseau, veuillez réessayer.",
+      "passwordsNotMatching": "Les mots de passe ne correspondent pas",
+      "badPassword":"Le mot de passe doit comporter au moins 8 caractères.",
+      "alerteSucces": "Mis à jour réussi avec succès",
+      "errorUpdate": "Erreur lors de la mise a jour",
+      "alerteDeleteUser": "Le compte a été supprimer avec succès",
+      "errorAddModTransaction": "Erreur lors de l'ajout ou la modification de la transaction.",
+      "errorRecupData": "Erreur récupération données:"
     }
   }
 }

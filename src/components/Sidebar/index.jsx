@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router";
+import { useTranslation } from "react-i18next";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHouse,
@@ -12,7 +14,6 @@ import {
   faClose
 } from "@fortawesome/free-solid-svg-icons";
 import "./sidebar.css";
-import { useTranslation } from "react-i18next";
 
 const Sidebar = () => {
   const { t } = useTranslation();
@@ -34,12 +35,10 @@ const Sidebar = () => {
     }
   };
 
-  // Met à jour localStorage quand isPinned change
   useEffect(() => {
     localStorage.setItem("sidebarPinned", isPinned);
   }, [isPinned]);
 
-  // Gère le resize pour activer le mode mobile
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);

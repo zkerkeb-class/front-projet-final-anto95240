@@ -9,13 +9,10 @@ import {
   faTrash
 } 
 from "@fortawesome/free-solid-svg-icons";
-import { useTranslation } from 'react-i18next';
 
 const TransactionPage = () => {
-  const { t } = useTranslation();
-  const API_url = "http://localhost:5000";   
 
-  const { transaction: transactions, user, setTransaction, account, categories } = useOutletContext();
+  const { transaction: transactions, user, setTransaction, account, categories, API_url, t } = useOutletContext();
   const [typeModal, setTypeModal] = useState(null);
   const [transactionToEdit, setTransactionToEdit] = useState(null);
 
@@ -24,17 +21,15 @@ const TransactionPage = () => {
     setTypeModal("edit");
   };
 
-
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    const day = String(date.getDate()).padStart(2, '0');     // jour avec 2 chiffres
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // mois (0-indexé donc +1)
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
     const year = date.getFullYear();
 
     return `${day}-${month}-${year}`;
   };
 
-  // Fonction pour calculer le solde cumulatif (exemple simple)
   const calculateBalance = (txs) => {
     let balance = account?.budgetStart || 0;
     const sortedTxs = [...txs].sort((a, b) => new Date(a.date) - new Date(b.date));
@@ -53,11 +48,10 @@ const TransactionPage = () => {
   const handleDeleteTransaction = async (txId) => {
     try {
       await axios.delete(`${API_url}/api/transaction/${txId}`);
-      setTransaction(prev => prev.filter(tx => tx._id !== txId)); // mise à jour immédiate
-      alert(t("Transaction supprimée"));
+      setTransaction(prev => prev.filter(tx => tx._id !== txId));
     } catch (err) {
-        console.error("Erreur lors de la suppression :", err.response?.data || err.message);
-      alert(t("Erreur lors de la suppression"));
+      console.error("Erreur lors de la suppression :", err.response?.data || err.message);
+      alert(t('ErrorMsg.errorDelete'));
     }
   };
 
@@ -73,15 +67,15 @@ const TransactionPage = () => {
                 <table className="transaction-table">
                     <thead>
                     <tr> 
-                      <th title={t('TransactionPage.tooltipDate')}>{t('TransactionPage.titleTableDate')}</th>
-                      <th title={t('TransactionPage.tooltipAccountType')}>{t('TransactionPage.titleTableAccountType')}</th>
-                      <th title={t('TransactionPage.tooltipPaiement')}>{t('TransactionPage.titleTablePaiement')}</th>
-                      <th title={t('TransactionPage.tooltipBeneficiare')}>{t('TransactionPage.titleTableBeneficiare')}</th>
-                      <th title={t('TransactionPage.tooltipCat')}>{t('TransactionPage.titleTableCat')}</th>
-                      <th title={t('TransactionPage.tooltipComment')}>{t('TransactionPage.titleTableComment')}</th>
-                      <th title={t('TransactionPage.tooltipDebit')}>{t('TransactionPage.titleTableDebit')}</th>
-                      <th title={t('TransactionPage.tooltipCredit')}>{t('TransactionPage.titleTableCredit')}</th>
-                      <th title={t('TransactionPage.tooltipSolde')}>{t('TransactionPage.titleTableSolde')}</th>
+                      <th title={t('Table.tooltipDate')}>{t('Table.titleDate')}</th>
+                      <th title={t('Table.tooltipAccountType')}>{t('Table.titleAccountType')}</th>
+                      <th title={t('Table.tooltipPaiement')}>{t('Table.titlePaiemant')}</th>
+                      <th title={t('Table.tooltipBeneficiare')}>{t('Table.titleBeneficiare')}</th>
+                      <th title={t('Table.tooltipCat')}>{t('Table.titleCategory')}</th>
+                      <th title={t('Table.tooltipComment')}>{t('Table.titleComment')}</th>
+                      <th title={t('Table.tooltipDebit')}>{t('Table.titleDebit')}</th>
+                      <th title={t('Table.tooltipCredit')}>{t('Table.titleCredit')}</th>
+                      <th title={t('Table.tooltipSolde')}>{t('Table.titleSolde')}</th>
                       <th></th>
                       <th></th>
                     </tr>
@@ -127,15 +121,15 @@ const TransactionPage = () => {
 
                     return (
                       <div className="table-card" key={tx._id}>
-                        <span><strong>{t('TransactionPage.date')} :</strong> {formatDate(tx.date)}</span>
-                        <span><strong>{t('TransactionPage.typeAccount')} :</strong> {type}</span>
-                        <span><strong>{t('TransactionPage.paiement')} :</strong> {tx.paiement}</span>
-                        <span><strong>{t('TransactionPage.beneficiare')} :</strong> {tx.beneficiare}</span>
-                        <span><strong>{t('TransactionPage.categorie')} :</strong> {categoryName}</span>
-                        <span><strong>{t('TransactionPage.comment')} :</strong> {tx.description}</span>
-                        <span><strong>{t('TransactionPage.debit')} :</strong> {tx.transactionType === "debit" ? `${tx.amount}` : "-"}</span>
-                        <span><strong>{t('TransactionPage.credit')} :</strong> {tx.transactionType === "credit" ? `${tx.amount}` : "-"}</span>
-                        <span><strong>{t('TransactionPage.titleTableSolde')} :</strong> 
+                        <span><strong>{t('Table.titleDate')} :</strong> {formatDate(tx.date)}</span>
+                        <span><strong>{t('Table.titleTypeAccount')} :</strong> {type}</span>
+                        <span><strong>{t('Table.titlePaiement')} :</strong> {tx.paiement}</span>
+                        <span><strong>{t('Table.titleBeneficiare')} :</strong> {tx.beneficiare}</span>
+                        <span><strong>{t('Table.titleCategorie')} :</strong> {categoryName}</span>
+                        <span><strong>{t('Table.titleComment')} :</strong> {tx.description}</span>
+                        <span><strong>{t('Table.titleDebit')} :</strong> {tx.transactionType === "debit" ? `${tx.amount}` : "-"}</span>
+                        <span><strong>{t('Table.titleCredit')} :</strong> {tx.transactionType === "credit" ? `${tx.amount}` : "-"}</span>
+                        <span><strong>{t('Table.titleSolde')} :</strong> 
                           {typeof tx.solde === "number" ? tx.solde.toFixed(2) : "-"}
                         </span>
 

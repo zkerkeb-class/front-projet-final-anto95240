@@ -1,16 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import "./signUpPart2.css";
-import { useTranslation } from "react-i18next";
 
-const SignUpPart2 = ({ formData, setFormData, nextStep, prevStep, badPassword, setBadPassword, errorMsg, setErrorMsg }) => {
-  
-  const { t } = useTranslation();
+const SignUpPart2 = ({ formData, setFormData, nextStep, prevStep, badPassword, setBadPassword, errorMsg, setErrorMsg, t }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  // const [errorMsg, setErrorMsg] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,7 +19,6 @@ const SignUpPart2 = ({ formData, setFormData, nextStep, prevStep, badPassword, s
     }
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -30,16 +26,15 @@ const SignUpPart2 = ({ formData, setFormData, nextStep, prevStep, badPassword, s
     setErrorMsg("");
 
    if (!formData.email.includes("@")) {
-      setErrorMsg("Email invalide.");
+      setErrorMsg(t('ErrorMsg.errorEmail'));
       return;
     }
 
     if (formData.password !== formData.passwordConfirm) {
-      setErrorMsg(t("RegisterPage.passwordsNotMatching")); // à traduire
+      setErrorMsg(t('ErrorMsg.passwordsNotMatching'));
       return;
     }
 
-    // ✅ Si OK, passer à l'étape suivante
     nextStep();
   };
 
@@ -108,7 +103,7 @@ const SignUpPart2 = ({ formData, setFormData, nextStep, prevStep, badPassword, s
             </button>
           </div>
 
-          {badPassword && <p className="signinError">{t("RegisterPage.badPassword")}</p>}
+          {badPassword && <p className="signinError">{t("ErrorMsg.badPassword")}</p>}
           {errorMsg && <p className="signinError">{errorMsg}</p>}
 
 

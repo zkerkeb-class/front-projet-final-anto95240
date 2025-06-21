@@ -15,11 +15,11 @@ const LoginPage = () => {
 
     const navigate = useNavigate();
     const loginToken = sessionStorage.getItem("loginToken");
-    const API_url = "http://localhost:5000";    
+    const API_url = import.meta.env.VITE_API_url;
     const { t } = useTranslation();
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); // else submitting refresh the page and error message disappear
+        e.preventDefault(); 
 
         const loginData = {
             login: login,
@@ -28,12 +28,10 @@ const LoginPage = () => {
         try {
             const { data } = await axios.post(`${API_url}/api/user/login`, loginData);
             sessionStorage.setItem("loginToken", data.token);
-            // sessionStorage.setItem("loginToken", data.us);
             navigate("/dashboard");
         } catch (error) {
-            setErrorMsg("Erreur réseau, veuillez réessayer.");
+            setErrorMsg(t('ErrorMsg.errorNetwork'));
         }
-
     }
     
     useEffect(() => {
@@ -41,7 +39,6 @@ const LoginPage = () => {
             navigate("/dashboard");
         }
     }, [loginToken, navigate]);
-
 
     return (
     <div>

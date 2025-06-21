@@ -8,17 +8,12 @@ import ConnexionSection from"../../components/ProfilePage/ConnexionSection"
 import AccountInfoSection from"../../components/ProfilePage/AccountInfoSection"
 import ProfilSection from"../../components/ProfilePage/ProfilSection"
 
-import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faList } from "@fortawesome/free-solid-svg-icons";
 
-const ProfilePage = () => {
-  const API_url = "http://localhost:5000";    
-  const { t } = useTranslation();
+const ProfilePage = () => {  
   const navigate = useNavigate();  
-
-  const { user, setUser, account, setAccount } = useOutletContext();
-  // console.log("user:", user);
+  const { user, setUser, account, setAccount, API_url, t } = useOutletContext();
 
   const [form, setForm] = useState({
     firstname: "",
@@ -44,7 +39,7 @@ const ProfilePage = () => {
     
   useEffect(() => {
     setForm((prev) => ({
-      ...prev, // ✅ garde imageFile intact
+      ...prev,
       firstname: user?.firstname || "",
       lastname: user?.lastname || "",
       username: user?.username || "",
@@ -75,7 +70,7 @@ const ProfilePage = () => {
       );
       if (form.password && form.confirmPassword) {
         if (form.password !== form.confirmPassword) {
-          return alert(t("ProfilePage.passwordsMismatch"));
+          return alert(t('ErrorMsg.passwordsNotMatching'));
         }
         formData.append("password", form.password);
       }
@@ -85,10 +80,10 @@ const ProfilePage = () => {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setUser(res.data);
-      alert(t("ProfilePage.profileUpdated"));
+      alert(t('ErrorMsg.alerteSucces'));
     } catch (err) {
       console.error(err);
-      alert(t("ProfilePage.errorUpdatingProfile"));
+      alert(t('ErrorMsg.errorUpdateUser'));
     }
   };
   
@@ -100,21 +95,21 @@ const ProfilePage = () => {
         budgetStart: form.budgetStart,
       });
       setAccount(res.data);
-      alert(t("ProfilePage.accountUpdated"));
+      alert(t('ErrorMsg.alerteSucces'));
     } catch (err) {
       console.error(err);
-      alert(t("ProfilePage.errorUpdatingAccount"));
+      alert(t('ErrorMsg.errorUpdateUser'));
     }
   };
 
   const handleDeleteUser = async () => {
     try {
       await axios.delete(`${API_url}/api/user/${user._id}`);
-      alert(t("ProfilePage.userDeleted"));
+      alert(t('ErrorMsg.alerteDeleteUser'));
       navigate("/login");
     } catch (err) {
       console.error(err);
-      alert(t("ProfilePage.errorDeletingUser"));
+      alert(t('ErrorMsg.errorDelete'));
     }
   };
 
@@ -148,7 +143,6 @@ const ProfilePage = () => {
           <DeleteAccountSection setUiState={setUiState} t={t} />
         </div>
       </div>
-
     
       {uiState.showDeletePopup && (
         <div className="modal-overlay" onClick={() => setUiState(prev => ({ ...prev, showDeletePopup: false }))}>

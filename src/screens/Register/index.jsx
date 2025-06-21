@@ -1,5 +1,6 @@
 import { useNavigate, Link } from "react-router";
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import axios from "axios"
 import "./register.css";
 import ThemeTrad from "../../components/ThemeTrad";
@@ -11,8 +12,9 @@ const RegisterPage = () => {
   const [step, setStep] = useState(1); // étape actuelle
 
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const loginToken = sessionStorage.getItem("loginToken");
-  const API_url = "http://localhost:5000";
+  const API_url = import.meta.env.VITE_API_url;
 
   const [formData, setFormData] = useState({
     firstname: "",
@@ -46,22 +48,20 @@ const RegisterPage = () => {
       budgetStart,
     } = formData;
 
-    // Nettoyage erreurs précédentes
     setErrorMsg("");
 
     const parsedBudget = parseFloat(budgetStart);
 
     if (isNaN(parsedBudget) || parsedBudget < 0) {
-      setErrorMsg("Veuillez entrer un budget de départ valide.");
+      setErrorMsg(t('ErrorMsg.errorBudgetStart'));
       return;
     }
 
     if (!accountName.trim()) {
-      setErrorMsg("Veuillez entrer un nom de compte.");
+      setErrorMsg(t('ErrorMsg.errorNameAccount'));
       return;
     }
 
-    // Construction de l’objet à envoyer
     const registerData = {
       firstname: formData.firstname.trim(),
       lastname: formData.lastname.trim(),
@@ -76,7 +76,6 @@ const RegisterPage = () => {
     setLoading(true);
 
     try {
-      console.log("Formulaire envoyé :", registerData);
       const { data } = await axios.post(`${API_url}/api/user/sign-up`, registerData);
 
       sessionStorage.setItem("loginToken", data.token);
@@ -96,7 +95,7 @@ const RegisterPage = () => {
       if (error.response?.data?.message) {
         setErrorMsg(error.response.data.message);
       } else {
-        setErrorMsg("Erreur réseau, veuillez réessayer.");
+        setErrorMsg(t('ErrorMsg.errorNetwork'));
       }
     }
 
@@ -122,6 +121,7 @@ const RegisterPage = () => {
         nextStep={nextStep}
         badLogin={badLogin}
         setBadLogin={setBadLogin}
+        t={t}
       />
     )}
     {step === 2 && (
@@ -134,6 +134,7 @@ const RegisterPage = () => {
         setBadPassword={setBadPassword}
         errorMsg={errorMsg}
         setErrorMsg={setErrorMsg}
+        t={t}
       />
     )}
     {step === 3 && (
@@ -145,6 +146,7 @@ const RegisterPage = () => {
         errorMsg={errorMsg}
         successMsg={successMsg}
         loading={loading}
+        t={t}
       />
     )}
     </div>
