@@ -1,7 +1,0 @@
-<svg width="280" height="80" viewBox="0 0 280 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo Budgee 20">
-  <circle cx="40" cy="40" r="25" fill="#3AAFD9" />
-  <rect x="25" y="39" width="6" height="16" fill="#FFF" rx="4" />
-  <rect x="37" y="32" width="6" height="23.5" fill="#C7E3F6" rx="4" />
-  <rect x="49" y="23.5" width="6" height="32" fill="#A3D1F5" rx="4" />
-  <text x="75" y="50" font-family="Segoe UI, sans-serif" font-weight="600" font-size="32" fill="#333">budgee</text>
-</svg>
