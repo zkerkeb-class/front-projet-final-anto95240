@@ -129,14 +129,13 @@ ul {
   display: none;
 }
 
-/* Responsive pour écrans de moins de 768px */
 @media screen and (max-width: 768px) {
   .category-container {
     flex-direction: column;
     align-items: center;
   }
 
-  .btn-close { /* botn close*/
+  .btn-close {
     display: block;
     position: absolute;
     top: 10px;
@@ -150,7 +149,7 @@ ul {
     color: var(--color-text);
   }
 
-  .add-category { /* classe modal*/
+  .add-category {
     display: none;
     position: fixed;
     top: 50%;
@@ -166,12 +165,12 @@ ul {
     text-align: center;
   }
 
-  .add-category.show { /**/
+  .add-category.show {
     display: flex;
     flex-direction: column;
   }
 
-  .modal-overlay-cat { /*fond*/
+  .modal-overlay-cat {
     position: fixed;
     top: 0;
     left: 0;

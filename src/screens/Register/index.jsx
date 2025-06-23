@@ -1,4 +1,4 @@
-import { useNavigate, Link } from "react-router";
+import { useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import axios from "axios"
@@ -101,7 +101,6 @@ const RegisterPage = () => {
 
     setLoading(false);
   }
-
     
   useEffect(() => {
       if (loginToken) {
@@ -111,44 +110,44 @@ const RegisterPage = () => {
 
   return (
     <div>
-    <div className="theme-wrapper">
-      <ThemeTrad />
-    </div>
-    {step === 1 && (
-      <SignUpPart1
-        formData={formData}
-        setFormData={setFormData}
-        nextStep={nextStep}
-        badLogin={badLogin}
-        setBadLogin={setBadLogin}
-        t={t}
-      />
-    )}
-    {step === 2 && (
-      <SignUpPart2
-        formData={formData}
-        setFormData={setFormData}
-        nextStep={nextStep}
-        prevStep={prevStep}
-        badPassword={badPassword}
-        setBadPassword={setBadPassword}
-        errorMsg={errorMsg}
-        setErrorMsg={setErrorMsg}
-        t={t}
-      />
-    )}
-    {step === 3 && (
-      <SignUpPart3
-        formData={formData}
-        setFormData={setFormData}
-        prevStep={prevStep}
-        handleSubmit={handleSubmit}
-        errorMsg={errorMsg}
-        successMsg={successMsg}
-        loading={loading}
-        t={t}
-      />
-    )}
+      <div className="theme-wrapper">
+        <ThemeTrad />
+      </div>
+      {step === 1 && (
+        <SignUpPart1
+          formData={formData}
+          setFormData={setFormData}
+          nextStep={nextStep}
+          badLogin={badLogin}
+          setBadLogin={setBadLogin}
+          t={t}
+        />
+      )}
+      {step === 2 && (
+        <SignUpPart2
+          formData={formData}
+          setFormData={setFormData}
+          nextStep={nextStep}
+          prevStep={prevStep}
+          badPassword={badPassword}
+          setBadPassword={setBadPassword}
+          errorMsg={errorMsg}
+          setErrorMsg={setErrorMsg}
+          t={t}
+        />
+      )}
+      {step === 3 && (
+        <SignUpPart3
+          formData={formData}
+          setFormData={setFormData}
+          prevStep={prevStep}
+          handleSubmit={handleSubmit}
+          errorMsg={errorMsg}
+          successMsg={successMsg}
+          loading={loading}
+          t={t}
+        />
+      )}
     </div>
   );
 };

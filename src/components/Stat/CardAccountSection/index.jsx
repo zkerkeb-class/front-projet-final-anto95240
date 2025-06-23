@@ -1,6 +1,4 @@
-import { useNavigate, Link, useOutletContext } from "react-router";
-import { useState, useEffect, useMemo } from "react";
-import axios from "axios";
+import { useOutletContext } from "react-router";
 
 import "./cardAccountSection.css";
 

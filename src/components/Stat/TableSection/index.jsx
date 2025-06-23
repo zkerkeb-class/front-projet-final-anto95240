@@ -1,12 +1,10 @@
-import { useNavigate, Link, useOutletContext } from "react-router";
-import { useState, useEffect, useMemo } from "react";
-import axios from "axios";
+import { useOutletContext } from "react-router";
+import { useMemo } from "react";
 
 import "./tableSection.css";
 
 const TableSection = () => {
   const { transactions, categories, t, calculateBalance } = useOutletContext();
-
 
   const lastFiveTransactions = useMemo(() => {
     if (!transactions) return [];

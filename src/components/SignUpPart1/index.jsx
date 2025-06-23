@@ -1,5 +1,4 @@
 import { Link } from "react-router";
-
 import "./signUpPart1.css"
 
 const SignUpPart1 = ({ formData, setFormData, nextStep, badLogin, setBadLogin, t }) => {

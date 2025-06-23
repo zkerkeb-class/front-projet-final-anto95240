@@ -17,21 +17,21 @@ const DeconnexionPage = () => {
 
   return (
     <div>
-    <div className="theme-wrapper">
-      <ThemeTrad />
-    </div>
+      <div className="theme-wrapper">
+        <ThemeTrad />
+      </div>
 
-    <section id="section-login" className="logout-section-wrapper">
-        <div className="logout-form-container">
-            <p>{t("DeconnexionPage.message1")}</p>
-            <p>{t("DeconnexionPage.message2")}</p>
-            <div className="logout">
-                <FontAwesomeIcon className="fa-logout" icon={faArrowTurnUp} />
-                <Link to="/" className="logout-button" onClick={handleLogout}>{t("DeconnexionPage.logout")}</Link>
-            </div>
-        </div>
-    </section>
-  </div>
+      <section id="section-login" className="logout-section-wrapper">
+          <div className="logout-form-container">
+              <p>{t("DeconnexionPage.message1")}</p>
+              <p>{t("DeconnexionPage.message2")}</p>
+              <div className="logout">
+                  <FontAwesomeIcon className="fa-logout" icon={faArrowTurnUp} />
+                  <Link to="/" className="logout-button" onClick={handleLogout}>{t("DeconnexionPage.logout")}</Link>
+              </div>
+          </div>
+      </section>
+    </div>
   );
 };
 

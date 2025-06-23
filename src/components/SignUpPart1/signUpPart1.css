@@ -31,7 +31,6 @@
   box-sizing: border-box;
 }
 
-/* === WRAPPERS === */
 .auth-section-wrapper {
   min-width: 1440px; 
   margin: 0 auto; 
@@ -43,7 +42,6 @@
   max-height: 100vh;
 }
 
-/* === FORM CONTAINERS === */
 .auth-form-container {
   width: 100%; 
   max-width: 500px;
@@ -57,8 +55,6 @@
   flex-direction: column;
   align-items: center; 
 }
-
-/* === TITRES & GREETING === */
 
 .form-greeting {
   font-family: var(--font-family-title);
@@ -83,7 +79,6 @@
   text-transform: uppercase;
 }
 
-/* === FORMULAIRE === */
 .auth-form {
   width: 100%; 
   display: flex;
@@ -105,7 +100,6 @@
   position: relative;
 }
 
-/* === INPUTS === */
 .form-input {
   font-size: clamp(13px, 3vw, 14px);
   font-weight: 400; 
@@ -123,7 +117,6 @@
   opacity: 0.7; 
 }
 
-/* === FLOATING LABEL === */
 .floating-label {
   position: relative;
 }
@@ -158,7 +151,6 @@
   padding: 0 2px;
 }
 
-/* === BOUTONS === */
 .submit-button {
   font-family: var(--font-family-title); 
   font-weight: 400; 
@@ -180,7 +172,6 @@
   box-shadow: var(--shadow-btn);
 }
 
-/* === LIEN COMPTE === */
 .login-account {
   font-size: clamp(11px, 3vw, 12px);
   font-weight: 400; 
@@ -198,7 +189,6 @@
   text-decoration: none;
 }
 
-/* === ICÔNE MOT DE PASSE === */
 .eye-button {
   position: absolute;
   top: 0;
@@ -218,7 +208,6 @@
     color: rgb(240, 76, 76);
 }
 
-/* === RESPONSIVE === */
 @media (max-width: 500px) {
   .auth-form-container {
     height: auto; 

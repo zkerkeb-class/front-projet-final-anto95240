@@ -46,7 +46,6 @@ th{
   -webkit-border-radius: 10px;
 }
 
-/* Cartes responsive pour la table (mobile uniquement) */
 .table-card-container {
   display: none;
   flex-direction: column;

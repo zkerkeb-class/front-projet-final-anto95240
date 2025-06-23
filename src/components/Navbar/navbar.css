@@ -1,4 +1,3 @@
-/* === NAVBAR DE BASE === */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -19,12 +18,10 @@
   -o-transition: box-shadow 0.3s ease;
 }
 
-/* === Effet au scroll === */
 .navbar.scrolled {
   box-shadow: var(--shadow-navbar-scroll);
 }
 
-/* === Titre de page === */
 .page-title {
   font-size: 22px;
   font-weight: bold;
@@ -32,7 +29,6 @@
   white-space: nowrap;
 }
 
-/* === Infos utilisateur === */
 .user-info {
   display: flex;
   align-items: center;
@@ -73,7 +69,6 @@
   display: none;
 }
 
-/* === RESPONSIVE TABLETTE / MOBILE === */
 @media screen and (max-width: 768px) {
   .navbar {
     flex-direction: column;

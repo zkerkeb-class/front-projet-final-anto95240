@@ -120,7 +120,6 @@
   color: var(--color-navbar-btn-active);
 }
 
-
 @media screen and (max-width: 768px) {
   .sidebar-wrapper {
     display: none;

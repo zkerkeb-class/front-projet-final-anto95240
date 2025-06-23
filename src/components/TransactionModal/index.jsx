@@ -3,16 +3,16 @@ import axios from "axios";
 import "./TransactionModal.css"
 
 const TransactionModal = ({
-  typeModal,
-  transactionToEdit,
-  closeModal,
-  setTransactions,
-  account,
-  t,
-  user,
-  categories,
-  API_URL
-}) => {
+    typeModal,
+    transactionToEdit,
+    closeModal,
+    setTransactions,
+    account,
+    t,
+    user,
+    categories,
+    API_URL
+  }) => {
   const [formData, setFormData] = useState({
     date: "",
     categorie: "",
@@ -39,7 +39,7 @@ const TransactionModal = ({
     }
   }, [transactionToEdit]);
 
-const handleChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };

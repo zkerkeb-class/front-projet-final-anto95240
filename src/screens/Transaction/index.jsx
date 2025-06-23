@@ -1,4 +1,4 @@
-import { useNavigate, Link, useOutletContext } from "react-router";
+import { Link, useOutletContext } from "react-router";
 import { useState, useMemo } from "react";
 import TransactionModal from "../../components/TransactionModal";
 import axios from "axios";
@@ -100,12 +100,12 @@ const TransactionPage = () => {
                             <td>{tx.solde.toFixed(2)}</td>
                         <td>
                             <Link className="btn-edit" onClick={() => openEditModal(tx)}>
-                            <FontAwesomeIcon icon={faPen} />
+                              <FontAwesomeIcon icon={faPen} />
                             </Link>
                         </td>
                         <td>
                             <Link className="btn-delete" onClick={() => handleDeleteTransaction(tx._id)}>
-                            <FontAwesomeIcon icon={faTrash} />
+                              <FontAwesomeIcon icon={faTrash} />
                             </Link>
                         </td>
                         </tr>

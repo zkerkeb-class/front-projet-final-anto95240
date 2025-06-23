@@ -1,6 +1,5 @@
-import { useNavigate, Link, useOutletContext } from "react-router";
-import { useState, useEffect, useMemo } from "react";
-import axios from "axios";
+import { useOutletContext } from "react-router";
+import { useMemo } from "react";
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip } from "chart.js";
 

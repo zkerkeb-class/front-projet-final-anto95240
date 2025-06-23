@@ -37,12 +37,12 @@ const ThemeTrad = () => {
 
   
   useEffect(() => {
-      const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-      };
-  
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+    setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const toggleLanguage = () => {

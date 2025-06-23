@@ -15,9 +15,8 @@ const ChartDoughnutSection = () => {
   const currentMonth = currentDate.getMonth();
   const currentYear = currentDate.getFullYear();
 
-  // Garde uniquement les catégories utilisateurs
   const userCategories = categories.filter((cat) => !cat.isDefault);
-
+  
   // Calcul top catégories avec revenus/dépenses
   const topCategories = useMemo(() => {
     if (!transactions?.length || !userCategories?.length) return [];
@@ -48,7 +47,7 @@ const ChartDoughnutSection = () => {
         map.get(key).depenses += tx.amount;
       }
     });
-
+    
     const enriched = Array.from(map.values()).map((cat) => ({
       ...cat,
       total: cat.revenus + cat.depenses,
@@ -111,12 +110,12 @@ const ChartDoughnutSection = () => {
         datasets: [{
           data: [0, 0],
           backgroundColor: [
-            "rgba(75, 192, 192, 0.2)",
-            "rgba(255, 99, 132, 0.2)"
+            "rgba(75, 192, 192, 0.2)", // Revenu
+            "rgba(255, 99, 132, 0.2)", // Dépense
           ],
           borderColor: [
-            "rgba(75, 192, 192, 0.5)",
-            "rgba(255, 99, 132, 0.5)"
+            "rgba(75, 192, 192, 0.5)", // Revenu
+            "rgba(255, 99, 132, 0.5)", // Dépense
           ],
           borderWidth: 1,
         }],
@@ -133,8 +132,8 @@ const ChartDoughnutSection = () => {
             "rgba(255, 99, 132, 0.7)", // Dépense
           ],
           borderColor: [
-            "rgba(75, 192, 192, 1)",
-            "rgba(255, 99, 132, 1)",
+            "rgba(75, 192, 192, 1)", // Revenu
+            "rgba(255, 99, 132, 1)", // Dépense
           ],
           borderWidth: 1,
         },

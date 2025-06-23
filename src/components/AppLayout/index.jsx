@@ -70,7 +70,6 @@ const AppLayout = () => {
     let totalDebit = 0;
     let lastMonthCredit = 0;
     let lastMonthDebit = 0;
-
     
     const now = new Date();
     const oneMonthAgo = new Date();
@@ -81,7 +80,6 @@ const AppLayout = () => {
       const txDate = new Date(tx.date);
 
       const isLastMonth = txDate >= oneMonthAgo && txDate <= now;
-
 
       if (tx.transactionType === "credit") {
         balance += amount;
