@@ -11,8 +11,10 @@
     },
     "CategoryPage":{
       "titleCat": "liste des categories",
-      "addCat": "Ajouter des catégories",
-      "editCat": "Enregistrer des catégories",
+      "addCat": "Ajouter",
+      "addTitleCat": "Ajouter une catégorie",
+      "editCat": "Enregistrer",
+      "editTitleCat": "Modifier une catégorie",
       "theme": "Thème :",
       "name": "Nom :",
       "color": "Couleur :"
@@ -136,7 +138,9 @@
       "titleCredit": "Crédit",
       "tooltipCredit":"Montant crédité",
       "titleSolde": "Somme",
-      "tooltipSolde":"Solde après transaction"
+      "tooltipSolde":"Solde après transaction",
+      "titleTypeAmount": "Type du montant",
+      "tooltipTypeAmount": "Type du montant de la transaction "
     },
     "ErrorMsg": {
       "errorDelete": "Erreur lors de la suppression",
@@ -151,7 +155,8 @@
       "errorUpdate": "Erreur lors de la mise a jour",
       "alerteDeleteUser": "Le compte a été supprimer avec succès",
       "errorAddModTransaction": "Erreur lors de l'ajout ou la modification de la transaction.",
-      "errorRecupData": "Erreur récupération données:"
+      "errorRecupData": "Erreur récupération données : ",
+      "errorSubmit":"Erreur lors de la soumission : "
     }
   }
 }

@@ -1,5 +1,5 @@
 import { useNavigate, Link, useOutletContext } from "react-router";
-import React, { useState, useEffect } from "react";
+import { useState, useMemo } from "react";
 import TransactionModal from "../../components/TransactionModal";
 import axios from "axios";
 import "./transaction.css";
@@ -12,7 +12,7 @@ from "@fortawesome/free-solid-svg-icons";
 
 const TransactionPage = () => {
 
-  const { transaction: transactions, user, setTransaction, account, categories, API_url, t } = useOutletContext();
+  const { transactions, user, setTransactions, account, categories, API_URL, t } = useOutletContext();
   const [typeModal, setTypeModal] = useState(null);
   const [transactionToEdit, setTransactionToEdit] = useState(null);
 
@@ -41,14 +41,16 @@ const TransactionPage = () => {
     });
   };
 
-  const transactionsWithBalance = (transactions && account)
-    ? calculateBalance(transactions)
-  : [];
+  const transactionsWithBalance = useMemo(() => {
+    if (!transactions || !account) return [];
+    return calculateBalance(transactions);
+  }, [transactions, account]);
+
 
   const handleDeleteTransaction = async (txId) => {
     try {
-      await axios.delete(`${API_url}/api/transaction/${txId}`);
-      setTransaction(prev => prev.filter(tx => tx._id !== txId));
+      await axios.delete(`${API_URL}/api/transaction/${txId}`);
+      setTransactions(prev => prev.filter(tx => tx._id !== txId));
     } catch (err) {
       console.error("Erreur lors de la suppression :", err.response?.data || err.message);
       alert(t('ErrorMsg.errorDelete'));
@@ -156,12 +158,13 @@ const TransactionPage = () => {
                   setTypeModal(null);
                   setTransactionToEdit(null); // réinitialise à la fermeture
                 }}
-                setTransactions={setTransaction}
+                setTransactions={setTransactions}
                 account={account}
                 t={t}
                 transactionToEdit={transactionToEdit}
                 user={user}
                 categories={categories}
+                API_URL={API_URL}
             />
         )}
       </div>

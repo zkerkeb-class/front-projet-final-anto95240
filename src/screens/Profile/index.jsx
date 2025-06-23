@@ -13,7 +13,7 @@ import { faList } from "@fortawesome/free-solid-svg-icons";
 
 const ProfilePage = () => {  
   const navigate = useNavigate();  
-  const { user, setUser, account, setAccount, API_url, t } = useOutletContext();
+  const { user, setUser, account, setAccount, API_URL, t } = useOutletContext();
 
   const [form, setForm] = useState({
     firstname: "",
@@ -49,7 +49,7 @@ const ProfilePage = () => {
       typeAccount: account?.type || "",
       budgetStart: account?.budgetStart || "",
       nameAccount: account?.name || "",
-      avatarURL: user?.image ? `${API_url}/uploads/${user.image}` : "",
+      avatarURL: user?.image ? `${API_URL}/uploads/${user.image}` : "",
     }));
 
     setUiState((prev) => ({
@@ -76,7 +76,7 @@ const ProfilePage = () => {
       }
       if (form.imageFile) formData.append("image", form.imageFile);
 
-      const res = await axios.put(`${API_url}/api/user/${user._id}`, formData, {
+      const res = await axios.put(`${API_URL}/api/user/${user._id}`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setUser(res.data);
@@ -89,7 +89,7 @@ const ProfilePage = () => {
   
   const handleSaveAccount = async () => {
     try {
-      const res = await axios.put(`${API_url}/api/account/${account._id}`, {
+      const res = await axios.put(`${API_URL}/api/account/${account._id}`, {
         type: form.typeAccount,
         name: form.nameAccount,
         budgetStart: form.budgetStart,
@@ -104,7 +104,7 @@ const ProfilePage = () => {
 
   const handleDeleteUser = async () => {
     try {
-      await axios.delete(`${API_url}/api/user/${user._id}`);
+      await axios.delete(`${API_URL}/api/user/${user._id}`);
       alert(t('ErrorMsg.alerteDeleteUser'));
       navigate("/login");
     } catch (err) {

@@ -11,36 +11,55 @@ import "./AppLayout.css";
 const AppLayout = () => {
   
   const { t } = useTranslation();
-  const API_url = import.meta.env.VITE_API_url;  
+  const API_URL = import.meta.env.VITE_API_URL;  
   const [user, setUser] = useState(null);
   const [account, setAccount] = useState(null);
-  const [transaction, setTransaction] = useState([]);
+  const [transactions, setTransactions] = useState([]);
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const userRes = await axios.get(`${API_url}/api/user/me`);
-        setUser(userRes.data);
+      
+    try {
+      const userRes = await axios.get(`${API_URL}/api/user/me`);
+      setUser(userRes.data);
+      console.log("data user:", userRes.data);
+    } catch (error) {
+      console.error("Erreur user:", error);
+    }
 
-        const accountRes = await axios.get(`${API_url}/api/account/me`);
-        const currentAccount = Array.isArray(accountRes.data)
-          ? accountRes.data[0]
-          : accountRes.data;
-        setAccount(currentAccount);
-        
-        if (currentAccount?._id) {
-          const transactionRes = await axios.get(`${API_url}/api/transaction/account/${currentAccount._id}`);
-          setTransaction(Array.isArray(transactionRes.data) ? transactionRes.data : []);
-        }
-        
-        const categoryRes = await axios.get(`${API_url}/api/category`);
-        setCategories(categoryRes.data);
-
-      } catch (error) {
-        console.error(t('ErrorMsg.errorRecupData'), error);
+    let currentAccount = null;
+    try {
+      const accountRes = await axios.get(`${API_URL}/api/account/me`);
+      currentAccount = Array.isArray(accountRes.data)
+        ? accountRes.data[0]
+        : accountRes.data;
+      setAccount(currentAccount);
+      console.log("account:", currentAccount);
+    } catch (error) {
+      console.error("Erreur compte:", error);
+    }
+    
+    try {
+      if (currentAccount?._id) {
+        const transactionRes = await axios.get(`${API_URL}/api/transaction/account/${currentAccount._id}`);
+        setTransactions(Array.isArray(transactionRes.data) ? transactionRes.data : []);
+        console.log("transactions:", transactionRes.data);
+      } else {
+        setTransactions([]);
       }
-    };
+    } catch (error) {
+      console.error("Erreur transactions:", error);
+    }
+        
+    try {
+      const categoryRes = await axios.get(`${API_URL}/api/category/visible`);
+      setCategories(categoryRes.data);
+      console.log("data cat:", categoryRes.data);
+    } catch (error) {
+      console.error("Erreur catégories:", error);
+    }
+  };
 
     fetchData();
   }, []);
@@ -49,8 +68,8 @@ const AppLayout = () => {
     <div className="app-container">
       <Sidebar />
       <main className="main-content">
-        <Navbar user={user} API_url={API_url} />
-        <Outlet context={{ user, setUser, account, setAccount, transaction, setTransaction, categories, setCategories, API_url, t }} />
+        <Navbar user={user} API_URL={API_URL} />
+        <Outlet context={{ user, setUser, account, setAccount, transactions, setTransactions, categories, setCategories, API_URL, t }} />
       </main>
       <div className="top-bar-mobile">
         <ThemeTrad />

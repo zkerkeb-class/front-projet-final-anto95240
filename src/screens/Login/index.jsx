@@ -8,14 +8,14 @@ import ThemeTrad from "../../components/ThemeTrad";
 import { useTranslation } from "react-i18next";
 
 const LoginPage = () => {
-    const [login, setLogin] = useState("antoine@test.com");
-    const [password, setPassword] = useState("Test1234!");
+    const [login, setLogin] = useState("antoine@test.com");  /* toto95@admin.fr */
+    const [password, setPassword] = useState("Test1234!");  /* Admin**95 */
     const [errorMsg, setErrorMsg] = useState("");
     const [showPassword, setShowPassword] = useState(false);
 
     const navigate = useNavigate();
     const loginToken = sessionStorage.getItem("loginToken");
-    const API_url = import.meta.env.VITE_API_url;
+    const API_URL = import.meta.env.VITE_API_URL;
     const { t } = useTranslation();
 
     const handleSubmit = async (e) => {
@@ -26,7 +26,7 @@ const LoginPage = () => {
             password: password,
         }
         try {
-            const { data } = await axios.post(`${API_url}/api/user/login`, loginData);
+            const { data } = await axios.post(`${API_URL}/api/user/login`, loginData);
             sessionStorage.setItem("loginToken", data.token);
             navigate("/dashboard");
         } catch (error) {

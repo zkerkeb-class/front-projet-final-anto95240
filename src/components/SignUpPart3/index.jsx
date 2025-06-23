@@ -40,8 +40,8 @@ const SignUpPart3 = ({ formData, setFormData, prevStep, handleSubmit, errorMsg, 
           </div>
         </form>
 
-        <p className="create-account">
-          {t('RegisterPage.alreadyUser')}{" "}<Link className="create-account-link" to="/">{t('RegisterPage.alreadyUserLink')}</Link>
+        <p className="login-account">
+          {t('RegisterPage.alreadyUser')}{" "}<Link className="login-account-link" to="/">{t('RegisterPage.alreadyUserLink')}</Link>
         </p>
       </div>
     </section>

@@ -11,7 +11,7 @@ const TransactionModal = ({
   t,
   user,
   categories,
-  API_url
+  API_URL
 }) => {
   const [formData, setFormData] = useState({
     date: "",
@@ -31,7 +31,7 @@ const TransactionModal = ({
         categorie: transactionToEdit.categoryId || "",
         typeCompte: transactionToEdit.accountType || "",
         paiement: transactionToEdit.paiement || "",
-        beneficiaire: transactionToEdit.beneficiare || "",
+        beneficiaire: transactionToEdit.beneficiaire || "",
         typeMontant: transactionToEdit.transactionType || "",
         montant: transactionToEdit.amount || "",
         commentaire: transactionToEdit.description || "",
@@ -60,14 +60,14 @@ const handleChange = (e) => {
     }
 
     try {
-      let res;
       if (typeModal === "add") {
-        res = await axios.post(`${API_url}/api/transaction`, dataToSend);
-        setTransactions(prev => [...prev, res.data]);
+        await axios.post(`${API_URL}/api/transaction`, dataToSend);
       } else {
-        res = await axios.put(`${API_url}/api/transaction/${transactionToEdit._id}`, dataToSend);
-        setTransactions(prev => prev.map(tx => tx._id === res.data._id ? res.data : tx));
+        await axios.put(`${API_URL}/api/transaction/${transactionToEdit._id}`, dataToSend);
       }
+
+      const updatedTransactions = await axios.get(`${API_URL}/api/transaction/account/${account._id}`);
+      setTransactions(updatedTransactions.data);
 
       closeModal();
     } catch (error) {

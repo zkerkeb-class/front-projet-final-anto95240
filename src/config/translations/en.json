@@ -11,8 +11,10 @@
     },
     "CategoryPage": {
       "titleCat": "list of categories",
-      "addCat": "Add categories",
-      "editCat": "Modify categories",
+      "addCat": "Add",
+      "addTitleCat": "Add category",
+      "editCat": "Save",
+      "editTitleCat": "Modify category",
       "theme": "Theme :",
       "name": "Name :",
       "color": "Color :"
@@ -136,7 +138,9 @@
       "titleCredit": "Credit",
       "tooltipCredit":"Credited amount",
       "titleSolde": "Balance",
-      "tooltipSolde":"Balance after transaction"
+      "tooltipSolde":"Balance after transaction",
+      "titleTypeAmount": "Amount type",
+      "tooltipTypeAmount": "Transaction amount type "
     },
     "ErrorMsg": {      
       "errorDelete": "Error while deleting",
@@ -151,7 +155,8 @@
       "errorUpdate": "Error during update",
       "alerteDeleteUser": "The account was successfully deleted",
       "errorAddModTransaction": "Error adding or modifying the transaction",
-      "errorRecupData": "Error retrieving data:"
+      "errorRecupData": "Error retrieving data : ",
+      "errorSubmit":"Error while submitting : "
     }
   }
 }

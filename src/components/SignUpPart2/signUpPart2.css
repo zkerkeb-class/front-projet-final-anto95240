@@ -180,24 +180,6 @@
   box-shadow: var(--shadow-btn);
 }
 
-/* === LIEN COMPTE === */
-.create-account {
-  font-size: clamp(10px, 2.5vw, 11px);
-  font-weight: 400; 
-  color: var(--color-text); 
-  line-height: clamp(12px, 3vw, 13px);
-  text-align: center; 
-  margin: 0;
-}
-
-.create-account-link {
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  color: var(--color-link-auth); 
-  text-decoration: none;
-}
-
 /* === ICÔNE MOT DE PASSE === */
 .eye-button {
   position: absolute;

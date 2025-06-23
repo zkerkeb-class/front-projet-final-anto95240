@@ -14,7 +14,7 @@ ChartJS.register(
 );
 
 const HomePage = () => {
-  const { transaction: transactions, categories, t } = useOutletContext();
+  const { transactions, categories, t } = useOutletContext();
 
   const lastFiveTransactions = useMemo(() => {
     if (!transactions) return [];
@@ -105,6 +105,7 @@ const HomePage = () => {
               <th title={t('Table.tooltipPaiement')}>{t('Table.titlePaiemant')}</th>
               <th title={t('Table.tooltipBeneficiare')}>{t('Table.titleBeneficiare')}</th>
               <th title={t('Table.tooltipCat')}>{t('Table.titleCategory')}</th>
+              <th title={t('Table.tooltipTypeAmount')}>{t('Table.titleTypeAmount')}</th>
               <th title={t('Table.tooltipSolde')}>{t('Table.titleSolde')}</th>
             </tr>
           </thead>
@@ -114,12 +115,13 @@ const HomePage = () => {
 
               return (
                 <tr key={tx._id}>
-                  <td colSpan="5">
+                  <td colSpan="6">
                     <div className="table-row-wrapper">
                       <span>{new Date(tx.date).toLocaleDateString()}</span>
                       <span>{tx.paiement}</span>
                       <span>{tx.beneficiare}</span>
                       <span>{category?.name || "-"}</span>
+                      <span>{tx.transactionType}</span>
                       <span>{tx.amount} €</span>
                     </div>
                   </td>
@@ -140,6 +142,7 @@ const HomePage = () => {
               <span><strong>{t('Table.titlePaiemant')} :</strong> {tx.paiement}</span>
               <span><strong>{t('Table.titleBeneficiare')} :</strong> {tx.beneficiare}</span>
               <span><strong>{t('Table.titleCategory')} :</strong> {category?.name || "-"}</span>
+              <span><strong>{t('Table.titleTypeAmount')} :</strong> {tx.typeAmount} €</span>
               <span><strong>{t('Table.titleSolde')} :</strong> {tx.amount} €</span>
             </div>
           )

@@ -14,7 +14,7 @@ const RegisterPage = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const loginToken = sessionStorage.getItem("loginToken");
-  const API_url = import.meta.env.VITE_API_url;
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const [formData, setFormData] = useState({
     firstname: "",
@@ -76,7 +76,7 @@ const RegisterPage = () => {
     setLoading(true);
 
     try {
-      const { data } = await axios.post(`${API_url}/api/user/sign-up`, registerData);
+      const { data } = await axios.post(`${API_URL}/api/user/sign-up`, registerData);
 
       sessionStorage.setItem("loginToken", data.token);
       navigate("/dashboard");

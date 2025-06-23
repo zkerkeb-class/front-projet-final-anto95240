@@ -181,8 +181,8 @@
 }
 
 /* === LIEN COMPTE === */
-.create-account {
-  font-size: clamp(10px, 2.5vw, 11px);
+.login-account {
+  font-size: clamp(11px, 3vw, 12px);
   font-weight: 400; 
   color: var(--color-text); 
   line-height: clamp(12px, 3vw, 13px);
@@ -190,7 +190,7 @@
   margin: 0;
 }
 
-.create-account-link {
+.login-account-link {
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;

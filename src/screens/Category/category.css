@@ -69,6 +69,8 @@ ul {
   box-shadow: var(--shadow-navbar-scroll);
   text-align: center;
   height: 350px;
+  position: sticky;
+  top: 15%;
 }
 
 .add-category h3 {

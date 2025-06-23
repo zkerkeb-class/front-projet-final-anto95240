@@ -10,8 +10,6 @@
 .theme-trad {
   display: flex;
   flex-direction: row;
-  position: sticky;
-  top: 10px;
   margin: 20px;           
   z-index: 1000; 
   justify-content: end;  

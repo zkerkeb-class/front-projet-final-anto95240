@@ -44,7 +44,7 @@
 
 .dashboard-table{
   background-color: var(--color-bg-card-page-active);
-  width: clamp(350px, 100vw, 600px);;
+  width: clamp(350px, 100vw, 700px);;
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;

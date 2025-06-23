@@ -20,7 +20,7 @@ const pageTitles = {
   "/deconnexion": "Deconnexion",
 };
 
-const Navbar = ({user, API_url}) => {
+const Navbar = ({user, API_URL}) => {
   const location = useLocation();
 
   const pageTitle = pageTitles[location.pathname] || "Page";
@@ -46,7 +46,7 @@ const Navbar = ({user, API_url}) => {
   useEffect(() => {
     setForm((prev) => ({
       ...prev,
-      avatarURL: user?.image ? `${API_url}/uploads/${user.image}` : "",
+      avatarURL: user?.image ? `${API_URL}/uploads/${user.image}` : "",
 
     }));
   }, [user]);
