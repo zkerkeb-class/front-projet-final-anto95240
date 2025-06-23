@@ -17,7 +17,9 @@
       "editTitleCat": "Modifier une catégorie",
       "theme": "Thème :",
       "name": "Nom :",
-      "color": "Couleur :"
+      "color": "Couleur :",
+      "revenu": "Revenu",
+      "dépense": "Dépense"
     },
     "DeconnexionPage":{
       "message1": "À bientôt",
@@ -90,7 +92,10 @@
       "nbAccount": "nombre de compte",
       "gainMois": "gagner ce mois ci",
       "depenseMois": "dépenser ce mois ci",
-      "titleChartBar": "Dépenses et Revenus mensuels"
+      "titleChartBar": "Dépenses et Revenus mensuels",      
+      "doughnutTitle": "Répartition de la catégorie",
+      "autres": "Autres",
+      "selectCategory":"Selection des catégories"
     },
     "TransactionPage":{
       "addTransaction": "ajouter un transaction",

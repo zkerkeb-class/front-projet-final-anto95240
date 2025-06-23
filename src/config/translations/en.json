@@ -17,7 +17,9 @@
       "editTitleCat": "Modify category",
       "theme": "Theme :",
       "name": "Name :",
-      "color": "Color :"
+      "color": "Color :",
+      "revenu": "Credit",
+      "dépense": "Debit"
     },
     "DeconnexionPage": {
       "message1": "See you again!",
@@ -90,7 +92,10 @@
       "nbAccount": "account number",
       "gainMois": "earn this month",
       "depenseMois": "spend this month",
-      "titleChartBar": "Monthly Expenses and Income"
+      "titleChartBar": "Monthly Expenses and Income",      
+      "doughnutTitle": "Category distribution",
+      "autres": "Others",
+      "selectCategory":"Selection of categories"
     },
     "TransactionPage": {
       "addTransaction": "Add a transaction",

@@ -94,8 +94,12 @@ const handleChange = (e) => {
                 {t('TransactionPage.categorie')}
               <select name="categorie" value={formData.categorie} onChange={handleChange} required>
                 <option value="">-- {t('TransactionPage.selectCategory')} --</option>
-                {categories.map(cat => (
-                  <option key={cat._id} value={cat._id}>{cat.name}</option>
+                {categories
+                  .filter(cat => !cat.isDefault)
+                  .map(cat => (
+                    <option key={cat._id} value={cat._id}>
+                      {cat.name}
+                    </option>
                 ))}
               </select>
             </label>

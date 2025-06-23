@@ -2,7 +2,7 @@ import { useNavigate, Link, useOutletContext } from "react-router";
 import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import { Bar } from "react-chartjs-2";
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip } from "chart.js";
 
 import "./chartBarSection.css";
 
@@ -14,36 +14,46 @@ ChartJS.register(
 );
 
 const ChartBarSection = () => {
-  const { t } = useOutletContext();
+  const { t, transactions } = useOutletContext();
+  const year = new Date().getFullYear();
 
+  const monthlyData = useMemo(() => {
+    const revenus = Array(12).fill(0);
+    const depenses = Array(12).fill(0);
+
+    transactions.forEach((tx) => {
+      const date = new Date(tx.date);
+      const txYear = date.getFullYear();
+      if (txYear !== year) return;
+
+      const month = date.getMonth();
+      if (tx.transactionType === "credit") {
+        revenus[month] += tx.amount;
+      } else if (tx.transactionType === "debit") {
+        depenses[month] += tx.amount;
+      }
+    });
+
+    return { revenus, depenses };
+  }, [transactions, year]);
 
   const data = {
     labels: [
-      "Janvier",
-      "Février",
-      "Mars",
-      "Avril",
-      "Mai",
-      "Juin",
-      "Juillet",
-      "Août",
-      "Septembre",
-      "Octobre",
-      "Novembre",
-      "Décembre",
+      "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+      "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
     ],
     datasets: [
       {
-        label: "Revenus",
-        data: [1200, 1900, 3000, 5000, 2000, 5000, 1200, 6000, 1100, 3000, 1000, 5000],
-        backgroundColor: "rgba(75, 192, 192, 0.7)", // Couleur pour revenus
+        label: t("StatistiquePage.revenus"),
+        data: monthlyData.revenus,
+        backgroundColor: "rgba(75, 192, 192, 0.7)",
         borderColor: "rgba(75, 192, 192, 1)",
         borderWidth: 1,
       },
       {
-        label: "Dépenses",
-        data: [1000, 1500, 2500, 4000, 1800, 4800, 1000, 5700, 900, 2800, 800, 4900],
-        backgroundColor: "rgba(255, 99, 132, 0.7)", // Couleur pour dépenses
+        label: t("StatistiquePage.depenses"),
+        data: monthlyData.depenses,
+        backgroundColor: "rgba(255, 99, 132, 0.7)",
         borderColor: "rgba(255, 99, 132, 1)",
         borderWidth: 1,
       },
@@ -58,7 +68,8 @@ const ChartBarSection = () => {
       },
       tooltip: {
         callbacks: {
-          label: (context) => `${context.dataset.label} : ${context.parsed.y} €`,
+          label: (context) =>
+            `${context.dataset.label} : ${context.parsed.y.toLocaleString()} €`,
         },
       },
     },
@@ -67,7 +78,7 @@ const ChartBarSection = () => {
         beginAtZero: true,
         ticks: {
           stepSize: 500,
-          callback: (value) => `${value} €`,
+          callback: (value) => `${value.toLocaleString()} €`,
         },
       },
     },

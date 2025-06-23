@@ -40,6 +40,7 @@ form label {
   flex-direction: column;
   margin-bottom: 10px;
 }
+
 form input {
   width: 180px;
   padding: 6px;
@@ -102,6 +103,7 @@ form button {
 .modal-commentaire{
   display: flex;
 }
+
 @media (max-width: 768px) {
   .modal-content{
     top: 5%;
@@ -111,7 +113,8 @@ form button {
   .modal-paiement-beneficiaire,
   .modal-montant,
   .modal-commentaire,
-  .modal-typeCompte {
+  .modal-typeCompte,
+  .categorie {
     flex-direction: column;
     gap: 10px;
   }
