@@ -16,7 +16,7 @@ const InlineFormItem = ({
       <p className="label">{label}</p>
       <p className="value">{value}</p>
     </div>
-    <button className="btn-light small" onClick={toggleForm}>
+    <button className="btn-light-small" onClick={toggleForm}>
       {buttonLabel}
     </button>
 

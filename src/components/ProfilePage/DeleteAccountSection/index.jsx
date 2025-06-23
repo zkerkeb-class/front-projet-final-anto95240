@@ -8,7 +8,7 @@ const DeleteAccountSection = ({ setUiState, t }) => (
       <p className="delete-warning">
         {t('ProfilePage.message1')} <br />
         {t('ProfilePage.message2')} </p>
-      <div className="profile-actions">
+      <div className="action-delete">
         <button 
           className="btn-red"
           onClick={() =>

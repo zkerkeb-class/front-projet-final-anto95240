@@ -1,100 +1,68 @@
 import "./AccountInfoSection.css"
+import InlineFormItem from "../InlineFormItem";
 
 const AccountInfoSection = ({ account, form, uiState, setForm, setUiState, t, handleSaveAccount }) => (
   <section className="profile-card" id="account-details-section">
     <h3>{t('ProfilePage.linkDetailAccount')}</h3>
     <hr />
     <div className="account-info">
-      <div className="account-info-item">
-        <div>
-          <p className="label">{t('ProfilePage.labelAccountType')}</p>
-          <p className="value">{account?.type}</p>
-        </div>
-        <button
-          className="btn-light small"
-          onClick={() =>
-          setUiState(prev => ({
+      <InlineFormItem
+        label={t("ProfilePage.labelAccountType")}
+        value={account?.type}
+        placeholder={t("ProfilePage.newType")}
+        showForm={uiState.showAccountTypeForm}
+        inputType="text"
+        toggleForm={() =>
+          setUiState((prev) => ({
             ...prev,
             showAccountTypeForm: !prev.showAccountTypeForm,
           }))
         }
-      >
-        {t('ProfilePage.changeAccountType')} </button>
-      </div>
-      
-      {uiState.showAccountTypeForm  && (
-        <div className="inline-form">
-          <input
-              type="text"
-              placeholder={t('ProfilePage.newType')}
-              value={form.typeAccount}
-              onChange={(e) =>
-                setForm(prev => ({ ...prev, typeAccount: e.target.value }))
-              }
-            />
-        </div>
-      )}
+        formValue={form.typeAccount}
+        onFormChange={(e) =>
+          setForm((prev) => ({ ...prev, typeAccount: e.target.value }))
+        }
+        buttonLabel={t("ProfilePage.changeAccountType")}
+      />
 
-      <div className="account-info-item">
-        <div>
-          <p className="label">{t('ProfilePage.labelNameType')}</p>
-          <p className="value">{account?.name}</p>
-        </div>
-        <button
-          className="btn-light small"
-          onClick={() =>
-            setUiState(prev => ({
-              ...prev,
-              showNameAccountForm: !prev.showNameAccountForm,
-            }))
-          }
-        >
-          {t('ProfilePage.changeNameType')} </button>
-      </div>
-      
-      {uiState.showNameAccountForm && (
-        <div className="inline-form">
-          <input
-              type="text"
-              placeholder={t('ProfilePage.newName')}
-              value={form.nameAccount}
-              onChange={(e) =>
-                setForm(prev => ({ ...prev, nameAccount: e.target.value }))
-              }
-            />
+      <InlineFormItem
+        label={t("ProfilePage.labelNameType")}
+        value={account?.name}
+        placeholder={t("ProfilePage.newName")}
+        showForm={uiState.showNameAccountForm}
+        inputType="text"
+        toggleForm={() =>
+          setUiState((prev) => ({
+            ...prev,
+            showNameAccountForm: !prev.showNameAccountForm,
+          }))
+        }
+        formValue={form.nameAccount}
+        onFormChange={(e) =>
+          setForm((prev) => ({ ...prev, nameAccount: e.target.value }))
+        }
+        buttonLabel={t("ProfilePage.changeNameType")}
+      />
 
-        </div>
-      )}
+      <InlineFormItem
+        label={t("ProfilePage.labelBudgetStart")}
+        value={account?.budgetStart}
+        placeholder={t("ProfilePage.newBudget")}
+        showForm={uiState.showBudgetStartForm}
+        inputType="number"
+        toggleForm={() =>
+          setUiState((prev) => ({
+            ...prev,
+            showBudgetStartForm: !prev.showBudgetStartForm,
+          }))
+        }
+        formValue={form.budgetStart}
+        onFormChange={(e) =>
+          setForm((prev) => ({ ...prev, budgetStart: e.target.value }))
+        }
+        buttonLabel={t("ProfilePage.changeBudgetStart")}
+      />
 
-      <div className="account-info-item">
-        <div>
-          <p className="label">{t('ProfilePage.labelBudgetStart')}</p>
-          <p className="value">{account?.budgetStart}</p>
-        </div>
-        <button
-          className="btn-light small"
-          onClick={() =>
-            setUiState(prev => ({
-              ...prev,
-              showBudgetStartForm: !prev.showBudgetStartForm,
-            }))
-          }
-        >
-          {t('ProfilePage.changeBudgetStart')} </button>
-      </div>
-      
-      {uiState.showBudgetStartForm && (
-        <div className="inline-form">
-          <input
-            type="number"
-            placeholder={t('ProfilePage.newBudget')}
-            value={form.budgetStart}
-            onChange={(e) =>
-              setForm(prev => ({ ...prev, budgetStart: e.target.value }))
-            }
-          />
-        </div>
-      )}
     </div>
 
     <div className="profile-actions">

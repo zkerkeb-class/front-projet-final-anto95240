@@ -1,65 +1,59 @@
 import "./ConnexionSection.css"
+import InlineFormItem from "../InlineFormItem";
 
 const ConnexionSection = ({ user, form, setForm, uiState, setUiState, t, handleSaveProfile  }) => (
   <section className="profile-card" id="login-section">
     <h3>{t('ProfilePage.linkMethodCo')}</h3>
     <hr />
     <div className="account-info">
-     <div className="account-info-item">
-        <div>
-          <p className="label">{t('ProfilePage.labelEmail')}</p>
-          <p className="value">{user?.email}</p>     
-        </div>
-        <button
-          className="btn-light small"
-          onClick={() =>
-            setUiState(prev => ({ ...prev, showEmailForm: !prev.showEmailForm }))
-          }
-        >
-          {t('ProfilePage.changeEmail')} </button>
-      </div>
-      {uiState.showEmailForm && (
-        <div className="inline-form">
-          <input 
-            type="email" 
-            placeholder={t('ProfilePage.newEmail')} 
-            value={form.email}
-            onChange={(e) =>
-              setForm(prev => ({ ...prev, email: e.target.value }))
-            }
-          />
-        </div>
-      )}
+      <InlineFormItem
+        label={t("ProfilePage.labelEmail")}
+        value={user?.email}
+        placeholder={t("ProfilePage.newEmail")}
+        showForm={uiState.showEmailForm}
+        inputType="email"
+        toggleForm={() =>
+          setUiState((prev) => ({
+            ...prev,
+            showEmailForm: !prev.showEmailForm,
+          }))
+        }
+        formValue={form.email}
+        onFormChange={(e) =>
+          setForm((prev) => ({ ...prev, email: e.target.value }))
+        }
+        buttonLabel={t("ProfilePage.changeEmail")}
+      />
 
-      <div className="account-info-item">
-        <div>
-          <p className="label">{t('ProfilePage.labelPassword')}</p>
-          <p className="value">********</p>
-        </div>
-        <button
-          className="btn-light small"
-          onClick={() =>
-            setUiState(prev => ({ ...prev, showPasswordForm: !prev.showPasswordForm }))
-          }
-        >
-          {t('ProfilePage.changePassword')} </button>
-      </div>
+      <InlineFormItem
+        label={t("ProfilePage.labelPassword")}
+        value="********"
+        placeholder={t("ProfilePage.newPassword")}
+        showForm={uiState.showPasswordForm}
+        inputType="password"
+        toggleForm={() =>
+          setUiState((prev) => ({
+            ...prev,
+            showPasswordForm: !prev.showPasswordForm,
+          }))
+        }
+        formValue={form.password}
+        onFormChange={(e) =>
+          setForm((prev) => ({ ...prev, password: e.target.value }))
+        }
+        buttonLabel={t("ProfilePage.changePassword")}
+      /> 
       {uiState.showPasswordForm && (
         <div className="inline-form">
-          <input 
-            type="password" 
-            placeholder={t('ProfilePage.newPassword')} 
-            value={form.password}
-            onChange={(e) =>
-              setForm(prev => ({ ...prev, password: e.target.value }))
-            }
-          />
-          <input 
+          <input
             type="password"
-            placeholder={t('ProfilePage.confirmPassword')}
+            placeholder={t("ProfilePage.confirmPassword")}
             value={form.confirmPassword}
             onChange={(e) =>
-              setForm(prev => ({ ...prev, confirmPassword: e.target.value }))
+              setForm((prev) => ({
+                ...prev,
+                confirmPassword: e.target.value,
+              }))
             }
           />
         </div>
