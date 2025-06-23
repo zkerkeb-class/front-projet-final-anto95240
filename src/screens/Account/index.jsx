@@ -3,7 +3,9 @@ import { useOutletContext  } from "react-router";
 import "./account.css";
 
 const AccountPage = () => {
-  const { account } = useOutletContext();
+  const { account, transactions, calculateBalance } = useOutletContext();
+
+  const { balance, totalCredit, totalDebit } = calculateBalance(transactions || []);
 
   return (
     <div>
@@ -15,9 +17,9 @@ const AccountPage = () => {
           </div>
           <div className="account-item">
             <div className="account-items">
-              <p>Dépense</p>
-              <p>Gain</p>
-              <p>Solde</p>
+              <p>Dépense : {totalDebit.toFixed(2) || 0 } €</p>
+              <p>Gain : {totalCredit.toFixed(2) || 0 } €</p>
+              <p>Solde : {balance.toFixed(2) || 0 } €</p>
             </div> 
           </div>
         </section>

@@ -1,0 +1,35 @@
+.dashboard-chart-dougnut {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.dashboard-chart-small {
+  background-color: var(--color-bg-card-page-active);
+  padding: 20px;
+  border-radius: 20px;
+  width: 200px;
+  margin-top: 30px;
+  flex: 1 1 200px;
+}
+
+.chart-label {
+  text-align: center;
+  color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+  .dashboard-chart-dougnut {
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .dashboard-chart-small {
+    width: clamp(200px, 50%, 250px);
+  }
+}

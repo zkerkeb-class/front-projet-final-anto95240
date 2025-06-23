@@ -64,12 +64,54 @@ const AppLayout = () => {
     fetchData();
   }, []);
 
+  const calculateBalance = (txs) => {
+    let balance = account?.budgetStart || 0;
+    let totalCredit = 0;
+    let totalDebit = 0;
+    let lastMonthCredit = 0;
+    let lastMonthDebit = 0;
+
+    
+    const now = new Date();
+    const oneMonthAgo = new Date();
+    oneMonthAgo.setMonth(now.getMonth() - 1);
+
+    const updatedTransactions = txs.map(tx => {
+      const amount = Number(tx.amount);
+      const txDate = new Date(tx.date);
+
+      const isLastMonth = txDate >= oneMonthAgo && txDate <= now;
+
+
+      if (tx.transactionType === "credit") {
+        balance += amount;
+        totalCredit += amount;
+        if (isLastMonth) lastMonthCredit += amount;
+      } else if (tx.transactionType === "debit") {
+        balance -= amount;
+        totalDebit += amount;
+        if (isLastMonth) lastMonthDebit += amount;
+      }
+
+      return { ...tx, solde: balance };
+    });
+
+    return {
+      transactions: updatedTransactions,
+      balance,
+      totalCredit,
+      totalDebit,
+      lastMonthCredit,
+      lastMonthDebit
+    };
+  };
+
   return (
     <div className="app-container">
       <Sidebar />
       <main className="main-content">
         <Navbar user={user} API_URL={API_URL} />
-        <Outlet context={{ user, setUser, account, setAccount, transactions, setTransactions, categories, setCategories, API_URL, t }} />
+        <Outlet context={{ user, setUser, account, setAccount, transactions, setTransactions, categories, setCategories, API_URL, t, calculateBalance }} />
       </main>
       <div className="top-bar-mobile">
         <ThemeTrad />

@@ -72,7 +72,7 @@ const TransactionPage = () => {
                       <th title={t('Table.tooltipDate')}>{t('Table.titleDate')}</th>
                       <th title={t('Table.tooltipAccountType')}>{t('Table.titleAccountType')}</th>
                       <th title={t('Table.tooltipPaiement')}>{t('Table.titlePaiemant')}</th>
-                      <th title={t('Table.tooltipBeneficiare')}>{t('Table.titleBeneficiare')}</th>
+                      <th title={t('Table.tooltipBeneficiaire')}>{t('Table.titleBeneficiaire')}</th>
                       <th title={t('Table.tooltipCat')}>{t('Table.titleCategory')}</th>
                       <th title={t('Table.tooltipComment')}>{t('Table.titleComment')}</th>
                       <th title={t('Table.tooltipDebit')}>{t('Table.titleDebit')}</th>
@@ -92,7 +92,7 @@ const TransactionPage = () => {
                             <td>{formatDate(tx.date)}</td>
                             <td>{account.type}</td>
                             <td>{tx.paiement}</td>
-                            <td>{tx.beneficiare}</td>
+                            <td>{tx.beneficiaire}</td>
                             <td>{category?.name || "?"}</td>
                             <td>{tx.description}</td>
                             <td>{tx.transactionType === "debit" ? tx.amount : "-"}</td>
@@ -126,7 +126,7 @@ const TransactionPage = () => {
                         <span><strong>{t('Table.titleDate')} :</strong> {formatDate(tx.date)}</span>
                         <span><strong>{t('Table.titleTypeAccount')} :</strong> {type}</span>
                         <span><strong>{t('Table.titlePaiement')} :</strong> {tx.paiement}</span>
-                        <span><strong>{t('Table.titleBeneficiare')} :</strong> {tx.beneficiare}</span>
+                        <span><strong>{t('Table.titleBeneficiaire')} :</strong> {tx.beneficiaire}</span>
                         <span><strong>{t('Table.titleCategorie')} :</strong> {categoryName}</span>
                         <span><strong>{t('Table.titleComment')} :</strong> {tx.description}</span>
                         <span><strong>{t('Table.titleDebit')} :</strong> {tx.transactionType === "debit" ? `${tx.amount}` : "-"}</span>

@@ -50,7 +50,7 @@ const handleChange = (e) => {
     const dataToSend = {
       date: formData.date,
       paiement: formData.paiement,
-      beneficiare: formData.beneficiaire,
+      beneficiaire: formData.beneficiaire,
       categoryId: formData.categorie,
       description: formData.commentaire || "",
       type: formData.typeMontant,
@@ -119,7 +119,7 @@ const handleChange = (e) => {
               <input type="text" name="paiement" value={formData.paiement} onChange={handleChange} required />
             </label>
             <label>
-              {t('TransactionPage.beneficiare')}
+              {t('TransactionPage.beneficiaire')}
               <input type="text" name="beneficiaire" value={formData.beneficiaire} onChange={handleChange} required />
             </label>
           </div>
