@@ -147,6 +147,7 @@
       "tooltipCredit":"Montant crédité",
       "titleSolde": "Somme",
       "tooltipSolde":"Solde après transaction",
+      "tooltipSomme":"Montant de la transaction",
       "titleTypeAmount": "Type du montant",
       "tooltipTypeAmount": "Type du montant de la transaction "
     },
