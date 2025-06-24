@@ -146,7 +146,8 @@
       "titleCredit": "Credit",
       "tooltipCredit":"Credited amount",
       "titleSolde": "Balance",
-      "tooltipSolde":"Balance after transaction",
+      "tooltipSolde": "Balance after transaction",
+      "tooltipSomme": "Transaction amount",
       "titleTypeAmount": "Amount type",
       "tooltipTypeAmount": "Transaction amount type "
     },
