@@ -124,7 +124,8 @@
       "transaction": "Transaction",
       "category": "Category",
       "account": "Account",
-      "statistique": "Statistical"
+      "statistique": "Statistical",
+      "spinned":"spinned"
     },
     "Table": {
       "tableTitle": "Transaction History",

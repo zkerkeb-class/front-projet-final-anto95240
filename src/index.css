@@ -80,6 +80,11 @@
   --color-btn-edit: #3fd163;
   --color-btn-delete: #ff6b6b;
   
+  --color-bg-cregit-graph: rgba(248, 42, 86, 0.7);
+  --color-bg-debit-graph: rgba(28, 167, 97, 0.7);
+  --color-bg-credit-graph-vide: rgba(43, 186, 186, 0.395);
+  --color-bg-debit-graph-vide: rgba(227, 138, 157, 0.3);
+  
   --shadow-title-page-nav: 0px 4px 15px rgba(255, 255, 255, 0.25);
   --shadow-btn: 4px 4px 4px rgba(255, 255, 255, 0.5);
   --shadows-sidebar: 0 2px 5px rgba(255, 255, 255, 0.2);

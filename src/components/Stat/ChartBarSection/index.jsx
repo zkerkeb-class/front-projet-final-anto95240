@@ -4,9 +4,6 @@ import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip } from "chart.js";
 
 import "./chartBarSection.css";
-const rootStyles = getComputedStyle(document.documentElement);
-const creditColor = rootStyles.getPropertyValue('--color-bg-cregit-graph').trim();
-const debitColor = rootStyles.getPropertyValue('--color-bg-debit-graph').trim();
 
 ChartJS.register(
   CategoryScale,
@@ -48,13 +45,13 @@ const ChartBarSection = () => {
       {
         label: t("StatistiquePage.revenu"),
         data: monthlyData.revenus,
-        backgroundColor: creditColor,
-        borderWidth: 1,
+        backgroundColor: "rgba(240, 38, 38, 0.7)",
+        borderWidth: 1, 
       },
       {
         label: t("StatistiquePage.depense"),
         data: monthlyData.depenses,
-        backgroundColor: debitColor,
+        backgroundColor: "rgba(31, 200, 116, 0.7)",
         borderWidth: 1,
       },
     ],

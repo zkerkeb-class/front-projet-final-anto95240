@@ -3,12 +3,6 @@ import { useMemo, useState, useEffect } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, LinearScale, ArcElement, Tooltip } from "chart.js";
 import "./chartDoughnutSection.css";
-const rootStyles = getComputedStyle(document.documentElement);
-const creditColor = rootStyles.getPropertyValue('--color-bg-cregit-graph').trim();
-const debitColor = rootStyles.getPropertyValue('--color-bg-debit-graph').trim();
-const creditColorVide = rootStyles.getPropertyValue('--color-bg-debit-graph-vide').trim();
-const debitColorVide = rootStyles.getPropertyValue('--color-bg-debit-graph-vide').trim();
-
 
 ChartJS.register(LinearScale, ArcElement, Tooltip);
 
@@ -116,8 +110,8 @@ const ChartDoughnutSection = () => {
         datasets: [{
           data: [0, 0],
           backgroundColor: [
-            creditColorVide, // Revenu
-            debitColorVide, // Dépense
+            "rgba(43, 186, 186, 0.395)", // Revenu
+            "rgba(227, 138, 157, 0.3)", // Dépense
           ],
           borderWidth: 1,
         }],
@@ -130,8 +124,8 @@ const ChartDoughnutSection = () => {
         {
           data: [categoryData.revenus, categoryData.depenses],
           backgroundColor: [
-            creditColor, // Revenu
-            debitColor, // Dépense
+            "rgba(240, 38, 38, 0.7)", // Revenu
+            "rgba(31, 200, 116, 0.7)", // Dépense
           ],
           borderWidth: 1,
         },

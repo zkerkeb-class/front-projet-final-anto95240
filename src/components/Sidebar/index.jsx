@@ -72,9 +72,12 @@ const Sidebar = () => {
           {(isExpanded || isMobileMenuOpen) && (
             <div className="sidebar-buttons">
                 {!isMobile && (
-                <button className="toggle-btn" onClick={() => setIsPinned(!isPinned)}>
-                    <FontAwesomeIcon icon={faCircleNotch} />
-                </button>
+                  <div className="pin-container tooltip">
+                  <button className="toggle-btn" onClick={() => setIsPinned(!isPinned)}>
+                      <FontAwesomeIcon icon={faCircleNotch} />
+                  </button>
+                  <p className="tooltip-text">{t('Sidebar.spinned')}</p>
+                </div>
                 )}
                 {isMobile && (
                 <button className="close-btn" onClick={() => setIsMobileMenuOpen(false)}>
