@@ -1,12 +1,17 @@
 import { Outlet } from "react-router";
 import axios from "axios"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 
 import Sidebar from "../Sidebar";
 import Navbar from "../Navbar";
 import ThemeTrad from "../ThemeTrad";
 import "./AppLayout.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowUp
+} 
+from "@fortawesome/free-solid-svg-icons";
 
 const AppLayout = () => {
   
@@ -16,6 +21,7 @@ const AppLayout = () => {
   const [account, setAccount] = useState(null);
   const [transactions, setTransactions] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [showScrollToTopButton, setShowScrollToTopButton] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -104,6 +110,21 @@ const AppLayout = () => {
     };
   };
 
+  const handleScroll = useCallback(() => {
+    setShowScrollToTopButton(window.scrollY > 50);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [ handleScroll]);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="app-container">
       <Sidebar />
@@ -114,6 +135,15 @@ const AppLayout = () => {
       <div className="top-bar-mobile">
         <ThemeTrad />
       </div>
+      {showScrollToTopButton && (
+        <button 
+          className="return-top" 
+          onClick={scrollToTop}   
+          aria-label="Retour en haut"
+        >
+          <FontAwesomeIcon icon={faArrowUp} />
+        </button>
+      )}
     </div>
   );
 };

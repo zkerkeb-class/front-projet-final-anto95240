@@ -66,38 +66,38 @@ const TransactionPage = () => {
                 </button>
             </div>
             <section className="transaction-list">
-                <table className="transaction-table">
-                    <thead>
-                    <tr> 
-                      <th title={t('Table.tooltipDate')}>{t('Table.titleDate')}</th>
-                      <th title={t('Table.tooltipAccountType')}>{t('Table.titleAccountType')}</th>
-                      <th title={t('Table.tooltipPaiement')}>{t('Table.titlePaiemant')}</th>
-                      <th title={t('Table.tooltipBeneficiaire')}>{t('Table.titleBeneficiaire')}</th>
-                      <th title={t('Table.tooltipCat')}>{t('Table.titleCategory')}</th>
-                      <th title={t('Table.tooltipComment')}>{t('Table.titleComment')}</th>
-                      <th title={t('Table.tooltipDebit')}>{t('Table.titleDebit')}</th>
-                      <th title={t('Table.tooltipCredit')}>{t('Table.titleCredit')}</th>
-                      <th title={t('Table.tooltipSolde')}>{t('Table.titleSolde')}</th>
-                      <th></th>
-                      <th></th>
-                    </tr>
+              <table className="transaction-table">
+                <thead>
+                  <tr> 
+                    <th title={t('Table.tooltipDate')}>{t('Table.titleDate')}</th>
+                    <th title={t('Table.tooltipAccountType')}>{t('Table.titleAccountType')}</th>
+                    <th title={t('Table.tooltipPaiement')}>{t('Table.titlePaiemant')}</th>
+                    <th title={t('Table.tooltipBeneficiaire')}>{t('Table.titleBeneficiaire')}</th>
+                    <th title={t('Table.tooltipCat')}>{t('Table.titleCategory')}</th>
+                    <th title={t('Table.tooltipComment')}>{t('Table.titleComment')}</th>
+                    <th title={t('Table.tooltipDebit')}>{t('Table.titleDebit')}</th>
+                    <th title={t('Table.tooltipCredit')}>{t('Table.titleCredit')}</th>
+                    <th title={t('Table.tooltipSolde')}>{t('Table.titleSolde')}</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
 
-                    </thead>
-                    <tbody>
-                      {transactionsWithBalance.map(tx => {
-                        const category = categories.find(cat => cat._id === tx.categoryId);
+                </thead>
+                  <tbody>
+                    {transactionsWithBalance.map(tx => {
+                      const category = categories.find(cat => cat._id === tx.categoryId);
 
-                        return (
-                        <tr key={tx._id}>
-                            <td>{formatDate(tx.date)}</td>
-                            <td>{account.type}</td>
-                            <td>{tx.paiement}</td>
-                            <td>{tx.beneficiaire}</td>
-                            <td>{category?.name || "?"}</td>
-                            <td>{tx.description}</td>
-                            <td>{tx.transactionType === "debit" ? tx.amount : "-"}</td>
-                            <td>{tx.transactionType === "credit" ? tx.amount : "-"}</td>
-                            <td>{tx.solde.toFixed(2)}</td>
+                      return (
+                      <tr key={tx._id}>
+                        <td>{formatDate(tx.date)}</td>
+                        <td>{account.type}</td>
+                        <td>{tx.paiement}</td>
+                        <td>{tx.beneficiaire}</td>
+                        <td>{category?.name || "?"}</td>
+                        <td>{tx.description}</td>
+                        <td>{tx.transactionType === "debit" ? tx.amount : "-"}</td>
+                        <td>{tx.transactionType === "credit" ? tx.amount : "-"}</td>
+                        <td>{tx.solde.toFixed(2)}</td>
                         <td>
                             <Link className="btn-edit" onClick={() => openEditModal(tx)}>
                               <FontAwesomeIcon icon={faPen} />
@@ -108,45 +108,45 @@ const TransactionPage = () => {
                               <FontAwesomeIcon icon={faTrash} />
                             </Link>
                         </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-
-                {/* Vue Mobile - Cards */}
-                <div className="table-card-container">
-                  {transactionsWithBalance.map((tx) => {
-                    const category = categories.find(cat => cat._id === tx.categoryId);
-                    const categoryName = category?.name || "?";
-                    const type = account?.type || "?";
-
-                    return (
-                      <div className="table-card" key={tx._id}>
-                        <span><strong>{t('Table.titleDate')} :</strong> {formatDate(tx.date)}</span>
-                        <span><strong>{t('Table.titleTypeAccount')} :</strong> {type}</span>
-                        <span><strong>{t('Table.titlePaiement')} :</strong> {tx.paiement}</span>
-                        <span><strong>{t('Table.titleBeneficiaire')} :</strong> {tx.beneficiaire}</span>
-                        <span><strong>{t('Table.titleCategorie')} :</strong> {categoryName}</span>
-                        <span><strong>{t('Table.titleComment')} :</strong> {tx.description}</span>
-                        <span><strong>{t('Table.titleDebit')} :</strong> {tx.transactionType === "debit" ? `${tx.amount}` : "-"}</span>
-                        <span><strong>{t('Table.titleCredit')} :</strong> {tx.transactionType === "credit" ? `${tx.amount}` : "-"}</span>
-                        <span><strong>{t('Table.titleSolde')} :</strong> 
-                          {typeof tx.solde === "number" ? tx.solde.toFixed(2) : "-"}
-                        </span>
-
-                        <div className="card-actions">
-                          <Link className="btn-edit" onClick={() => openEditModal(tx)}>
-                            <FontAwesomeIcon icon={faPen} />
-                          </Link>
-                          <Link className="btn-delete" onClick={() => handleDeleteTransaction(tx._id)}>
-                            <FontAwesomeIcon icon={faTrash} />
-                          </Link>
-                        </div>
-                      </div>
+                      </tr>
                     );
                   })}
-                </div>
+                </tbody>
+              </table>
+
+              {/* Vue Mobile - Cards */}
+              <div className="table-card-container">
+                {transactionsWithBalance.map((tx) => {
+                  const category = categories.find(cat => cat._id === tx.categoryId);
+                  const categoryName = category?.name || "?";
+                  const type = account?.type || "?";
+
+                  return (
+                    <div className="table-card" key={tx._id}>
+                      <span><strong>{t('Table.titleDate')} :</strong> {formatDate(tx.date)}</span>
+                      <span><strong>{t('Table.titleTypeAccount')} :</strong> {type}</span>
+                      <span><strong>{t('Table.titlePaiement')} :</strong> {tx.paiement}</span>
+                      <span><strong>{t('Table.titleBeneficiaire')} :</strong> {tx.beneficiaire}</span>
+                      <span><strong>{t('Table.titleCategorie')} :</strong> {categoryName}</span>
+                      <span><strong>{t('Table.titleComment')} :</strong> {tx.description}</span>
+                      <span><strong>{t('Table.titleDebit')} :</strong> {tx.transactionType === "debit" ? `${tx.amount}` : "-"}</span>
+                      <span><strong>{t('Table.titleCredit')} :</strong> {tx.transactionType === "credit" ? `${tx.amount}` : "-"}</span>
+                      <span><strong>{t('Table.titleSolde')} :</strong> 
+                        {typeof tx.solde === "number" ? tx.solde.toFixed(2) : "-"}
+                      </span>
+
+                      <div className="card-actions">
+                        <Link className="btn-edit" onClick={() => openEditModal(tx)}>
+                          <FontAwesomeIcon icon={faPen} />
+                        </Link>
+                        <Link className="btn-delete" onClick={() => handleDeleteTransaction(tx._id)}>
+                          <FontAwesomeIcon icon={faTrash} />
+                        </Link>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </section>
         </div>
 

@@ -2,8 +2,8 @@
   background-color: var(--color-bg-card-page-active);
   padding: 20px;
   border-radius: 20px;
-  margin-top: 30px;
-  width: clamp(250px, 100vw, 900px);
+  margin: 0 auto;
+  width: clamp(250px, 100vw, 83%);
 }
 
 .chart-label{

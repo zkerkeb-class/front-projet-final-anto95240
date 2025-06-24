@@ -19,7 +19,7 @@ const TransactionModal = ({
     typeCompte: "",
     paiement: "",
     beneficiaire: "",
-    typeMontant: "",
+    typeMontant: "debit",
     montant: "",
     commentaire: "",
   });
@@ -132,7 +132,6 @@ const TransactionModal = ({
             <label>
               {t('TransactionPage.amountType')}
               <select name="typeMontant" value={formData.typeMontant} onChange={handleChange} required>
-                <option value="">-- {t('TransactionPage.selectType')} --</option>
                 <option value="debit">{t('TransactionPage.debit')}</option>
                 <option value="credit">{t('TransactionPage.credit')}</option>
               </select>

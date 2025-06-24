@@ -15,8 +15,8 @@ const TableSection = () => {
 
   return (
     <>
-      <section className="dashboard-table">
-        <table>
+      <section className="dashboard-transaction-list">
+        <table className="dashboard-transaction-table">
           <caption>{t('Table.tableTitle')}</caption>
           <thead>
             <tr>
@@ -34,16 +34,12 @@ const TableSection = () => {
 
               return (
                 <tr key={tx._id}>
-                  <td colSpan="6">
-                    <div className="table-row-wrapper">
-                      <span>{new Date(tx.date).toLocaleDateString()}</span>
-                      <span>{tx.paiement}</span>
-                      <span>{tx.beneficiaire}</span>
-                      <span>{category?.name || "-"}</span>
-                      <span>{tx.transactionType}</span>
-                      <span>{tx.amount} €</span>
-                    </div>
-                  </td>
+                  <td>{new Date(tx.date).toLocaleDateString()}</td>
+                  <td>{tx.paiement}</td>
+                  <td>{tx.beneficiaire}</td>
+                  <td>{category?.name || "-"}</td>
+                  <td>{tx.transactionType}</td>
+                  <td>{tx.amount} €</td>
                 </tr>
               )
             })}

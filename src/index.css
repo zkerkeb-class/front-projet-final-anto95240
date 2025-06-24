@@ -36,13 +36,8 @@
   --color-input-profile: #d7e9fe;
 
   --color-btn: #46ceed;
-  --color-btn-edit: #188022;
-  --color-btn-delete: #ff0000;
-
-  --color-bg-cregit-graph: rgba(255, 99, 132, 0.7);
-  --color-bg-debit-graph: rgba(75, 192, 192, 0.7);
-  --color-bg-credit-graph-vide: rgba(75, 192, 192, 0.2);
-  --color-bg-debit-graph-vide: rgba(255, 99, 132, 0.2)
+  --color-btn-edit: #26a69a;
+  --color-btn-delete: #f44336;
 
   /* Ombres */
   --shadow-title-page-nav: 0px 4px 15px rgba(0, 0, 0, 0.25);
@@ -77,16 +72,11 @@
   --color-input-profile: #d7e9fe;
 
   --color-btn: #46ceed;
-  --color-btn-edit: #3fd163;
-  --color-btn-delete: #ff6b6b;
-  
-  --color-bg-cregit-graph: rgba(248, 42, 86, 0.7);
-  --color-bg-debit-graph: rgba(28, 167, 97, 0.7);
-  --color-bg-credit-graph-vide: rgba(43, 186, 186, 0.395);
-  --color-bg-debit-graph-vide: rgba(227, 138, 157, 0.3);
+  --color-btn-edit: #26a69a;
+  --color-btn-delete: #f44336;
   
   --shadow-title-page-nav: 0px 4px 15px rgba(255, 255, 255, 0.25);
-  --shadow-btn: 4px 4px 4px rgba(255, 255, 255, 0.5);
+  --shadow-btn: 3px 3px 4px rgba(255, 255, 255, 0.304);
   --shadows-sidebar: 0 2px 5px rgba(255, 255, 255, 0.2);
   --shadow-sidebar-icon-noActive: 0 4px 5px rgba(255, 255, 255, 0.1);
   --shadow-navbar-scroll: 0 2px 10px rgba(255, 255, 255, 0.15);

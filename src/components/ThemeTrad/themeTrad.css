@@ -26,4 +26,9 @@
 .theme-btn{
   display: flex;
   gap: 5px;
+  width: 50px;
+}
+
+.icon-dark{
+  height: 25px;
 }

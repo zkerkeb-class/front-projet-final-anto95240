@@ -17,7 +17,25 @@
 .top-bar-mobile{
   height: 100px;
   position: sticky;
-  top: 10px;
+  top: 0;
+}
+
+.return-top{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 90%;
+  height: 40px;
+  width: 40px;
+  font-size: 20px;
+  color: var(--color-text);
+  background-color: var(--color-bg-card-page-active);
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }
 
 @media (max-width: 768px) {

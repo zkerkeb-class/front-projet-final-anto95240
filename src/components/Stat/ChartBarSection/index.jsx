@@ -45,13 +45,13 @@ const ChartBarSection = () => {
       {
         label: t("StatistiquePage.revenu"),
         data: monthlyData.revenus,
-        backgroundColor: "rgba(240, 38, 38, 0.7)",
+        backgroundColor: "rgba(38, 166, 154, 0.7)",
         borderWidth: 1, 
       },
       {
         label: t("StatistiquePage.depense"),
         data: monthlyData.depenses,
-        backgroundColor: "rgba(31, 200, 116, 0.7)",
+        backgroundColor: "rgba(244, 67, 54, 0.7)",
         borderWidth: 1,
       },
     ],

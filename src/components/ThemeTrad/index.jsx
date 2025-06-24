@@ -52,11 +52,10 @@ const ThemeTrad = () => {
   return (
     <div className={`theme-trad ${isScrolled ? "scrolled" : ""}`} data-theme={isDark ? "dark" : "light"}>
       <button className="theme-btn" onClick={() => setisDark(!isDark)}>
-        <FontAwesomeIcon icon={isDark ? faSun : faMoon} />
-        <span>{isDark ? "Dark" : "Light"}</span>
+        <FontAwesomeIcon className="icon-dark" icon={isDark ? faSun : faMoon} />
       </button>
       <button className="lang-btn" onClick={toggleLanguage}>
-        {language === "fr" ? "FR" : "EN"}
+        <span>{language === "fr" ? "FR" : "EN"}</span>
       </button>
     </div>
   );

@@ -124,8 +124,8 @@ const ChartDoughnutSection = () => {
         {
           data: [categoryData.revenus, categoryData.depenses],
           backgroundColor: [
-            "rgba(240, 38, 38, 0.7)", // Revenu
-            "rgba(31, 200, 116, 0.7)", // Dépense
+            "rgba(38, 166, 154, 0.7)", // Revenu
+            "rgba(244, 67, 54, 0.7)", // Dépense
           ],
           borderWidth: 1,
         },

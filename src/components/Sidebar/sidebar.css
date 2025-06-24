@@ -1,12 +1,12 @@
 .sidebar-wrapper {
-  width: 50px;
+  width: 35px;
   transition: width 0.3s ease;
   height: 91vh;
   background-color: var(--color-bg-main);
   border: 1px solid var(--color-card-border);
   margin: 10px;
   border-radius: 20px;
-  padding: 20px 10px;
+  padding: 20px 20px 10px 10px;
   font-family: var(--font-family-title);
   display: flex;
   flex-direction: column;
@@ -18,7 +18,6 @@
 
 .sidebar-wrapper.expanded {
   width: 250px;
-  padding: 20px;
 }
 
 .sidebar-logo {
@@ -89,7 +88,6 @@
   opacity: 1;
 }
 
-
 .burger-btn {
   position: fixed;
   top: 15px;
@@ -129,7 +127,6 @@
   padding: 10px;
   background-color: var(--color-bg-card-page-active);
   border-radius: 25%;
-  box-shadow: var(--shadow-sidebar-icon-noActive);
   display: flex;
   align-items: center;
   justify-content: center;
