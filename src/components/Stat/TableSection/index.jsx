@@ -25,7 +25,7 @@ const TableSection = () => {
               <th title={t('Table.tooltipBeneficiaire')}>{t('Table.titleBeneficiaire')}</th>
               <th title={t('Table.tooltipCat')}>{t('Table.titleCategory')}</th>
               <th title={t('Table.tooltipTypeAmount')}>{t('Table.titleTypeAmount')}</th>
-              <th title={t('Table.tooltipSolde')}>{t('Table.titleSolde')}</th>
+              <th title={t('Table.tooltipSomme')}>{t('Table.titleSolde')}</th>
             </tr>
           </thead>
           <tbody>
