@@ -17,7 +17,7 @@
 .top-bar-mobile{
   height: 100px;
   position: sticky;
-  top: 0;
+  top: 10px;
 }
 
 .return-top{
@@ -26,6 +26,8 @@
   align-items: center;
   position: sticky;
   top: 90%;
+  margin-left: auto;
+  margin-right: 5%;
   height: 40px;
   width: 40px;
   font-size: 20px;
