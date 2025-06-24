@@ -11,15 +11,17 @@ const InlineFormItem = ({
   onFormChange,
   buttonLabel,
 }) => (
-  <div className="account-info-item">
-    <div>
-      <p className="label">{label}</p>
-      <p className="value">{value}</p>
-    </div>
-    <button className="btn-light-small" onClick={toggleForm}>
-      {buttonLabel}
-    </button>
+  <>
+    <div className="account-info-item">
+      <div>
+        <p className="label">{label}</p>
+        <p className="value">{value}</p>
+      </div>
+      <button className="btn-light-small" onClick={toggleForm}>
+        {buttonLabel}
+      </button>
 
+    </div>
     {showForm && (
       <div className="inline-form">
         <input
@@ -30,7 +32,7 @@ const InlineFormItem = ({
         />
       </div>
     )}
-  </div>
+  </>
 );
 
 export default InlineFormItem;

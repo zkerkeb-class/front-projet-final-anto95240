@@ -43,6 +43,7 @@
       "labelName": "Nom :",
       "labelUsername": "Nom d'utilisateur :",
       "labelDownloadPicture": "Télécharger une photo",
+      "noImage": "Aucune image",
       "cancel": "Annuler",
       "save": "Enregistrer",
       "labelAccountType": "Type de compte :",
