@@ -25,6 +25,8 @@ const ProfilePage = () => {
     typeAccount: "",
     budgetStart: "",
     nameAccount: "",
+    imageFile: null,
+    avatarURL: "", 
   });
 
   const [uiState, setUiState] = useState({
@@ -49,7 +51,12 @@ const ProfilePage = () => {
       typeAccount: account?.type || "",
       budgetStart: account?.budgetStart || "",
       nameAccount: account?.name || "",
-      avatarURL: user?.image ? `${API_URL}/uploads/${user.image}` : "",
+      avatarURL: user?.image
+        ? user.image.startsWith("http")
+          ? user.image
+          : `${API_URL}/${user.image}`
+        : "",
+      imageFile: null,
     }));
 
     setUiState((prev) => ({
@@ -60,7 +67,7 @@ const ProfilePage = () => {
       showBudgetStartForm: false,
       showNameAccountForm: false,
     }));
-  }, [user, account]);
+  }, [user, account, API_URL]);
 
   const handleSaveProfile = async () => {
     try {

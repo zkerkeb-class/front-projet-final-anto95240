@@ -36,29 +36,23 @@ const ProfilSection = ({ user, form, setForm, t, handleSaveProfile}) => {
         </div>
         <div className="profile-avatar">
           <input
-              type="file"
-              accept="image/*"
-              ref={fileInputRef}
-              onChange={handleFileChange}
+            type="file"
+            accept="image/*"
+            ref={fileInputRef}
+            onChange={handleFileChange}
           />
 
           {form.imageFile instanceof File ? (
-              <img
+            <img
               className="avatar-circle"
               src={URL.createObjectURL(form.imageFile)}
               alt="Image sélectionnée"
-              />
-          ) : user?.image ? (
-              <img
-              className="avatar-circle"
-              src={
-                  user.image.startsWith("http")
-                  ? user.image
-                  : form.avatarURL || null
-              }
-              alt="Profil"
-              />
-          ) : null}
+            />
+          ) : form.avatarURL ? (
+            <img className="avatar-circle" src={form.avatarURL} alt="Profil" />
+          ) : (
+            <div className="avatar-circle">{t("ProfilePage.noImage")}</div>
+          )}
 
           <button className="btn-img" onClick={handleButtonClick}>
               {t("ProfilePage.labelDownloadPicture")}

@@ -65,7 +65,7 @@ const Sidebar = () => {
       >
         <div className="sidebar-logo">
           <div className="logo">
-            <img src="/Logo.png" alt="logo" />
+            <img src="/logo.png" alt="logo" />
             {isExpanded && <span>Budgee</span>}
           </div>
           

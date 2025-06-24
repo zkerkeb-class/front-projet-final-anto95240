@@ -25,6 +25,7 @@ const Navbar = ({user, API_URL}) => {
 
   const pageTitle = pageTitles[location.pathname] || "Page";
   const [isScrolled, setIsScrolled] = useState(false);
+  const [avatarURL, setAvatarURL] = useState("");
 
   const [form, setForm] = useState({
     imageFile: null,
@@ -43,13 +44,17 @@ const Navbar = ({user, API_URL}) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    setForm((prev) => ({
-      ...prev,
-      avatarURL: user?.image ? `${API_URL}/uploads/${user.image}` : "",
-
-    }));
-  }, [user]);
+   useEffect(() => {
+    if (user?.image) {
+      if (user.image.startsWith("http")) {
+        setAvatarURL(user.image);
+      } else {
+        setAvatarURL(`${API_URL}/${user.image}`);
+      }
+    } else {
+      setAvatarURL("");
+    }
+  }, [user, API_URL]);
 
   return (
     <header className={`navbar ${isScrolled ? "scrolled" : ""}`}>
@@ -59,19 +64,11 @@ const Navbar = ({user, API_URL}) => {
         <div className="user-info">
           <span className="user-name">{user?.username || "Invité"}</span>
           <Link className="profile-pic" to="/profile">
-            {user && user.image ? (
-              <img
-                src={
-                  user.image.startsWith('http')
-                    ? user.image
-                    : form.avatarURL || null 
-                }
-                alt="Profil"
-              />
+            {avatarURL ? (
+              <img src={avatarURL} alt="Profil" />
             ) : (
               <FontAwesomeIcon icon={faUser} alt="Profil" />
             )}
-
           </Link>
           <Link className="deconnexion-pic" to="/deconnexion">
             <FontAwesomeIcon icon={faRightFromBracket} />

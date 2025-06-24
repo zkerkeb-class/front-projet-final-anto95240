@@ -3,6 +3,12 @@ import { useMemo, useState, useEffect } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, LinearScale, ArcElement, Tooltip } from "chart.js";
 import "./chartDoughnutSection.css";
+const rootStyles = getComputedStyle(document.documentElement);
+const creditColor = rootStyles.getPropertyValue('--color-bg-cregit-graph').trim();
+const debitColor = rootStyles.getPropertyValue('--color-bg-debit-graph').trim();
+const creditColorVide = rootStyles.getPropertyValue('--color-bg-debit-graph-vide').trim();
+const debitColorVide = rootStyles.getPropertyValue('--color-bg-debit-graph-vide').trim();
+
 
 ChartJS.register(LinearScale, ArcElement, Tooltip);
 
@@ -110,12 +116,8 @@ const ChartDoughnutSection = () => {
         datasets: [{
           data: [0, 0],
           backgroundColor: [
-            "rgba(75, 192, 192, 0.2)", // Revenu
-            "rgba(255, 99, 132, 0.2)", // Dépense
-          ],
-          borderColor: [
-            "rgba(75, 192, 192, 0.5)", // Revenu
-            "rgba(255, 99, 132, 0.5)", // Dépense
+            creditColorVide, // Revenu
+            debitColorVide, // Dépense
           ],
           borderWidth: 1,
         }],
@@ -123,17 +125,13 @@ const ChartDoughnutSection = () => {
     }
 
     return {
-      labels: [t("StatistiquePage.revenus"), t("StatistiquePage.depenses")],
+      labels: [t("StatistiquePage.revenu"), t("StatistiquePage.depense")],
       datasets: [
         {
           data: [categoryData.revenus, categoryData.depenses],
           backgroundColor: [
-            "rgba(75, 192, 192, 0.7)", // Revenu
-            "rgba(255, 99, 132, 0.7)", // Dépense
-          ],
-          borderColor: [
-            "rgba(75, 192, 192, 1)", // Revenu
-            "rgba(255, 99, 132, 1)", // Dépense
+            creditColor, // Revenu
+            debitColor, // Dépense
           ],
           borderWidth: 1,
         },
@@ -160,7 +158,7 @@ const ChartDoughnutSection = () => {
         return (
           <div className="dashboard-chart-small" key={index}>
             <h3 className="chart-label">
-              {t("StatistiquePage.doughnutTitle")} #{cat ? cat.name : t("StatistiquePage.noCategory")}
+              {t("StatistiquePage.doughnutTitle")} #{cat ? cat.name : ""}
             </h3>
             <select
               className="category-select"

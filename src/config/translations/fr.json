@@ -17,9 +17,7 @@
       "editTitleCat": "Modifier une catégorie",
       "theme": "Thème :",
       "name": "Nom :",
-      "color": "Couleur :",
-      "revenu": "Revenu",
-      "dépense": "Dépense"
+      "color": "Couleur :"
     },
     "DeconnexionPage":{
       "message1": "À bientôt",
@@ -95,7 +93,10 @@
       "titleChartBar": "Dépenses et Revenus mensuels",      
       "doughnutTitle": "Répartition de la catégorie",
       "autres": "Autres",
-      "selectCategory":"Selection des catégories"
+      "selectCategory":"Selection des catégories",
+      "noCategory": "Aucune catégorie avec des transactions",
+      "revenu": "Revenu",
+      "depense": "Dépense"
     },
     "TransactionPage":{
       "addTransaction": "ajouter un transaction",
