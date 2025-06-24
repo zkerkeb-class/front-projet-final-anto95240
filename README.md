@@ -1,5 +1,5 @@
 
-# Budee
+# Budgee
 
 Application web de gestion de budget personnel avec utilisateurs, comptes, transactions, catégories, statistiques, et traductions.
 
