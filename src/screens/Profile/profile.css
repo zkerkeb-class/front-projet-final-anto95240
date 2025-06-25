@@ -24,7 +24,8 @@ html {
   border-radius: 8px;
   text-decoration: none;
   color: var(--color-text);
-  font-weight: 500;
+  font-weight: 400;
+  font-family: var(--font-family-title);
 }
 
 .profile-sidebar a:hover {

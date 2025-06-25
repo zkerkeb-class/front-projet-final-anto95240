@@ -86,6 +86,14 @@ form button {
   gap: 20px;
 }
 
+.modal-date-cat input,
+.modal-paiement-beneficiaire input,
+.modal-montant input,
+.modal-commentaire input,
+.modal-typeCompte input{
+  font-family: var(--font-family-text);
+}
+
 select{
   height: 30px;
   margin-top: 5px;
@@ -112,6 +120,11 @@ select{
 
 .modal-commentaire{
   display: flex;
+}
+
+.btn-transaction{
+  text-transform: uppercase;
+  font-family: var(--font-family-title);
 }
 
 @media (max-width: 768px) {

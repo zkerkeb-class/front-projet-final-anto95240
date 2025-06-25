@@ -149,7 +149,7 @@ const TransactionModal = ({
             </label>
           </div>
 
-          <button type="submit">
+          <button className="btn-transaction" type="submit">
             {typeModal === "add" ? t('AccountPage.add') : t('AccountPage.save')}
           </button>
         </form>

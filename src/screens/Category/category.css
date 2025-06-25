@@ -129,6 +129,11 @@ ul {
   display: none;
 }
 
+.cat-title input,
+.cat-color input{
+  font-family: var(--font-family-text);
+}
+
 @media screen and (max-width: 768px) {
   .category-container {
     flex-direction: column;
