@@ -47,8 +47,6 @@
 
 .transaction-table tbody tr {
   background-color: var(--color-bg-main);
-  border-radius: 10px;
-  overflow: hidden; 
 }
 
 .transaction-table tbody td {
@@ -61,7 +59,7 @@
   border-bottom-left-radius: 10px;
 }
 
-.transaction-tabletbody tr td:last-child {
+.transaction-table tbody tr td:last-child {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }

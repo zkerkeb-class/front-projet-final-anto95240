@@ -86,11 +86,11 @@ const TransactionModal = ({
 
         <form onSubmit={handleSubmit}>
           <div className="modal-date-cat">
-            <label>
-              {t('TransactionPage.date')}
+            <label title={t('Table.tooltipDate')}>
+                {t('TransactionPage.date')}
               <input type="date" name="date" value={formData.date} onChange={handleChange} required />
             </label>
-            <label>
+            <label title={t('Table.tooltipCat')}>
                 {t('TransactionPage.categorie')}
               <select name="categorie" value={formData.categorie} onChange={handleChange} required>
                 <option value="">-- {t('TransactionPage.selectCategory')} --</option>
@@ -106,7 +106,7 @@ const TransactionModal = ({
           </div>
 
           <div className="modal-typeCompte">
-            <label>
+            <label title={t('Table.tooltipAccountType')}>
               {t('TransactionPage.typeAccount')}
               <input
                 type="text"
@@ -118,32 +118,32 @@ const TransactionModal = ({
           </div>
 
           <div className="modal-paiement-beneficiaire">
-            <label>
+            <label title={t('Table.tooltipPaiement')}>
               {t('TransactionPage.paiement')}
               <input type="text" name="paiement" value={formData.paiement} onChange={handleChange} required />
             </label>
-            <label>
+            <label title={t('Table.tooltipBeneficiaire')}>
               {t('TransactionPage.beneficiaire')}
               <input type="text" name="beneficiaire" value={formData.beneficiaire} onChange={handleChange} required />
             </label>
           </div>
 
           <div className="modal-montant">
-            <label>
+            <label title={t('Table.tooltipTypeAmount')}>
               {t('TransactionPage.amountType')}
               <select name="typeMontant" value={formData.typeMontant} onChange={handleChange} required>
                 <option value="debit">{t('TransactionPage.debit')}</option>
                 <option value="credit">{t('TransactionPage.credit')}</option>
               </select>
             </label>
-            <label>
+            <label title={t('Table.tooltipSomme')}>
               {t('TransactionPage.amount')}
               <input type="number" name="montant" value={formData.montant} onChange={handleChange} required min="0" step="0.01" />
             </label>
           </div>
 
           <div className="modal-commentaire">
-            <label>
+            <label title={t('Table.tooltipComment')}>
               {t('TransactionPage.comment')}
               <input type="text" name="commentaire" value={formData.commentaire} onChange={handleChange} />
             </label>
