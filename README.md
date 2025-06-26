@@ -3,17 +3,25 @@
 
 Application web de gestion de budget personnel avec utilisateurs, comptes, transactions, catégories, statistiques, et traductions.
 
-## Fonctionnalités principales
+Développé avec par Antoine RICHARD
+
+## Les Fonctionnalités
 
 - Thème clair/sombre
 - Internationalisation (français / anglais)
 - Responsive design (mobile / desktop)
-- Alertes traduites (erreurs, validations, confirmations)
 - Statistiques mensuelles (graphiques)
 - Affichage des transactions récentes (tableau + cartes responsive)
 - Page de profil (modification des infos, avatar, suppression)
 - Formulaires sécurisés pour inscription, connexion, mise à jour
-- Interface dynamique pour gérer transactions, catégories
+
+## Bonus
+
+- Responsive design (mobile / desktop)
+
+## Lien externe
+
+Figma : https://www.figma.com/design/iHhUT56KhHDlVPIMZrzq64/DEV-WEB?node-id=28-311&t=YV4AYmS3wX8gDGhK-1
 
 ---
 
@@ -25,7 +33,6 @@ Application web de gestion de budget personnel avec utilisateurs, comptes, trans
 - **Axios**
 - **Chart.js**
 - **i18next** (traduction)
-- **CSS natif** (pas de framework CSS)
 
 ---
 
@@ -60,8 +67,3 @@ npm run dev
 
 # Licence
 Projet personnel open-source. Utilisation libre pour apprentissage et développement personnel.
-
-# Auteur
-Développé avec par Antoine RICHARD
-
-
